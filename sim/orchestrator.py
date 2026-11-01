@@ -45,8 +45,17 @@ def ensure_anvil_running() -> subprocess.Popen[Any] | None:
         pass
 
     # Launch local anvil process
+    import shutil
+    anvil_bin = shutil.which("anvil")
+    if not anvil_bin:
+        foundry_bin = Path.home() / ".foundry" / "bin" / "anvil.exe"
+        if foundry_bin.exists():
+            anvil_bin = str(foundry_bin)
+        else:
+            anvil_bin = "anvil"
+
     proc = subprocess.Popen(
-        ["anvil", "--port", "8545", "--chain-id", str(DEFAULT_CHAIN_ID), "--silent"],
+        [anvil_bin, "--port", "8545", "--chain-id", str(DEFAULT_CHAIN_ID), "--silent"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )

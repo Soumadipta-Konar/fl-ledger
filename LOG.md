@@ -4,6 +4,46 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 
 ---
 
+## 2026-11-01 (Session 5: Stage 5 Disputes D1 & D2, Bonds, Slashing)
+
+### What was built
+- Implemented `contracts/crypto/BN254.sol`:
+  - Precompile wrappers for 0x06 (`ecAdd`) and 0x07 (`ecMul`) with staticcall checks and point-at-infinity handling.
+  - `toScalar` signed integer conversion with unchecked negation handling `type(int256).min` to prevent overflow panic.
+  - `isOnCurve` verification for Weierstrass curve $y^2 = x^3 + 3 \pmod q$.
+- Implemented `contracts/crypto/DomainMerkle.sol`:
+  - Domain-separated Merkle proof verification adhering strictly to `0x00` leaf and `0x01` internal node prefixes with sorted pair ordering.
+- Implemented `contracts/disputes/DisputeTypes.sol` and `contracts/disputes/DisputeVerifier.sol`:
+  - Full cryptographic and arithmetic verification for D1 (aggregation homomorphism) and D2 (model update rule).
+  - End-to-end client verification: proves client leaf in `clientLeavesRoot`, block commitment in `clientBlockRoot`, and aggregate in `aggRoot`.
+- Updated `contracts/Session.sol`:
+  - Two-phase commit-reveal challenge mechanism (`commitChallenge`) bound to `msg.sender` and mined block, preventing front-running and MEV theft.
+  - Dispute resolution endpoints: `challengeAggregation` and `challengeUpdateRule`.
+  - Slashing mechanism: cuts server bond, awards 50% reward to challenger, distributes 50% to treasury, refunds deposit, marks round `Invalid`, disables bond.
+  - Griefing deterrent: rejects honest disputes and forfeits challenger deposit to server.
+  - Pull-payments: `withdraw()` pattern protecting against reentrancy and grieving recipient contracts.
+- Authored contract test suites:
+  - `test/BN254.t.sol` (6 unit/fuzz tests).
+  - `test/DomainMerkle.t.sol` (3 tests).
+  - `test/Disputes.t.sol` (15 unit, fuzz, and invariant tests).
+- Authored Python differential test suite:
+  - `tests/test_dispute_differential.py` (4 tests verifying arithmetic truncation and Merkle parity).
+- Gas Measurement (Experiment E2):
+  - Recorded measured gas to `results/e2_dispute_gas.csv` and updated `.gas-snapshot`.
+- Static Analysis: Slither clean (0 high, 0 medium).
+
+### Gas Metrics (Experiment E2)
+| Operation / Dispute Path | Gas (Measured) | Description |
+|---|---|---|
+| `commitChallenge` | 47,052 | Deposit lock & commit hash registration |
+| D1 Aggregation (Honest / Rejected) | 672,554 | Full MSM verification; challenger deposit forfeited |
+| D1 Aggregation (Corrupt / Slashed) | 703,189 | Slashing execution, bond split, round invalidation |
+| D2 Update Rule (Honest / Rejected) | 381,299 | Model & agg leaf verification; deposit forfeited |
+| D2 Update Rule (Corrupt / Slashed) | 416,691 | Slashing execution, bond split, round invalidation |
+| `withdraw` (Claim reward & deposit) | 36,850 | Pull-payment transfer |
+
+---
+
 ## 2026-11-01 (Session 4: Stage 4 End-to-End Honest Run)
 
 ### What was built

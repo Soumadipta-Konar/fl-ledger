@@ -1,0 +1,8 @@
+exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
+E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d1_commit_challenge_gas,47052,gas,commit challenge deposit
+E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d1_honest_rejected_gas,672554,gas,d1 verification rejected challenger forfeited
+E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,703189,gas,d1 verification upheld server slashed
+E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d2_commit_challenge_gas,47052,gas,commit challenge deposit
+E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d2_honest_rejected_gas,381299,gas,d2 verification rejected challenger forfeited
+E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,416691,gas,d2 verification upheld server slashed
+E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,post_slash,withdraw_reward_gas,36850,gas,pull-payment claim of reward and deposit

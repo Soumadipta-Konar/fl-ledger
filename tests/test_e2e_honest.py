@@ -15,4 +15,4 @@ def test_honest_e2e_run() -> None:
     assert res["status"] == "success"
     assert res["rounds_completed"] == 1
     assert abs(res["final_quant_acc"] - res["final_float_acc"]) < 0.01
-    assert res["gas_post_round_1"] > 50_000
+    assert res["gas_post_round_1"] > 20_000

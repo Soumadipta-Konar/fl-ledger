@@ -5,12 +5,16 @@ import {AccessControlDefaultAdminRules} from
     "@openzeppelin/contracts/access/extensions/AccessControlDefaultAdminRules.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import {SafeCast} from "@openzeppelin/contracts/utils/math/SafeCast.sol";
+import {BN254} from "./crypto/BN254.sol";
+import {DisputeTypes} from "./disputes/DisputeTypes.sol";
+import {DisputeVerifier} from "./disputes/DisputeVerifier.sol";
 
 /// @title Session
-/// @notice Manages FL session lifecycle, participant registry, and optimistic round anchoring.
-/// @dev Implements optimistic verification where rounds finalize after challengeWindowBlocks.
+/// @notice Manages FL session lifecycle, participant registry, optimistic round anchoring, and disputes.
+/// @dev Implements optimistic verification where rounds finalize after challengeWindowBlocks without dispute.
 contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
     using SafeCast for uint256;
+
     // --- Limits and Constants ---
     uint8 public constant MAX_CLIENTS_LIMIT = 64;
     uint8 public constant MAX_BLOCK_SIZE_LIMIT = 32;
@@ -61,6 +65,12 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
         bool registered;
     }
 
+    struct ChallengeCommitment {
+        address challenger;
+        uint32 committedBlock;
+        bool active;
+    }
+
     // --- Immutables ---
     address public immutable server;
     address public immutable treasury;
@@ -84,6 +94,8 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
     address[] private _clientAddresses;
     mapping(address => ClientInfo) public clientRegistry;
     mapping(uint256 => RoundData) public rounds;
+    mapping(bytes32 => ChallengeCommitment) public challengeCommitments;
+    mapping(address => uint256) public withdrawableBalances;
 
     // --- Events ---
     event ClientRegistered(address indexed client, uint32 weight, uint8 index);
@@ -100,6 +112,16 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
     );
     event RoundFinalized(uint256 indexed round, bytes32 indexed newModelRoot);
     event BondWithdrawn(address indexed server, uint256 amount);
+    event ChallengeCommitted(address indexed challenger, bytes32 indexed commitment, uint32 committedBlock);
+    event ChallengeUpheld(uint256 indexed round, uint32 indexed blockIndex, address indexed challenger);
+    event ChallengeRejected(uint256 indexed round, uint32 indexed blockIndex, address indexed challenger);
+    event ServerSlashed(
+        uint256 indexed round,
+        address indexed challenger,
+        uint256 challengerReward,
+        uint256 treasuryReward
+    );
+    event Withdrawn(address indexed recipient, uint256 amount);
 
     // --- Custom Errors ---
     error InvalidParameter();
@@ -122,6 +144,19 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
     error RoundNotPosted();
     error WithdrawalDelayActive();
     error TransferFailed();
+    error IncorrectDepositAmount();
+    error CommitmentAlreadyExists();
+    error CommitmentNotFound();
+    error UnauthorizedChallenger();
+    error RevealSameBlockNotAllowed();
+    error ChallengeWindowExpired();
+    error InvalidBlockLength();
+    error InvalidGeneratorsLength();
+    error InvalidParticipantCount();
+    error InvalidParticipantIndex();
+    error InvalidParticipantAddress();
+    error NothingToWithdraw();
+    error ServerAlreadySlashed();
 
     // --- Modifiers ---
     modifier onlyServer() {
@@ -206,6 +241,9 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
         if (_clientAddresses.length == 0) revert NoClientsRegistered();
 
         currentModelRoot = initialModelRoot;
+        rounds[0].modelRootNext = initialModelRoot;
+        rounds[0].status = RoundStatus.Finalized;
+
         phase = Phase.Active;
 
         emit SessionStarted(initialModelRoot, _clientAddresses.length.toUint8());
@@ -273,6 +311,152 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
         );
     }
 
+    /// @notice Commits a hash of challenge data to prevent front-running.
+    /// @param commitment Hash of (round, blockIndex, disputeType, msg.sender, salt).
+    function commitChallenge(bytes32 commitment)
+        external
+        payable
+        nonReentrant
+        inPhase(Phase.Active)
+    {
+        if (msg.value != challengerDepositWei) revert IncorrectDepositAmount();
+        if (challengeCommitments[commitment].active) revert CommitmentAlreadyExists();
+
+        challengeCommitments[commitment] = ChallengeCommitment({
+            challenger: msg.sender,
+            committedBlock: block.number.toUint32(),
+            active: true
+        });
+
+        emit ChallengeCommitted(msg.sender, commitment, block.number.toUint32());
+    }
+
+    /// @notice Reveals challenge data for D1 (aggregation dispute).
+    /// @param data Dispute calldata including generators, aggregate block, and client proofs.
+    function challengeAggregation(DisputeTypes.D1DisputeData calldata data)
+        external
+        nonReentrant
+        inPhase(Phase.Active)
+    {
+        RoundData storage r = rounds[data.round];
+        if (r.status != RoundStatus.Posted) revert RoundNotPosted();
+        if (block.number > r.postedBlock + challengeWindowBlocks) revert ChallengeWindowExpired();
+
+        bytes32 commitment = keccak256(
+            abi.encode(data.round, data.blockIndex, uint8(1), msg.sender, data.salt)
+        );
+        ChallengeCommitment storage c = challengeCommitments[commitment];
+        if (!c.active) revert CommitmentNotFound();
+        if (c.challenger != msg.sender) revert UnauthorizedChallenger();
+        if (block.number <= c.committedBlock) revert RevealSameBlockNotAllowed();
+        c.active = false;
+
+        if (data.uBlock.length != blockSize) revert InvalidBlockLength();
+        if (data.gGens.length < blockSize) revert InvalidGeneratorsLength();
+
+        DisputeVerifier.verifyGenerators(data.hGen, data.gGens, generatorsHash);
+
+        uint64 mask = r.participantMask;
+        uint256 numClients = _clientAddresses.length;
+        uint256 expectedActive = 0;
+        for (uint8 i = 0; i < numClients;) {
+            if ((mask & (uint64(1) << uint64(i))) != 0) {
+                expectedActive++;
+            }
+            unchecked {
+                ++i;
+            }
+        }
+
+        if (data.clientProofs.length != expectedActive) revert InvalidParticipantCount();
+
+        uint32[] memory weights = new uint32[](expectedActive);
+        uint256 actIdx = 0;
+        for (uint8 i = 0; i < numClients;) {
+            if ((mask & (uint64(1) << uint64(i))) != 0) {
+                DisputeTypes.ClientCommitmentData calldata cp = data.clientProofs[actIdx];
+                if (cp.clientIndex != i) revert InvalidParticipantIndex();
+                if (cp.clientAddress != _clientAddresses[i]) revert InvalidParticipantAddress();
+                weights[actIdx] = clientRegistry[_clientAddresses[i]].weight;
+                actIdx++;
+            }
+            unchecked {
+                ++i;
+            }
+        }
+
+        bool upheld = DisputeVerifier.verifyD1Aggregation(
+            data,
+            r.aggRoot,
+            r.clientLeavesRoot,
+            weights
+        );
+
+        _resolveDispute(data.round, data.blockIndex, upheld);
+    }
+
+    /// @notice Reveals challenge data for D2 (update rule dispute).
+    /// @param data Dispute calldata including current model, aggregate, and next model blocks.
+    function challengeUpdateRule(DisputeTypes.D2DisputeData calldata data)
+        external
+        nonReentrant
+        inPhase(Phase.Active)
+    {
+        RoundData storage r = rounds[data.round];
+        if (r.status != RoundStatus.Posted) revert RoundNotPosted();
+        if (block.number > r.postedBlock + challengeWindowBlocks) revert ChallengeWindowExpired();
+
+        bytes32 commitment = keccak256(
+            abi.encode(data.round, data.blockIndex, uint8(2), msg.sender, data.salt)
+        );
+        ChallengeCommitment storage c = challengeCommitments[commitment];
+        if (!c.active) revert CommitmentNotFound();
+        if (c.challenger != msg.sender) revert UnauthorizedChallenger();
+        if (block.number <= c.committedBlock) revert RevealSameBlockNotAllowed();
+        c.active = false;
+
+        if (
+            data.wCurrBlock.length != blockSize || data.wNextBlock.length != blockSize
+                || data.uBlock.length != blockSize
+        ) {
+            revert InvalidBlockLength();
+        }
+
+        bytes32 prevModelRoot = rounds[data.round - 1].modelRootNext;
+
+        bool upheld = DisputeVerifier.verifyD2UpdateRule(
+            data,
+            prevModelRoot,
+            r.aggRoot,
+            r.modelRootNext,
+            r.claimedWeight
+        );
+
+        _resolveDispute(data.round, data.blockIndex, upheld);
+    }
+
+    /// @dev Internal dispute resolution executing slashing or deposit forfeiture.
+    function _resolveDispute(uint256 round, uint32 blockIndex, bool upheld) private {
+        RoundData storage r = rounds[round];
+        if (upheld) {
+            if (!bondDeposited) revert ServerAlreadySlashed();
+            bondDeposited = false;
+            r.status = RoundStatus.Invalid;
+
+            uint256 challengerReward = (bondAmountWei * rewardShareBps) / 10000;
+            uint256 treasuryReward = bondAmountWei - challengerReward;
+
+            withdrawableBalances[msg.sender] += (challengerReward + challengerDepositWei);
+            withdrawableBalances[treasury] += treasuryReward;
+
+            emit ChallengeUpheld(round, blockIndex, msg.sender);
+            emit ServerSlashed(round, msg.sender, challengerReward, treasuryReward);
+        } else {
+            withdrawableBalances[server] += challengerDepositWei;
+            emit ChallengeRejected(round, blockIndex, msg.sender);
+        }
+    }
+
     /// @notice Finalizes a posted round after challengeWindowBlocks has elapsed without dispute.
     /// @param round Sequential round index to finalize.
     function finalizeRound(uint256 round) external inPhase(Phase.Active) {
@@ -288,9 +472,22 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
         emit RoundFinalized(round, r.modelRootNext);
     }
 
+    /// @notice Pull-payment withdrawal for rewards, refunds, or forfeited deposits.
+    function withdraw() external nonReentrant {
+        uint256 amount = withdrawableBalances[msg.sender];
+        if (amount == 0) revert NothingToWithdraw();
+
+        withdrawableBalances[msg.sender] = 0;
+        emit Withdrawn(msg.sender, amount);
+
+        (bool success,) = msg.sender.call{value: amount}("");
+        if (!success) revert TransferFailed();
+    }
+
     /// @notice Withdraws the server bond after session completion and withdrawal delay.
     /// @dev Can only be called by the server when all posted rounds are finalized.
     function withdrawBond() external nonReentrant onlyServer inPhase(Phase.Active) {
+        if (!bondDeposited) revert BondNotDeposited();
         if (currentRound == 0 || rounds[currentRound].status != RoundStatus.Finalized) {
             revert RoundNotPosted();
         }
@@ -299,6 +496,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
         }
 
         phase = Phase.Closed;
+        bondDeposited = false;
         uint256 amount = bondAmountWei;
 
         emit BondWithdrawn(server, amount);
