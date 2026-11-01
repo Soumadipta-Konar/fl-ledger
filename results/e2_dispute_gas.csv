@@ -6,3 +6,6 @@ E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d2_commit_chall
 E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d2_honest_rejected_gas,381299,gas,d2 verification rejected challenger forfeited
 E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,416691,gas,d2 verification upheld server slashed
 E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,post_slash,withdraw_reward_gas,36850,gas,pull-payment claim of reward and deposit
+E2,stage6-dispute-gas,42,d4stage6a,2,4,4,16,1,fl-ledger,honest,d4_commit_challenge_gas,47052,gas,commit challenge deposit
+E2,stage6-dispute-gas,42,d4stage6a,2,4,4,16,1,fl-ledger,honest,d4_honest_rejected_gas,343502,gas,d4 verification rejected challenger forfeited
+E2,stage6-dispute-gas,42,d4stage6a,2,4,4,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373959,gas,d4 verification upheld server slashed

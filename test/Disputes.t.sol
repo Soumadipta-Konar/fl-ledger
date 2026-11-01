@@ -14,10 +14,14 @@ contract DisputesTest is Test {
     address internal server = address(0x5E);
     address internal treasury = address(0x78);
     address internal challenger = address(0xCC);
-    address internal adversary = address(0x66);
 
-    address internal client0 = address(0xC0);
-    address internal client1 = address(0xC1);
+    uint256 internal client0Key = 0xA11CE;
+    uint256 internal client1Key = 0xB0B;
+    uint256 internal adversaryKey = 0x666;
+
+    address internal client0;
+    address internal client1;
+    address internal adversary;
 
     uint8 internal constant MAX_CLIENTS = 4;
     uint8 internal constant BLOCK_SIZE = 4;
@@ -37,6 +41,7 @@ contract DisputesTest is Test {
     // Fixture storage for round 1
     bytes32 internal aggRootHonest;
     bytes32 internal clientLeavesRoot;
+    bytes32 internal clientLeavesRootForged;
     bytes32 internal modelRootNextHonest;
     bytes32 internal aggRootCorrupt;
     bytes32 internal modelRootNextCorrupt;
@@ -47,6 +52,10 @@ contract DisputesTest is Test {
     BN254.G1Point internal c0Point;
     BN254.G1Point internal c1Point;
 
+    bytes internal sig0;
+    bytes internal sig1;
+    bytes internal sig0Forged;
+
     int256[] internal uBlockHonest;
     uint256 internal rBlockHonest;
     int256[] internal uBlockCorrupt;
@@ -56,6 +65,7 @@ contract DisputesTest is Test {
     int256[] internal wNextCorrupt;
 
     bytes32[] internal client0LeafProof;
+    bytes32[] internal client0LeafProofForged;
     bytes32[] internal client1LeafProof;
     bytes32[] internal client0BlockProof;
     bytes32[] internal client1BlockProof;
@@ -67,6 +77,10 @@ contract DisputesTest is Test {
     bytes32[] internal wNextCorruptProof;
 
     function setUp() public {
+        client0 = vm.addr(client0Key);
+        client1 = vm.addr(client1Key);
+        adversary = vm.addr(adversaryKey);
+
         vm.deal(server, 100 ether);
         vm.deal(challenger, 100 ether);
         vm.deal(adversary, 100 ether);
@@ -174,9 +188,55 @@ contract DisputesTest is Test {
         client1BlockProof = new bytes32[](1);
         client1BlockProof[0] = hC1Dummy;
 
-        // Build client leaves tree
-        bytes memory cl0Data = abi.encodePacked(uint8(0), client0, client0BlockRoot, hex"beef");
-        bytes memory cl1Data = abi.encodePacked(uint8(1), client1, client1BlockRoot, hex"cafe");
+        // 5. Build EIP-712 Signatures
+        bytes32 domainSeparator = keccak256(
+            abi.encode(
+                keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"),
+                keccak256("FL-Ledger"),
+                keccak256("1"),
+                block.chainid,
+                address(session)
+            )
+        );
+        bytes32 sessionId = bytes32(uint256(uint160(address(session))));
+
+        // Client 0 authentic signature
+        bytes32 structHash0 = keccak256(
+            abi.encode(
+                session.CLIENT_ROOT_TYPEHASH(),
+                sessionId,
+                uint256(1),
+                client0,
+                client0BlockRoot,
+                uint256(0)
+            )
+        );
+        bytes32 digest0 = keccak256(abi.encodePacked("\x19\x01", domainSeparator, structHash0));
+        (uint8 v0, bytes32 r0_sig, bytes32 s0_sig) = vm.sign(client0Key, digest0);
+        sig0 = abi.encodePacked(r0_sig, s0_sig, v0);
+
+        // Client 1 authentic signature
+        bytes32 structHash1 = keccak256(
+            abi.encode(
+                session.CLIENT_ROOT_TYPEHASH(),
+                sessionId,
+                uint256(1),
+                client1,
+                client1BlockRoot,
+                uint256(0)
+            )
+        );
+        bytes32 digest1 = keccak256(abi.encodePacked("\x19\x01", domainSeparator, structHash1));
+        (uint8 v1, bytes32 r1_sig, bytes32 s1_sig) = vm.sign(client1Key, digest1);
+        sig1 = abi.encodePacked(r1_sig, s1_sig, v1);
+
+        // Forged signature for Client 0 (signed by adversary)
+        (uint8 vf, bytes32 rf_sig, bytes32 sf_sig) = vm.sign(adversaryKey, digest0);
+        sig0Forged = abi.encodePacked(rf_sig, sf_sig, vf);
+
+        // Build honest client leaves tree
+        bytes memory cl0Data = abi.encodePacked(uint8(0), client0, client0BlockRoot, sig0);
+        bytes memory cl1Data = abi.encodePacked(uint8(1), client1, client1BlockRoot, sig1);
         bytes32 hCl0 = DomainMerkle.hashLeaf(cl0Data);
         bytes32 hCl1 = DomainMerkle.hashLeaf(cl1Data);
         clientLeavesRoot = DomainMerkle.hashInternal(hCl0, hCl1);
@@ -186,7 +246,14 @@ contract DisputesTest is Test {
         client1LeafProof = new bytes32[](1);
         client1LeafProof[0] = hCl0;
 
-        // 5. Honest Aggregation: n0 = 10, n1 = 20
+        // Build forged client leaves tree (client 0 has forged signature)
+        bytes memory cl0ForgedData = abi.encodePacked(uint8(0), client0, client0BlockRoot, sig0Forged);
+        bytes32 hCl0Forged = DomainMerkle.hashLeaf(cl0ForgedData);
+        clientLeavesRootForged = DomainMerkle.hashInternal(hCl0Forged, hCl1);
+        client0LeafProofForged = new bytes32[](1);
+        client0LeafProofForged[0] = hCl1;
+
+        // 6. Honest Aggregation: n0 = 10, n1 = 20
         uBlockHonest = new int256[](BLOCK_SIZE);
         uBlockHonest[0] = 10 * 100 + 20 * 200; // 5000
         uBlockHonest[1] = 10 * (-50) + 20 * 150; // 2500
@@ -204,7 +271,7 @@ contract DisputesTest is Test {
         aggProofHonest = new bytes32[](1);
         aggProofHonest[0] = hAggDummy;
 
-        // 6. Corrupt Aggregation (server manipulated entry 0: 5001 instead of 5000)
+        // 7. Corrupt Aggregation (server manipulated entry 0: 5001 instead of 5000)
         uBlockCorrupt = new int256[](BLOCK_SIZE);
         uBlockCorrupt[0] = 5001;
         uBlockCorrupt[1] = 2500;
@@ -220,7 +287,7 @@ contract DisputesTest is Test {
         aggProofCorrupt = new bytes32[](1);
         aggProofCorrupt[0] = hAggDummy;
 
-        // 7. Honest Next Model: delta = u / 30
+        // 8. Honest Next Model: delta = u / 30
         wNextHonest = new int256[](BLOCK_SIZE);
         wNextHonest[0] = wCurrBlock[0] + (uBlockHonest[0] / 30); // 10000 + 166 = 10166
         wNextHonest[1] = wCurrBlock[1] + (uBlockHonest[1] / 30); // -20000 + 83 = -19917
@@ -237,7 +304,7 @@ contract DisputesTest is Test {
         wNextHonestProof = new bytes32[](1);
         wNextHonestProof[0] = hNextDummy;
 
-        // 8. Corrupt Next Model (server corrupted entry 0: +1 cheat)
+        // 9. Corrupt Next Model (server corrupted entry 0: +1 cheat)
         wNextCorrupt = new int256[](BLOCK_SIZE);
         wNextCorrupt[0] = wNextHonest[0] + 1; // 10167
         wNextCorrupt[1] = wNextHonest[1];
@@ -274,7 +341,6 @@ contract DisputesTest is Test {
     }
 
     function test_reveal_revertCommitmentNotFound() public {
-        // Post round 1
         vm.prank(server);
         session.postRound(1, modelRootNextHonest, aggRootHonest, clientLeavesRoot, 3, 30);
 
@@ -319,7 +385,6 @@ contract DisputesTest is Test {
             wNextProof: wNextHonestProof
         });
 
-        // Calling in the same block reverts!
         vm.prank(challenger);
         vm.expectRevert(Session.RevealSameBlockNotAllowed.selector);
         session.challengeUpdateRule(d2Data);
@@ -350,7 +415,6 @@ contract DisputesTest is Test {
             wNextProof: wNextHonestProof
         });
 
-        // Calling from adversary address reverts with CommitmentNotFound because commitment is bound to challenger!
         vm.prank(adversary);
         vm.expectRevert(Session.CommitmentNotFound.selector);
         session.challengeUpdateRule(d2Data);
@@ -366,7 +430,6 @@ contract DisputesTest is Test {
         vm.prank(challenger);
         session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
 
-        // Advance beyond challenge window
         vm.roll(block.number + CHALLENGE_WINDOW + 1);
 
         DisputeTypes.D2DisputeData memory d2Data = DisputeTypes.D2DisputeData({
@@ -399,7 +462,7 @@ contract DisputesTest is Test {
             clientIndex: 0,
             clientAddress: client0,
             clientBlockRoot: client0BlockRoot,
-            signature: hex"beef",
+            signature: sig0,
             clientLeafProof: client0LeafProof,
             commitment: c0Point,
             blockProof: client0BlockProof
@@ -408,7 +471,7 @@ contract DisputesTest is Test {
             clientIndex: 1,
             clientAddress: client1,
             clientBlockRoot: client1BlockRoot,
-            signature: hex"cafe",
+            signature: sig1,
             clientLeafProof: client1LeafProof,
             commitment: c1Point,
             blockProof: client1BlockProof
@@ -428,7 +491,6 @@ contract DisputesTest is Test {
     }
 
     function test_d1_honestAggregate_rejected() public {
-        // Honest server posts truthful aggregate
         vm.prank(server);
         session.postRound(1, modelRootNextHonest, aggRootHonest, clientLeavesRoot, 3, 30);
 
@@ -445,18 +507,15 @@ contract DisputesTest is Test {
         vm.prank(challenger);
         session.challengeAggregation(d1Data);
 
-        // Dispute rejected: honest server is NOT slashed
         assertTrue(session.bondDeposited());
         Session.RoundData memory r = session.getRound(1);
         assertEq(uint8(r.status), uint8(Session.RoundStatus.Posted));
 
-        // Challenger deposit forfeited to server
         assertEq(session.withdrawableBalances(server), CHALLENGER_DEPOSIT);
         assertEq(session.withdrawableBalances(challenger), 0);
     }
 
     function test_d1_corruptedAggregate_upheld_serverSlashed() public {
-        // Cheating server posted corrupted aggregate root
         vm.prank(server);
         session.postRound(1, modelRootNextHonest, aggRootCorrupt, clientLeavesRoot, 3, 30);
 
@@ -473,13 +532,11 @@ contract DisputesTest is Test {
         vm.prank(challenger);
         session.challengeAggregation(d1Data);
 
-        // Dispute upheld: server slashed!
         assertFalse(session.bondDeposited());
         Session.RoundData memory r = session.getRound(1);
         assertEq(uint8(r.status), uint8(Session.RoundStatus.Invalid));
 
-        // 50% reward to challenger + deposit refund; 50% to treasury
-        uint256 expectedReward = (BOND_AMOUNT * REWARD_SHARE_BPS) / 10000; // 5 ether
+        uint256 expectedReward = (BOND_AMOUNT * REWARD_SHARE_BPS) / 10000;
         assertEq(session.withdrawableBalances(challenger), expectedReward + CHALLENGER_DEPOSIT);
         assertEq(session.withdrawableBalances(treasury), BOND_AMOUNT - expectedReward);
     }
@@ -514,7 +571,6 @@ contract DisputesTest is Test {
         vm.prank(challenger);
         session.challengeUpdateRule(d2Data);
 
-        // Honest update rule: dispute rejected
         assertTrue(session.bondDeposited());
         Session.RoundData memory r = session.getRound(1);
         assertEq(uint8(r.status), uint8(Session.RoundStatus.Posted));
@@ -522,7 +578,6 @@ contract DisputesTest is Test {
     }
 
     function test_d2_corruptedUpdate_upheld_serverSlashed() public {
-        // Server posted corrupted next model root (+1 off-by-one cheat)
         vm.prank(server);
         session.postRound(1, modelRootNextCorrupt, aggRootHonest, clientLeavesRoot, 3, 30);
 
@@ -550,7 +605,6 @@ contract DisputesTest is Test {
         vm.prank(challenger);
         session.challengeUpdateRule(d2Data);
 
-        // Fraudulent update: dispute upheld! Server slashed!
         assertFalse(session.bondDeposited());
         Session.RoundData memory r = session.getRound(1);
         assertEq(uint8(r.status), uint8(Session.RoundStatus.Invalid));
@@ -560,10 +614,139 @@ contract DisputesTest is Test {
         assertEq(session.withdrawableBalances(treasury), BOND_AMOUNT - expectedReward);
     }
 
+    // --- D4 Client Leaf & Signature Dispute Tests ---
+
+    function test_d4_honestSignature_rejected() public {
+        // Honest server posts valid EIP-712 signature from Client 0
+        vm.prank(server);
+        session.postRound(1, modelRootNextHonest, aggRootHonest, clientLeavesRoot, 3, 30);
+
+        bytes32 salt = bytes32(uint256(444));
+        bytes32 commitment = keccak256(abi.encode(1, uint32(0), uint8(4), challenger, salt));
+
+        vm.prank(challenger);
+        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+
+        vm.roll(block.number + 1);
+
+        DisputeTypes.D4DisputeData memory d4Data = DisputeTypes.D4DisputeData({
+            round: 1,
+            salt: salt,
+            clientIndex: 0,
+            clientAddress: client0,
+            clientBlockRoot: client0BlockRoot,
+            signature: sig0,
+            clientLeafProof: client0LeafProof
+        });
+
+        vm.prank(challenger);
+        session.challengeClientLeaf(d4Data);
+
+        // Honest signature passes: dispute rejected, challenger deposit forfeited to server
+        assertTrue(session.bondDeposited());
+        Session.RoundData memory r = session.getRound(1);
+        assertEq(uint8(r.status), uint8(Session.RoundStatus.Posted));
+        assertEq(session.withdrawableBalances(server), CHALLENGER_DEPOSIT);
+        assertEq(session.withdrawableBalances(challenger), 0);
+    }
+
+    function test_d4_forgedSignature_upheld_serverSlashed() public {
+        // Cheating server posted forged signature leaf for Client 0
+        vm.prank(server);
+        session.postRound(1, modelRootNextHonest, aggRootHonest, clientLeavesRootForged, 3, 30);
+
+        bytes32 salt = bytes32(uint256(445));
+        bytes32 commitment = keccak256(abi.encode(1, uint32(0), uint8(4), challenger, salt));
+
+        vm.prank(challenger);
+        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+
+        vm.roll(block.number + 1);
+
+        DisputeTypes.D4DisputeData memory d4Data = DisputeTypes.D4DisputeData({
+            round: 1,
+            salt: salt,
+            clientIndex: 0,
+            clientAddress: client0,
+            clientBlockRoot: client0BlockRoot,
+            signature: sig0Forged,
+            clientLeafProof: client0LeafProofForged
+        });
+
+        vm.prank(challenger);
+        session.challengeClientLeaf(d4Data);
+
+        // Forged signature fails verification: dispute UPHELD! Server slashed!
+        assertFalse(session.bondDeposited());
+        Session.RoundData memory r = session.getRound(1);
+        assertEq(uint8(r.status), uint8(Session.RoundStatus.Invalid));
+
+        uint256 expectedReward = (BOND_AMOUNT * REWARD_SHARE_BPS) / 10000;
+        assertEq(session.withdrawableBalances(challenger), expectedReward + CHALLENGER_DEPOSIT);
+        assertEq(session.withdrawableBalances(treasury), BOND_AMOUNT - expectedReward);
+    }
+
+    function test_d4_revertClientProofFailed() public {
+        vm.prank(server);
+        session.postRound(1, modelRootNextHonest, aggRootHonest, clientLeavesRoot, 3, 30);
+
+        bytes32 salt = bytes32(uint256(446));
+        bytes32 commitment = keccak256(abi.encode(1, uint32(0), uint8(4), challenger, salt));
+
+        vm.prank(challenger);
+        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+
+        vm.roll(block.number + 1);
+
+        bytes32[] memory bogusProof = new bytes32[](1);
+        bogusProof[0] = keccak256("bogus_sibling");
+
+        DisputeTypes.D4DisputeData memory d4Data = DisputeTypes.D4DisputeData({
+            round: 1,
+            salt: salt,
+            clientIndex: 0,
+            clientAddress: client0,
+            clientBlockRoot: client0BlockRoot,
+            signature: sig0,
+            clientLeafProof: bogusProof
+        });
+
+        vm.prank(challenger);
+        vm.expectRevert(Session.ClientProofFailed.selector);
+        session.challengeClientLeaf(d4Data);
+    }
+
+    function test_d4_revertParticipantNotActive() public {
+        // Post round with ONLY Client 0 active: mask = 1 (bit 0 set, bit 1 not set)
+        vm.prank(server);
+        session.postRound(1, modelRootNextHonest, aggRootHonest, clientLeavesRoot, 1, 10);
+
+        bytes32 salt = bytes32(uint256(447));
+        bytes32 commitment = keccak256(abi.encode(1, uint32(1), uint8(4), challenger, salt));
+
+        vm.prank(challenger);
+        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+
+        vm.roll(block.number + 1);
+
+        DisputeTypes.D4DisputeData memory d4Data = DisputeTypes.D4DisputeData({
+            round: 1,
+            salt: salt,
+            clientIndex: 1, // Client 1 was NOT active in mask = 1
+            clientAddress: client1,
+            clientBlockRoot: client1BlockRoot,
+            signature: sig1,
+            clientLeafProof: client1LeafProof
+        });
+
+        vm.prank(challenger);
+        vm.expectRevert(Session.ParticipantNotActive.selector);
+        session.challengeClientLeaf(d4Data);
+    }
+
     // --- Pull-Payment and Invariant Tests ---
 
     function test_withdraw_pullPayment() public {
-        // Trigger a slash
         test_d2_corruptedUpdate_upheld_serverSlashed();
 
         uint256 challengerBalBefore = challenger.balance;
@@ -576,17 +759,14 @@ contract DisputesTest is Test {
         assertEq(session.withdrawableBalances(challenger), 0);
         assertEq(challenger.balance, challengerBalBefore + withdrawable);
 
-        // Subsequent withdraw fails
         vm.prank(challenger);
         vm.expectRevert(Session.NothingToWithdraw.selector);
         session.withdraw();
     }
 
     function test_withdrawBond_revertServerSlashed() public {
-        // Trigger a slash
         test_d1_corruptedAggregate_upheld_serverSlashed();
 
-        // Server attempts to withdraw bond
         vm.roll(block.number + WITHDRAWAL_DELAY + 10);
         vm.prank(server);
         vm.expectRevert(Session.BondNotDeposited.selector);
@@ -597,7 +777,6 @@ contract DisputesTest is Test {
         uint256 contractBalStart = address(session).balance;
         assertEq(contractBalStart, BOND_AMOUNT);
 
-        // Challenger commits deposit
         bytes32 salt = bytes32(uint256(111));
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(2), challenger, salt));
         vm.prank(challenger);
@@ -605,7 +784,6 @@ contract DisputesTest is Test {
 
         assertEq(address(session).balance, BOND_AMOUNT + CHALLENGER_DEPOSIT);
 
-        // Post and slash
         vm.prank(server);
         session.postRound(1, modelRootNextCorrupt, aggRootHonest, clientLeavesRoot, 3, 30);
 
@@ -627,14 +805,12 @@ contract DisputesTest is Test {
         vm.prank(challenger);
         session.challengeUpdateRule(d2Data);
 
-        // Balance conserved after slashing into withdrawables
         uint256 totalWithdrawable = session.withdrawableBalances(challenger) +
             session.withdrawableBalances(treasury) +
             session.withdrawableBalances(server);
         assertEq(address(session).balance, totalWithdrawable);
         assertEq(address(session).balance, BOND_AMOUNT + CHALLENGER_DEPOSIT);
 
-        // All parties pull their balances
         vm.prank(challenger);
         session.withdraw();
         vm.prank(treasury);
@@ -644,10 +820,8 @@ contract DisputesTest is Test {
     }
 
     function test_noDoubleSlashInvariant() public {
-        // First slash
         test_d1_corruptedAggregate_upheld_serverSlashed();
 
-        // Adversary attempts second dispute on already slashed round
         bytes32 salt2 = bytes32(uint256(999));
         bytes32 commitment2 = keccak256(abi.encode(1, 0, uint8(2), adversary, salt2));
         vm.prank(adversary);
@@ -668,7 +842,6 @@ contract DisputesTest is Test {
             wNextProof: wNextCorruptProof
         });
 
-        // Round is Invalid, so calling dispute reverts with RoundNotPosted!
         vm.prank(adversary);
         vm.expectRevert(Session.RoundNotPosted.selector);
         session.challengeUpdateRule(d2Data);
@@ -682,7 +855,6 @@ contract DisputesTest is Test {
 
         int256 delta = uVal / int256(uint256(weight));
 
-        // Truncation toward zero: abs(delta * weight) <= abs(uVal)
         if (uVal >= 0) {
             assertTrue(delta >= 0);
             assertTrue(delta * int256(uint256(weight)) <= uVal);

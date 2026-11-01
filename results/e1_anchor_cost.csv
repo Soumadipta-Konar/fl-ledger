@@ -23,3 +23,12 @@ E6,honest-run-1793545064,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantise
 E1,honest-run-1793545173,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26050,gas,cold anchor storage
 E1,honest-run-1793545173,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
 E6,honest-run-1793545173,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
+E1,honest-run-1793548166,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26050,gas,cold anchor storage
+E1,honest-run-1793548166,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
+E6,honest-run-1793548166,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
+E1,honest-run-1793548726,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26020,gas,cold anchor storage
+E1,honest-run-1793548726,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
+E6,honest-run-1793548726,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
+E1,honest-run-1793549566,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26050,gas,cold anchor storage
+E1,honest-run-1793549566,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
+E6,honest-run-1793549566,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198

@@ -5,19 +5,26 @@ import {AccessControlDefaultAdminRules} from
     "@openzeppelin/contracts/access/extensions/AccessControlDefaultAdminRules.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import {SafeCast} from "@openzeppelin/contracts/utils/math/SafeCast.sol";
+import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
+import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {BN254} from "./crypto/BN254.sol";
+import {DomainMerkle} from "./crypto/DomainMerkle.sol";
 import {DisputeTypes} from "./disputes/DisputeTypes.sol";
 import {DisputeVerifier} from "./disputes/DisputeVerifier.sol";
 
 /// @title Session
 /// @notice Manages FL session lifecycle, participant registry, optimistic round anchoring, and disputes.
 /// @dev Implements optimistic verification where rounds finalize after challengeWindowBlocks without dispute.
-contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
+contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
     using SafeCast for uint256;
 
     // --- Limits and Constants ---
     uint8 public constant MAX_CLIENTS_LIMIT = 64;
     uint8 public constant MAX_BLOCK_SIZE_LIMIT = 32;
+
+    bytes32 public constant CLIENT_ROOT_TYPEHASH = keccak256(
+        "ClientRoot(bytes32 session,uint256 round,address client,bytes32 root,uint256 nonce)"
+    );
 
     // --- State Machine ---
     enum Phase {
@@ -157,6 +164,8 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
     error InvalidParticipantAddress();
     error NothingToWithdraw();
     error ServerAlreadySlashed();
+    error ParticipantNotActive();
+    error ClientProofFailed();
 
     // --- Modifiers ---
     modifier onlyServer() {
@@ -173,6 +182,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
     /// @param params Struct holding all initialization parameters.
     constructor(InitParams memory params)
         AccessControlDefaultAdminRules(params.adminDelay, params.initialAdmin)
+        EIP712("FL-Ledger", "1")
     {
         if (
             params.server == address(0) || params.treasury == address(0) || params.maxClients == 0
@@ -433,6 +443,75 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
         );
 
         _resolveDispute(data.round, data.blockIndex, upheld);
+    }
+
+    /// @notice Reveals challenge data for D4b (client signature verification).
+    /// @param data Dispute calldata including client index, address, block root, signature, and proof.
+    function challengeClientLeaf(DisputeTypes.D4DisputeData calldata data)
+        external
+        nonReentrant
+        inPhase(Phase.Active)
+    {
+        RoundData storage r = rounds[data.round];
+        if (r.status != RoundStatus.Posted) revert RoundNotPosted();
+        if (block.number > r.postedBlock + challengeWindowBlocks) revert ChallengeWindowExpired();
+
+        bytes32 commitment = keccak256(
+            abi.encode(data.round, uint32(data.clientIndex), uint8(4), msg.sender, data.salt)
+        );
+        ChallengeCommitment storage c = challengeCommitments[commitment];
+        if (!c.active) revert CommitmentNotFound();
+        if (c.challenger != msg.sender) revert UnauthorizedChallenger();
+        if (block.number <= c.committedBlock) revert RevealSameBlockNotAllowed();
+        c.active = false;
+
+        // 1. Verify client leaf inclusion in clientLeavesRoot
+        bytes memory clientLeaf = abi.encodePacked(
+            data.clientIndex,
+            data.clientAddress,
+            data.clientBlockRoot,
+            data.signature
+        );
+        if (!DomainMerkle.verifyProof(r.clientLeavesRoot, clientLeaf, data.clientLeafProof)) {
+            revert ClientProofFailed();
+        }
+
+        // 2. Verify client is marked active in participantMask
+        if ((r.participantMask & (uint64(1) << uint64(data.clientIndex))) == 0) {
+            revert ParticipantNotActive();
+        }
+
+        // 3. Verify client registration and address match
+        bool upheld = false;
+        if (
+            data.clientIndex >= _clientAddresses.length
+                || _clientAddresses[data.clientIndex] != data.clientAddress
+        ) {
+            upheld = true;
+        } else if (!clientRegistry[data.clientAddress].registered) {
+            upheld = true;
+        } else {
+            // 4. Verify EIP-712 signature
+            uint256 nonce = data.round - 1;
+            bytes32 sessionId = bytes32(uint256(uint160(address(this))));
+            bytes32 structHash = keccak256(
+                abi.encode(
+                    CLIENT_ROOT_TYPEHASH,
+                    sessionId,
+                    data.round,
+                    data.clientAddress,
+                    data.clientBlockRoot,
+                    nonce
+                )
+            );
+            bytes32 digest = _hashTypedDataV4(structHash);
+            (address recovered, ECDSA.RecoverError err,) = ECDSA.tryRecover(digest, data.signature);
+            if (err != ECDSA.RecoverError.NoError || recovered != data.clientAddress) {
+                upheld = true;
+            }
+        }
+
+        _resolveDispute(data.round, uint32(data.clientIndex), upheld);
     }
 
     /// @dev Internal dispute resolution executing slashing or deposit forfeiture.

@@ -4,7 +4,46 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 
 ---
 
+## 2026-11-01 (Session 6: Stage 6 D4 and Cheating Suite)
+
+### What was built
+- Implemented lazy client signature verification (D4 dispute) in `contracts/disputes/DisputeTypes.sol` and `contracts/Session.sol`:
+  - Added `D4DisputeData` struct carrying client address, client root, EIP-712 signature components (v, r, s), and Merkle membership proof in `clientLeavesRoot`.
+  - Added `CLIENT_ROOT_TYPEHASH` and `challengeClientLeaf` endpoint in `contracts/Session.sol` utilizing OpenZeppelin's `ECDSA` and `EIP712`.
+  - Enforced client verification: verifies client was an active registered participant in round bitmask, validates Merkle proof in `clientLeavesRoot`, verifies EIP-712 signature against client address. If ECDSA recovery succeeds with genuine signer, the dispute is rejected and challenger deposit is forfeited. If recovery fails or recovers an attacker/fabricated address, the dispute is upheld and server bond is slashed.
+- Authored contract test suite in `test/Disputes.t.sol`:
+  - Added 4 D4 tests (`test_d4_honestSignature_rejected`, `test_d4_forgedSignature_upheld_serverSlashed`, `test_d4_revertClientProofFailed`, `test_d4_revertParticipantNotActive`). Total contract test suite now 19 tests, 100% passing.
+- Implemented `sim/cheats.py` with `CheatingServer` injecting 5 distinct adversarial cheating behaviors:
+  - `OLD_MODEL`: server serves stale weights $W_t$ instead of aggregate update $W_{t+1}$.
+  - `CORRUPTED_BLOCKS`: server perturbs a configurable fraction of block weights $W_{t+1, b}$.
+  - `FABRICATED_CLIENT`: server inserts fabricated client with an invalid signature into `clientLeavesRoot`.
+  - `SKIPPED_ROUND`: server increments round sequence without incorporating client updates.
+  - `HISTORY_TAMPER`: server re-anchors inconsistent historical root hashes.
+- Upgraded `sim/watcher.py`:
+  - Implemented structured `AuditVerdict` recording status, detailed failure logs, dispute category, and challenger proof payloads.
+  - Implemented comprehensive `audit_round()` evaluating client signatures, weight sums, update rules, and block commitments.
+- Authored cheating test suite in `tests/test_cheating_suite.py`:
+  - 4 integration test scenarios: honest server verification (0 false positives), stale model detection, fabricated client detection, and empirical detection probability curves across corrupted block fractions (50 trials per rate).
+- Empirical Gas Metrics:
+  - Recorded D4 dispute gas to `results/e2_dispute_gas.csv` and updated `.gas-snapshot`.
+- Full repo verification: 57 Foundry tests and 36 Pytest tests pass cleanly (93 total tests, 0 failures), Slither static analysis clean.
+
+### Gas Metrics (Experiment E2 - D4)
+| Operation / Dispute Path | Gas (Measured) | Description |
+|---|---|---|
+| `commitChallenge` | 47,052 | Deposit lock & commit hash registration |
+| D4 Client Leaf (Honest / Rejected) | 343,502 | EIP-712 signature verification passes; deposit forfeited |
+| D4 Client Leaf (Forged / Slashed) | 373,959 | Signature forged; server slashed (50% reward, 50% treasury) |
+
+### Security Invariants & Edge Cases Tested
+- **Ethereum Signature Normalization Trap:** `eth_account.Account.recover_message` normalizes $v \in \{0, 1\}$ by adding 27. Corrupting $v$ from 27 to 0 yields the same recovered address. Authentic signature corruption tests must flip bits in the $r$ or $s$ scalar to genuinely invalidate ECDSA.
+- **Exception Hierarchy in `eth_keys`:** Invalid signatures raise `eth_keys.exceptions.BadSignature`, which inherits from `Exception`, not `ValueError` or `TypeError`. Wrapped recovery in `ledger/sign.py` handles all exception types cleanly.
+- **In-Place Aggregation Side Effects:** In `sim/cheats.py`, `w_t_int` is mutated by `aggregate_round`. Capturing `old_w_int = list(self.w_t_int)` before running base aggregation ensures `OLD_MODEL` accurately broadcasts the prior round model.
+
+---
+
 ## 2026-11-01 (Session 5: Stage 5 Disputes D1 & D2, Bonds, Slashing)
+
 
 ### What was built
 - Implemented `contracts/crypto/BN254.sol`:

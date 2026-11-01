@@ -130,5 +130,5 @@ def verify_client_signature(
             verifying_contract=verifying_contract,
         )
         return recovered == to_checksum_address(expected_client)
-    except (ValueError, TypeError):
+    except Exception:
         return False

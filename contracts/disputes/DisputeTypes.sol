@@ -40,4 +40,14 @@ library DisputeTypes {
         int256[] wNextBlock;
         bytes32[] wNextProof;
     }
+
+    struct D4DisputeData {
+        uint256 round;
+        bytes32 salt;
+        uint8 clientIndex;
+        address clientAddress;
+        bytes32 clientBlockRoot;
+        bytes signature;
+        bytes32[] clientLeafProof;
+    }
 }
