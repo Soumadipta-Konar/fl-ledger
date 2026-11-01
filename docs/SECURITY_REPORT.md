@@ -81,3 +81,25 @@ Slither v0.11.6 ran against all smart contracts (`slither contracts/ --solc-rema
 - **Medium Severity Findings**: 0
 - **Informational Findings**:
   - `low-level-calls`: In `withdraw()` and `withdrawBond()`. Justified: standard pull-payment ETH transfer (`to.call{value: amount}("")`) executed after all internal balances are zeroed, strictly guarded by `nonReentrant`.
+
+---
+
+## 6. Open Items & Production Audit Scope
+
+Before deploying `fl-ledger` on any production network with real economic value, an independent security audit by a professional firm must evaluate the following surfaces:
+
+1. **Formal Verification of Precompile Wrappers & Finite Field Arithmetic:**
+   - Formal verification (using Certora, Halmos, or SMTChecker) of `BN254.sol` functions (`ecAdd`, `ecMul`, `toScalar`).
+   - Mathematical proof that `toScalar(int256)` correctly bijects all two's-complement integers in $[-2^{255}, 2^{255}-1]$ into $[0, r-1]$ without modulo collision or inversion vulnerabilities.
+2. **EVM Client Precompile Discrepancy Analysis:**
+   - Validate that precompiles `0x06` (`ecAdd`) and `0x07` (`ecMul`) behave identically under point-at-infinity $(0, 0)$ inputs across all major client implementations (Geth, Nethermind, Besu, Erigon, Reth).
+3. **Economic Simulation of Challenger Griefing & Congestion Attack Vectors:**
+   - Model the exact threshold where an adversarial server could congest the Ethereum mempool via gas price spikes to censor dispute transactions during the 20-block challenge window.
+   - Dynamic parameterization of bond size $B$ and challenge deposit $D$ relative to model IP valuation and gas costs.
+4. **Data Availability (DA) Layer Integration:**
+   - Address data withholding: if the server anchors roots on-chain but refuses to provide vector blocks to off-chain watchers, verify that integrating EIP-4844 blobs or DA layers (Celestia, EigenDA) guarantees block availability before challenge windows activate.
+5. **Layer 2 (Rollup) Timing & Sequencer Constraints:**
+   - If deployed on Arbitrum, Optimism, or Base, replace L1 `block.number` with sequencer-safe timing primitives or L1 block number references (`block.number` semantics differ across L2 sequencers).
+6. **Sybil Resistance in Client Registration:**
+   - In production, client registration is currently gated by admin authorization. Transition to decentralized staking or zk-identity (e.g. WorldID or Gitcoin Passport) to defend against client Sybil attacks.
+

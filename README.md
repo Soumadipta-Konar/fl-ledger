@@ -4,11 +4,11 @@
 [![Foundry](https://img.shields.io/badge/Foundry-v1.8.7-blue.svg)](https://getfoundry.sh/)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.28-orange.svg)](https://soliditylang.org/)
 [![Python](https://img.shields.io/badge/Python-3.11.9-blue.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/Tests-94%20Passing-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/Tests-105%20Passing-brightgreen.svg)]()
 
 `fl-ledger` is an auditable federated learning (FL) research prototype built on Ethereum (EVM) and the BN254 elliptic curve. Participating clients compute local weight updates, commit to vector blocks using homomorphic Pedersen commitments, and sign structured EIP-712 roots. A central server aggregates updates off-chain and anchors domain-separated Merkle roots into an immutable smart contract ([`contracts/Session.sol`](contracts/Session.sol)).
 
-Watchers audit updates off-chain through random block sampling. If the server cheats (e.g. broadcasts stale models, corrupts update weights, fabricates client leaves, or skips rounds), any watcher can submit a concise on-chain cryptographic dispute. Verified disputes immediately slash the server's security bond (awarding a 50% reward to the challenger and 50% to the protocol treasury) and invalidate the round.
+Watchers audit updates off-chain through random block sampling. If the server cheats (e.g. broadcasts stale models, corrupts update weights, fabricates client leaves, or skips rounds), any watcher can submit a concise on-chain cryptographic dispute. Verified disputes immediately slash the server's security bond (awarding a 50% reward to the challenger and 50% to the protocol treasury) and invalidate the round. Furthermore, clients can initiate verifiable self-exclusion epochs (`requestExclusion()`), rolling back progression to their first participation round and enforcing strict $O(1)$ retained bitmask constraints on all subsequent epoch aggregations.
 
 ```mermaid
 sequenceDiagram
@@ -37,6 +37,11 @@ sequenceDiagram
         Note over Contract: Challenge Window Expires (20 blocks)
         Server->>Contract: finalizeRound(round)
         Note over Contract: Global Model State Advanced
+    else Client Requests Exclusion
+        Client->>Contract: requestExclusion()
+        Note over Contract: Epoch Increment, Retained Mask Fixed, Rollback to Base Model
+        Server->>Server: Re-run rounds using Retained Mask only
+        Server->>Contract: postRound(..., retainedMask, retainedWeight)
     end
 ```
 
@@ -73,7 +78,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Run the Full Test Suite
-Executes 57 Foundry unit/fuzz/invariant contract tests and 37 Python differential/cheating tests (94 total):
+Executes 65 Foundry unit/fuzz/invariant contract tests and 40 Python differential/cheating/exclusion tests (105 total):
 ```powershell
 .\make.bat test
 ```
@@ -107,6 +112,7 @@ Deletes and regenerates all figures in `plots/` as 200 dpi PNGs and vector PDFs:
 | **Forged Client Leaf** | `FABRICATED_CLIENT` | **FAIL (`INVALID_SIGNATURE`)** | Server Slashed; Challenger awarded 5 ETH reward |
 | **Corrupted Blocks** | `CORRUPTED_BLOCKS` | **FAIL (`D1_HOMOMORPHISM`)** | Server Slashed; Challenger awarded 5 ETH reward |
 | **Griefing Challenger** | Spurious dispute | **REJECTED (Server Honest)** | Challenger Deposit Forfeited (1 ETH) to Server |
+| **Exclusion Epoch** | Client self-exclusion | **PASS (Retained set)** | Rounds rolled back to pre-participation; excluded data purged |
 
 ---
 
@@ -114,7 +120,7 @@ Deletes and regenerates all figures in `plots/` as 200 dpi PNGs and vector PDFs:
 
 ```
 ├── contracts/                  # Solidity 0.8.28 Smart Contracts
-│   ├── Session.sol             # Registry, anchoring, commit-reveal, slashing
+│   ├── Session.sol             # Registry, anchoring, commit-reveal, slashing, exclusion epochs
 │   ├── crypto/
 │   │   ├── BN254.sol           # Precompile wrappers (0x06 ecAdd, 0x07 ecMul)
 │   │   └── DomainMerkle.sol    # 0x00/0x01 domain-separated Merkle verification
@@ -148,16 +154,18 @@ Deletes and regenerates all figures in `plots/` as 200 dpi PNGs and vector PDFs:
 ├── plots/                      # Generated publication figures (PNG + PDF)
 ├── notebooks/
 │   └── 05_plots.ipynb          # Jupyter notebook recreating all plots
-├── test/                       # Foundry Contract Test Suites (57 tests)
+├── test/                       # Foundry Contract Test Suites (65 tests)
 │   ├── BN254.t.sol             # Curve arithmetic fuzz tests
 │   ├── Disputes.t.sol          # D1, D2, D4 unit, fuzz, invariant tests
 │   ├── DomainMerkle.t.sol      # Merkle prefix collision tests
+│   ├── Exclusion.t.sol         # Exclusion epoch, retained mask, D1 secret cheat tests
 │   └── Session.t.sol           # Registry, bond, lifecycle tests
-└── tests/                      # Python Pytest Test Suites (37 tests)
+└── tests/                      # Python Pytest Test Suites (40 tests)
     ├── test_cheating_suite.py  # End-to-end detection rate tests
     ├── test_commit.py          # Additive homomorphism tests
     ├── test_dispute_differential.py # Differential Solidity vs Python tests
     ├── test_e2e_honest.py      # Anvil live multi-round integration test
+    ├── test_exclusion.py       # End-to-end retained mask aggregation & Anvil epoch flow
     ├── test_experiments.py     # CSV schema conformance regression test
     ├── test_fixed.py           # Signed truncation arithmetic tests
     ├── test_merkle.py          # Second-preimage attack resistance tests

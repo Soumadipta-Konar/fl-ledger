@@ -4,7 +4,46 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 
 ---
 
-## 2026-11-01 (Session 8: Stage 8 Plots, README, Notes, Security Report)
+## 2026-11-02 (Session 10: Stage 10 Final Review & v1.0.0 Release)
+
+### What was done
+- Re-verified complete binding security checklist against final smart contract and Python implementation (all 18 items compliant).
+- Authored Section 6 in `docs/SECURITY_REPORT.md`: Comprehensive open items and external production audit scope (formal verification of `BN254.sol`, EVM client precompile discrepancies, economic simulation of MEV congestion attacks, DA layer integration, L2 sequencer constraints, and Sybil resistance).
+- Updated `README.md` with test badge (105 passing tests), exclusion epoch sequence diagram, comparative demo table, and updated repository structure.
+- Re-ran complete test suites:
+  - 65 Foundry unit, fuzz, invariant, and exclusion contract tests passing.
+  - 40 Pytest differential, ML, cheating, and Anvil integration tests passing.
+  - Slither static analysis: 0 findings across all 25 contracts with 81 detectors.
+- Tagged release `v1.0.0`.
+
+---
+
+## 2026-11-02 (Session 9: Stage 9 Exclusion Epoch)
+
+### What was built
+- Implemented verifiable client self-exclusion epoch mechanism in `contracts/Session.sol`:
+  - `requestExclusion()`: permissionless self-exclusion for registered clients (`msg.sender` enforced).
+  - $O(1)$ bitwise retained participant mask enforcement: `(participantMask & ~retainedMask) == 0`.
+  - Epoch counter (`currentEpoch`) and historical multi-epoch round archiving in `epochRounds`.
+  - Historical rollback: resets active round progression to `clientFirstParticipation - 1`, clears active transient round storage (gas refunds), and re-anchors the clean pre-exclusion base model root.
+- Authored contract test suite `test/Exclusion.t.sol` (8 tests):
+  - Pre-participation exclusion, unauthorized index impersonation, active challenge window quarantine.
+  - Full multi-round lifecycle with epoch trigger, rollback, and re-running with retained set.
+  - Cryptographic D1 dispute test: server secretly incorporating an excluded client's update into $U_b$ is caught by D1 homomorphic verification and slashed.
+- Authored Python test suite `tests/test_exclusion.py` (3 tests):
+  - Server re-aggregation exclusively over retained clients; excluded client's leaf strictly absent from Merkle tree.
+  - Watcher detection of secret client inclusion.
+  - Live end-to-end on-chain Anvil integration test.
+
+### Measured Gas & Costs (Stage 9 DoD)
+| Operation | Gas Used | Details |
+|---|---|---|
+| `requestExclusion()` (Epoch Trigger) | 179,349 | Mask update, rollback, storage cleanup refund |
+| `requestExclusion()` (Pre-participation) | 50,933 | Retained mask update prior to round participation |
+| `postRound()` (Epoch 1 Re-run) | 231,913 | Re-anchors roots for retained participants |
+| `finalizeRound()` (Epoch 1) | 72,214 | Finalization transition in new epoch |
+
+---
 
 ### What was built
 - Implemented publication-quality plotting suite in `scripts/generate_plots.py` generating figures P1 through P8 in both PNG (200 dpi) and vector PDF:
