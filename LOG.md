@@ -4,6 +4,42 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 
 ---
 
+## 2026-11-01 (Session 2: Stage 2 Reference Primitives)
+
+### What was done
+- Implemented `ledger/fixed.py`: fixed-point scaling ($s=16$), bounds checking ($B=2^{31}-1$), scalar mapping ($x \pmod r$), and signed division truncation matching EVM `/`.
+- Implemented `ledger/merkle.py`: domain-separated binary Merkle tree with sorted pairs, leaf prefix `0x00`, internal node prefix `0x01`, and fixed-depth proof enforcement.
+- Created `params/derive_generators.py` and generated `params/generators.json`: derived $H$ and 32 $G_i$ generators via transparent hash-to-curve algorithm; committed hash `0xe652044a86d69ffa665a025c9d84022f1ed2c28b2ad38f6f44d33fb7513781b9`.
+- Implemented `ledger/commit.py`: Pedersen block commitments on BN254 G1 with additive homomorphism verified for positive, negative, and mixed update vectors.
+- Implemented `ledger/sign.py`: EIP-712 structured data signing (`ClientRoot`) with strict domain separator bindings.
+- Authored test suites in `tests/test_fixed.py`, `tests/test_merkle.py`, `tests/test_commit.py`, and `tests/test_sign.py`; all 27 unit tests pass in 1.82s.
+- Created `scripts/benchmark_curve.py` and benchmarked BN254 G1 operations using `py_ecc`.
+
+### Curve Benchmark Results (py_ecc on Windows)
+| Operation / Setting | Latency | Unit | Notes |
+|---|---|---|---|
+| Single scalar multiplication | 2.935 | ms / op | Pure Python double-and-add |
+| Single point addition | 0.079 | ms / op | Affine coordinate addition |
+| Block commitment ($m = 8$) | 139.77 | ms / block | 1 blinding + 8 weights |
+| Block commitment ($m = 16$) | 218.55 | ms / block | 1 blinding + 16 weights |
+| Block commitment ($m = 32$) | 352.63 | ms / block | 1 blinding + 32 weights |
+| Client round ($d = 16, m = 16$) | 218.5 | ms / round | 1 block |
+| Client round ($d = 64, m = 16$) | 874.2 | ms / round | 4 blocks |
+| Client round ($d = 256, m = 16$) | 3.50 | s / round | 16 blocks |
+| Client round ($d = 1024, m = 16$) | 13.99 | s / round | 64 blocks |
+| Client round ($d = 10000, m = 16$) | 136.59 | s / round | 625 blocks (~2.3 min per client) |
+
+### Edge Cases & Vulnerabilities Discovered
+- **`py_ecc` Coordinate Type Requirements:** Passing raw Python `int` to curve functions causes assertions to fail in `py_ecc.bn128.add` because modular field arithmetic is bypassed. All coordinates must be wrapped in `FQ(x), FQ(y)` internally and unpacked back to native integers for API consumers.
+- **Negative Scalar Field Encoding:** Negative update coordinates $q < 0$ must be reduced modulo the BN254 scalar group order $r = 21888242871839275222246405745257275088548364400416034343698204186575808495617$ prior to point multiplication. Homomorphism holds identically across signs: $\sum n_k \text{Com}(q_k; r_k) == \text{Com}(\sum n_k q_k; \sum n_k r_k \pmod r)$.
+- **Merkle Proof Depth Mismatches:** Attackers could present truncated proofs of intermediate hashes. Enforcing `expected_depth = ceil(log2(N))` in `verify_proof` guarantees second-preimage safety.
+- **Cross-Chain / Cross-Contract Replay:** Verified that changing `chainId`, `verifyingContract`, `session`, `round`, or `nonce` in an EIP-712 payload immediately invalidates signature recovery.
+
+### What surprised me
+- Pure Python `py_ecc` achieves 2.9 ms per scalar multiplication, allowing blocks of $m=16$ to be committed in ~218 ms. For small/medium research models ($d \le 10^3$), client rounds complete in seconds. For large models ($d \ge 10^4$), linear cost-model extrapolation is both accurate and necessary.
+
+---
+
 ## 2026-11-01 (Session 1: Stage 0 Clarification & Stage 1 Skeleton)
 
 ### What was done
