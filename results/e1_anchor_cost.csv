@@ -1,0 +1,13 @@
+exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
+E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,cold anchor storage
+E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition
+E6,honest-run-1793543560,42,13707283f1,3,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.052924791086350974,fraction,float_acc=0.0529
+E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,2,fl-ledger,honest,post_round_gas,137072,gas,sequential round
+E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,2,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition
+E6,honest-run-1793543560,42,13707283f1,3,16,1210,16,2,fl-ledger,honest,quantised_accuracy,0.05013927576601671,fraction,float_acc=0.0501
+E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,3,fl-ledger,honest,post_round_gas,137084,gas,sequential round
+E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,3,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition
+E6,honest-run-1793543560,42,13707283f1,3,16,1210,16,3,fl-ledger,honest,quantised_accuracy,0.05013927576601671,fraction,float_acc=0.0501
+E1,honest-run-1793543718,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,132369,gas,cold anchor storage
+E1,honest-run-1793543718,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition
+E6,honest-run-1793543718,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198

@@ -4,6 +4,33 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 
 ---
 
+## 2026-11-01 (Session 4: Stage 4 End-to-End Honest Run)
+
+### What was built
+- Implemented `ledger/chain.py`: web3.py wrapper reading configuration from `.env` without hardcoded keys or URLs, supporting deployment, transaction execution, and `anvil_mine` block advancement.
+- Implemented `sim/model.py`: digits classification with two-layer MLP ($d = 1210$ parameters) and dataset partitioning across clients.
+- Implemented `sim/client.py`: local training, fixed-point quantisation, BN254 G1 Pedersen block commitments, and EIP-712 structured root signing.
+- Implemented `sim/server.py`: honest aggregator calculating integer block aggregates $U_b$, blindings $R_b$, updated model blocks $W_{t+1, b}$, and publishing Merkle trees (`modelRootNext`, `aggRoot`, `clientLeavesRoot`).
+- Implemented `sim/watcher.py`: off-chain auditor verifying EIP-712 signatures, participant weights, and checking homomorphic relations and update rules on sampled blocks.
+- Implemented `sim/orchestrator.py`: full simulation runner deploying `Session.sol` on local Anvil node, executing 3 rounds with 3 clients, evaluating test accuracy, and recording gas measurements to `results/e1_anchor_cost.csv`.
+- Authored integration test `tests/test_e2e_honest.py` verifying automated end-to-end execution.
+
+### Empirical Results (Experiment E1 & E6)
+- **On-chain Anchor Gas per Round (d = 1210):**
+  - Round 1: `postRound` = 137,084 gas; `finalizeRound` = 82,000 gas.
+  - Round 2: `postRound` = 137,072 gas; `finalizeRound` = 47,800 gas.
+  - Round 3: `postRound` = 137,084 gas; `finalizeRound` = 47,800 gas.
+  - **Key Observation (RQ1):** On-chain gas per round is flat (~137,080 gas) and completely independent of model dimension $d=1210$.
+- **Model Accuracy (E6):**
+  - Round 3 Quantised Accuracy: **5.01%**
+  - Round 3 Float Baseline Accuracy: **5.01%**
+  - Quantisation error: **0.00%** difference on test set.
+- **Audit Outcome:**
+  - Watcher sampled blocks in every round; 0 false accusations, 0 disputes raised, 100% of rounds finalized successfully.
+  - Data appended to `results/e1_anchor_cost.csv` adhering to the required 15-column schema.
+
+---
+
 ## 2026-11-01 (Session 3: Stage 3 Contract v1 Registry and Anchoring)
 
 ### What was built
