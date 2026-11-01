@@ -22,7 +22,7 @@ lint:
 	$(PYTHON) -m pycodestyle ledger/ sim/ tests/ || true
 
 slither:
-	slither contracts/ --solc-remaps @openzeppelin/=lib/openzeppelin-contracts/
+	$(PYTHON) -m slither contracts/ --solc-remaps @openzeppelin/=lib/openzeppelin-contracts/
 
 demo:
 	$(PYTHON) -m sim.demo

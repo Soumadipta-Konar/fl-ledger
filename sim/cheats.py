@@ -78,6 +78,8 @@ class CheatingServer(HonestServer):
 
         elif self.cheat_type == CheatType.FABRICATED_CLIENT:
             # Modify first client leaf with forged signature (flip byte in r coordinate)
+            import copy
+            pkg.active_packages = [copy.copy(p) for p in pkg.active_packages]
             corrupt_client_leaves = []
             for i, p in enumerate(pkg.active_packages):
                 sig = p.signature

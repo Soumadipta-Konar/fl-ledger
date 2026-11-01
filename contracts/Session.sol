@@ -505,8 +505,8 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
                 )
             );
             bytes32 digest = _hashTypedDataV4(structHash);
-            (address recovered, ECDSA.RecoverError err,) = ECDSA.tryRecover(digest, data.signature);
-            if (err != ECDSA.RecoverError.NoError || recovered != data.clientAddress) {
+            (address recovered, ECDSA.RecoverError err, bytes32 errorData) = ECDSA.tryRecover(digest, data.signature);
+            if (err != ECDSA.RecoverError.NoError || recovered != data.clientAddress || errorData != bytes32(0)) {
                 upheld = true;
             }
         }

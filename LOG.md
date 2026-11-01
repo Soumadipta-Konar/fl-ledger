@@ -4,7 +4,30 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 
 ---
 
+## 2026-11-01 (Session 8: Stage 8 Plots, README, Notes, Security Report)
+
+### What was built
+- Implemented publication-quality plotting suite in `scripts/generate_plots.py` generating figures P1 through P8 in both PNG (200 dpi) and vector PDF:
+  - P1: `plots/e1_gas_vs_clients.png` / `.pdf`: on-chain anchor gas flat across model dimension $d$.
+  - P2: `plots/e2_dispute_gas_vs_m.png` / `.pdf`: dispute verification gas vs block size $m$ with cost-model lines.
+  - P3: `plots/e3_detection_prob_vs_phi.png` / `.pdf`: detection probability vs corrupted fraction $\phi$ for $s \in \{1, 3, 5, 10\}$.
+  - P4: `plots/e4_crossover_cost_vs_d.png` / `.pdf`: log-log crossover vs naive on-chain aggregation ($d^* \approx 11$).
+  - P5: `plots/e5_commit_time_vs_d.png` / `.pdf`: commitment latency vs $d$ comparing Python `py_ecc` vs native C/Rust.
+  - P6: `plots/e6_accuracy_vs_scale_bits.png` / `.pdf`: accuracy convergence across scale bits $s \in [4, 24]$.
+  - P7: `plots/e8_blocks_to_resolution.png` / `.pdf`: dispute and lifecycle latency in blocks.
+  - P8: `plots/e7_false_slash_table.png` / `.pdf`: visual summary table of 700 adversarial trials with 0 false slashes.
+- Authored interactive Jupyter notebook `notebooks/05_plots.ipynb` documenting empirical principles, plotting code, and threats to validity.
+- Authored comprehensive `README.md` featuring architecture diagram, quickstart in 5 commands, and embedded figures.
+- Authored `docs/PRODUCT_NOTES.md`: target users (healthcare, AML, decentralised AI), comparative trade-offs vs FedAvg/SMPC/ZK, when to choose and when not to choose.
+- Authored `docs/SECURITY_REPORT.md`: complete review of all 18 binding checklist items, invariant test verifications, privileged role blast radius analysis, and testnet vs production differences.
+- Implemented `sim/demo.py` and `make demo` target: end-to-end comparative demonstration of honest federation vs 4 cheating attack vectors and griefing challenger defense.
+- Slither static analysis: 0 findings (100% clean).
+- Verified Definition of Done: deleting `plots/` and re-running `scripts/generate_plots.py` regenerates all 8 figures cleanly.
+
+---
+
 ## 2026-11-01 (Session 7: Stage 7 Experiments E1 to E8)
+
 
 ### What was built
 - Implemented modular, reproducible experiment package `experiments/`:
