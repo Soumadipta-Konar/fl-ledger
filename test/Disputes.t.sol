@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {Test} from "forge-std/Test.sol";
-import {Session} from "../contracts/Session.sol";
-import {BN254} from "../contracts/crypto/BN254.sol";
-import {DomainMerkle} from "../contracts/crypto/DomainMerkle.sol";
-import {DisputeTypes} from "../contracts/disputes/DisputeTypes.sol";
+import { Test } from "forge-std/Test.sol";
+import { Session } from "../contracts/Session.sol";
+import { BN254 } from "../contracts/crypto/BN254.sol";
+import { DomainMerkle } from "../contracts/crypto/DomainMerkle.sol";
+import { DisputeTypes } from "../contracts/disputes/DisputeTypes.sol";
 
 contract DisputesTest is Test {
     Session internal session;
@@ -123,7 +123,7 @@ contract DisputesTest is Test {
 
         // Deposit bond
         vm.prank(server);
-        session.depositBond{value: BOND_AMOUNT}();
+        session.depositBond{ value: BOND_AMOUNT }();
 
         // 3. Build Round 0 Initial Model Root
         wCurrBlock = new int256[](BLOCK_SIZE);
@@ -191,7 +191,9 @@ contract DisputesTest is Test {
         // 5. Build EIP-712 Signatures
         bytes32 domainSeparator = keccak256(
             abi.encode(
-                keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"),
+                keccak256(
+                    "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
+                ),
                 keccak256("FL-Ledger"),
                 keccak256("1"),
                 block.chainid,
@@ -247,7 +249,8 @@ contract DisputesTest is Test {
         client1LeafProof[0] = hCl0;
 
         // Build forged client leaves tree (client 0 has forged signature)
-        bytes memory cl0ForgedData = abi.encodePacked(uint8(0), client0, client0BlockRoot, sig0Forged);
+        bytes memory cl0ForgedData =
+            abi.encodePacked(uint8(0), client0, client0BlockRoot, sig0Forged);
         bytes32 hCl0Forged = DomainMerkle.hashLeaf(cl0ForgedData);
         clientLeavesRootForged = DomainMerkle.hashInternal(hCl0Forged, hCl1);
         client0LeafProofForged = new bytes32[](1);
@@ -327,17 +330,17 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256("test_commit");
         vm.prank(challenger);
         vm.expectRevert(Session.IncorrectDepositAmount.selector);
-        session.commitChallenge{value: 0.5 ether}(commitment);
+        session.commitChallenge{ value: 0.5 ether }(commitment);
     }
 
     function test_commitChallenge_revertCommitmentAlreadyExists() public {
         bytes32 commitment = keccak256("test_commit");
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.prank(challenger);
         vm.expectRevert(Session.CommitmentAlreadyExists.selector);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
     }
 
     function test_reveal_revertCommitmentNotFound() public {
@@ -370,7 +373,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(2), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         DisputeTypes.D2DisputeData memory d2Data = DisputeTypes.D2DisputeData({
             round: 1,
@@ -398,7 +401,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(2), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
@@ -428,7 +431,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(2), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + CHALLENGE_WINDOW + 1);
 
@@ -452,11 +455,11 @@ contract DisputesTest is Test {
 
     // --- D1 Aggregation Dispute Tests ---
 
-    function _buildD1Data(
-        bytes32 salt,
-        int256[] memory uBlock,
-        bytes32[] memory aggProof
-    ) internal view returns (DisputeTypes.D1DisputeData memory) {
+    function _buildD1Data(bytes32 salt, int256[] memory uBlock, bytes32[] memory aggProof)
+        internal
+        view
+        returns (DisputeTypes.D1DisputeData memory)
+    {
         DisputeTypes.ClientCommitmentData[] memory cp = new DisputeTypes.ClientCommitmentData[](2);
         cp[0] = DisputeTypes.ClientCommitmentData({
             clientIndex: 0,
@@ -498,7 +501,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(1), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
@@ -523,11 +526,12 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(1), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
-        DisputeTypes.D1DisputeData memory d1Data = _buildD1Data(salt, uBlockCorrupt, aggProofCorrupt);
+        DisputeTypes.D1DisputeData memory d1Data =
+            _buildD1Data(salt, uBlockCorrupt, aggProofCorrupt);
 
         vm.prank(challenger);
         session.challengeAggregation(d1Data);
@@ -551,7 +555,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(2), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
@@ -585,7 +589,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(2), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
@@ -625,7 +629,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, uint32(0), uint8(4), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
@@ -659,7 +663,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, uint32(0), uint8(4), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
@@ -694,7 +698,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, uint32(0), uint8(4), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
@@ -725,7 +729,7 @@ contract DisputesTest is Test {
         bytes32 commitment = keccak256(abi.encode(1, uint32(1), uint8(4), challenger, salt));
 
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         vm.roll(block.number + 1);
 
@@ -780,7 +784,7 @@ contract DisputesTest is Test {
         bytes32 salt = bytes32(uint256(111));
         bytes32 commitment = keccak256(abi.encode(1, 0, uint8(2), challenger, salt));
         vm.prank(challenger);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment);
 
         assertEq(address(session).balance, BOND_AMOUNT + CHALLENGER_DEPOSIT);
 
@@ -805,9 +809,8 @@ contract DisputesTest is Test {
         vm.prank(challenger);
         session.challengeUpdateRule(d2Data);
 
-        uint256 totalWithdrawable = session.withdrawableBalances(challenger) +
-            session.withdrawableBalances(treasury) +
-            session.withdrawableBalances(server);
+        uint256 totalWithdrawable = session.withdrawableBalances(challenger)
+            + session.withdrawableBalances(treasury) + session.withdrawableBalances(server);
         assertEq(address(session).balance, totalWithdrawable);
         assertEq(address(session).balance, BOND_AMOUNT + CHALLENGER_DEPOSIT);
 
@@ -825,7 +828,7 @@ contract DisputesTest is Test {
         bytes32 salt2 = bytes32(uint256(999));
         bytes32 commitment2 = keccak256(abi.encode(1, 0, uint8(2), adversary, salt2));
         vm.prank(adversary);
-        session.commitChallenge{value: CHALLENGER_DEPOSIT}(commitment2);
+        session.commitChallenge{ value: CHALLENGER_DEPOSIT }(commitment2);
 
         vm.roll(block.number + 1);
 

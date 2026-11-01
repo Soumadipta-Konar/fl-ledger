@@ -31,11 +31,11 @@ library DomainMerkle {
     /// @param leafData Raw bytes of the leaf.
     /// @param proof Array of sibling hashes along the Merkle branch.
     /// @return True if computed root matches claimed root.
-    function verifyProof(
-        bytes32 root,
-        bytes memory leafData,
-        bytes32[] memory proof
-    ) internal pure returns (bool) {
+    function verifyProof(bytes32 root, bytes memory leafData, bytes32[] memory proof)
+        internal
+        pure
+        returns (bool)
+    {
         bytes32 current = hashLeaf(leafData);
         uint256 len = proof.length;
 

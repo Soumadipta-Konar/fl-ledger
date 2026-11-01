@@ -70,7 +70,7 @@ def deploy_session(
     construct_txn = contract.constructor(tuple_params).build_transaction({
         "from": account.address,
         "nonce": w3.eth.get_transaction_count(account.address),
-        "gas": 3_000_000,
+        "gas": 6_000_000,
         "gasPrice": w3.eth.gas_price,
         "chainId": DEFAULT_CHAIN_ID,
     })
@@ -78,8 +78,8 @@ def deploy_session(
     signed = account.sign_transaction(construct_txn)
     tx_hash = w3.eth.send_raw_transaction(signed.raw_transaction)
     receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
-    if receipt.contractAddress is None:
-        raise RuntimeError("deployment failed; no contract address returned")
+    if receipt.status != 1 or receipt.contractAddress is None:
+        raise RuntimeError(f"deployment failed; status={receipt.status}, contractAddress={receipt.contractAddress}")
 
     return receipt.contractAddress, receipt
 

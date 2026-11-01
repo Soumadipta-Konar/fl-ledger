@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {Test} from "forge-std/Test.sol";
-import {BN254} from "../contracts/crypto/BN254.sol";
+import { Test } from "forge-std/Test.sol";
+import { BN254 } from "../contracts/crypto/BN254.sol";
 
 contract BN254Test is Test {
     // Known BN254 G1 generator: (1, 2)

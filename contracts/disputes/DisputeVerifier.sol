@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {BN254} from "../crypto/BN254.sol";
-import {DomainMerkle} from "../crypto/DomainMerkle.sol";
-import {DisputeTypes} from "./DisputeTypes.sol";
+import { BN254 } from "../crypto/BN254.sol";
+import { DomainMerkle } from "../crypto/DomainMerkle.sol";
+import { DisputeTypes } from "./DisputeTypes.sol";
 
 /// @title DisputeVerifier
 /// @notice Cryptographic and arithmetic verification logic for disputes D1 and D2.
@@ -39,10 +39,7 @@ library DisputeVerifier {
         uint32[] memory participantWeights
     ) internal view returns (bool upheld) {
         // 1. Verify aggregate leaf inclusion in aggRoot
-        bytes memory aggLeafData = abi.encodePacked(
-            data.blockIndex,
-            data.rBlock
-        );
+        bytes memory aggLeafData = abi.encodePacked(data.blockIndex, data.rBlock);
         for (uint256 i = 0; i < data.uBlock.length;) {
             aggLeafData = abi.encodePacked(aggLeafData, data.uBlock[i]);
             unchecked {
@@ -62,21 +59,15 @@ library DisputeVerifier {
 
             // Verify client leaf inclusion in clientLeavesRoot:
             bytes memory clientLeaf = abi.encodePacked(
-                cp.clientIndex,
-                cp.clientAddress,
-                cp.clientBlockRoot,
-                cp.signature
+                cp.clientIndex, cp.clientAddress, cp.clientBlockRoot, cp.signature
             );
             if (!DomainMerkle.verifyProof(clientLeavesRoot, clientLeaf, cp.clientLeafProof)) {
                 revert ClientProofFailed();
             }
 
             // Verify commitment leaf inclusion in clientBlockRoot:
-            bytes memory commLeaf = abi.encodePacked(
-                data.blockIndex,
-                cp.commitment.x,
-                cp.commitment.y
-            );
+            bytes memory commLeaf =
+                abi.encodePacked(data.blockIndex, cp.commitment.x, cp.commitment.y);
             if (!DomainMerkle.verifyProof(cp.clientBlockRoot, commLeaf, cp.blockProof)) {
                 revert ClientProofFailed();
             }

@@ -46,6 +46,9 @@ All five core invariants have been proven under property and invariant tests in 
    An honest server cannot be slashed. Over 700 adversarial challenger attacks (Experiment E7), 0 false slashes were upheld, and 100% of challenger deposits were forfeited to the server.
 5. **Frozen Registry Invariant** ([`test_start_freezesRegistry`](file:///c:/Users/Soumadipta%20Konar/Desktop/FL-ledger/test/Session.t.sol#L155)):
    After `start()`, `phase == Phase.Active`. Any call to `register()` immediately reverts with `SessionAlreadyStarted()`.
+6. **Retained Mask Invariant (Stage 9 Exclusion Epoch)** ([`test/Exclusion.t.sol:test_exclusionEpoch_fullLifecycle`](file:///c:/Users/Soumadipta%20Konar/Desktop/FL-ledger/test/Exclusion.t.sol#L180), [`tests/test_exclusion.py:test_server_reaggregation_with_retained_mask`](file:///c:/Users/Soumadipta%20Konar/Desktop/FL-ledger/tests/test_exclusion.py#L65)):
+   $$\text{participantMask} \subseteq \text{retainedMask} \iff (\text{participantMask} \ \& \ \sim\!\text{retainedMask}) \equiv 0$$
+   Enforced $O(1)$ at posting time. An excluded client's bit cannot appear in any future epoch round. Any attempt to secretly include an excluded client's commitment or update vector into $U_b$ without declaring them in `participantMask` violates BN254 homomorphic equality ($Com(U_b; R_b) \ne \sum_{k \in \text{retained}} n_k C_{k,b}$) and is slashed via D1.
 
 ---
 
@@ -56,6 +59,7 @@ All five core invariants have been proven under property and invariant tests in 
 | **Admin** | `initialAdmin` (OpenZeppelin Default Admin) | `register()`, `start()`, `transferAdmin()` | Can register adversarial clients or refuse to call `start()`. **Cannot** touch server bond, cannot alter dispute verdicts, cannot seize user funds. Once `start()` is invoked, admin has **zero** authority over the active session. | Two-step admin transfer with timelock delay (`AccessControlDefaultAdminRules`). |
 | **Server** | `server` | `depositBond()`, `postRound()`, `finalizeRound()`, `withdrawBond()` | Can post corrupt or poisoned roots. | Any corrupt root is auditable by off-chain watchers and subject to immediate on-chain slashing via D1, D2, or D4. Bond is locked for 40 blocks after session close. |
 | **Challenger** | Any address locking `1 ETH` deposit | `commitChallenge()`, `challengeAggregation()`, `challengeUpdateRule()`, `challengeClientLeaf()` | Can attempt to spam or grief honest server. | If challenge is invalid, the entire 1 ETH deposit is permanently forfeited to the server. Two-phase commit-reveal prevents front-running. |
+| **Client** | Registered participant wallet (`msg.sender`) | `requestExclusion()` | Can request self-exclusion from current and future rounds. **Cannot** exclude other participants. Cannot front-run or interrupt an active dispute challenge window. | `msg.sender` authorization check; challenge window quarantine; $O(1)$ bitwise mask enforcement; gas-refunded round cleanup. |
 
 ---
 

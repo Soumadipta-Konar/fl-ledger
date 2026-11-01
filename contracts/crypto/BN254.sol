@@ -52,7 +52,11 @@ library BN254 {
     /// @param p1 First point.
     /// @param p2 Second point.
     /// @return result Point sum on G1.
-    function ecAdd(G1Point memory p1, G1Point memory p2) internal view returns (G1Point memory result) {
+    function ecAdd(G1Point memory p1, G1Point memory p2)
+        internal
+        view
+        returns (G1Point memory result)
+    {
         if (p1.x == 0 && p1.y == 0) return p2;
         if (p2.x == 0 && p2.y == 0) return p1;
 

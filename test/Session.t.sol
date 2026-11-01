@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {Test} from "forge-std/Test.sol";
-import {Session} from "../contracts/Session.sol";
-import {IAccessControl} from "@openzeppelin/contracts/access/IAccessControl.sol";
+import { Test } from "forge-std/Test.sol";
+import { Session } from "../contracts/Session.sol";
+import { IAccessControl } from "@openzeppelin/contracts/access/IAccessControl.sol";
 
 contract SessionTest is Test {
     Session internal session;
@@ -149,7 +149,7 @@ contract SessionTest is Test {
 
     function test_depositBond_success() public {
         vm.prank(server);
-        session.depositBond{value: BOND_AMOUNT}();
+        session.depositBond{ value: BOND_AMOUNT }();
 
         assertTrue(session.bondDeposited());
         assertEq(address(session).balance, BOND_AMOUNT);
@@ -158,21 +158,21 @@ contract SessionTest is Test {
     function test_depositBond_revertIncorrectAmount() public {
         vm.prank(server);
         vm.expectRevert(Session.IncorrectBondAmount.selector);
-        session.depositBond{value: 5 ether}();
+        session.depositBond{ value: 5 ether }();
     }
 
     function test_depositBond_revertOnlyServer() public {
         vm.deal(client1, BOND_AMOUNT);
         vm.expectRevert(Session.OnlyServerAllowed.selector);
         vm.prank(client1);
-        session.depositBond{value: BOND_AMOUNT}();
+        session.depositBond{ value: BOND_AMOUNT }();
     }
 
     function test_depositBond_revertAlreadyDeposited() public {
         vm.startPrank(server);
-        session.depositBond{value: BOND_AMOUNT}();
+        session.depositBond{ value: BOND_AMOUNT }();
         vm.expectRevert(Session.BondAlreadyDeposited.selector);
-        session.depositBond{value: BOND_AMOUNT}();
+        session.depositBond{ value: BOND_AMOUNT }();
         vm.stopPrank();
     }
 
@@ -200,7 +200,7 @@ contract SessionTest is Test {
 
     function test_start_revertNoClientsRegistered() public {
         vm.prank(server);
-        session.depositBond{value: BOND_AMOUNT}();
+        session.depositBond{ value: BOND_AMOUNT }();
 
         vm.prank(admin);
         vm.expectRevert(Session.NoClientsRegistered.selector);
@@ -362,7 +362,7 @@ contract SessionTest is Test {
         vm.stopPrank();
 
         vm.prank(server);
-        s.depositBond{value: BOND_AMOUNT}();
+        s.depositBond{ value: BOND_AMOUNT }();
 
         vm.prank(admin);
         s.start(initialModelRoot);
@@ -413,7 +413,7 @@ contract SessionTest is Test {
         vm.stopPrank();
 
         vm.prank(server);
-        session.depositBond{value: BOND_AMOUNT}();
+        session.depositBond{ value: BOND_AMOUNT }();
     }
 
     function _startSessionWithTwoClients() internal {

@@ -1,16 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {AccessControlDefaultAdminRules} from
-    "@openzeppelin/contracts/access/extensions/AccessControlDefaultAdminRules.sol";
-import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
-import {SafeCast} from "@openzeppelin/contracts/utils/math/SafeCast.sol";
-import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
-import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
-import {BN254} from "./crypto/BN254.sol";
-import {DomainMerkle} from "./crypto/DomainMerkle.sol";
-import {DisputeTypes} from "./disputes/DisputeTypes.sol";
-import {DisputeVerifier} from "./disputes/DisputeVerifier.sol";
+import {
+    AccessControlDefaultAdminRules
+} from "@openzeppelin/contracts/access/extensions/AccessControlDefaultAdminRules.sol";
+import { ReentrancyGuard } from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import { SafeCast } from "@openzeppelin/contracts/utils/math/SafeCast.sol";
+import { EIP712 } from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
+import { ECDSA } from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import { BN254 } from "./crypto/BN254.sol";
+import { DomainMerkle } from "./crypto/DomainMerkle.sol";
+import { DisputeTypes } from "./disputes/DisputeTypes.sol";
+import { DisputeVerifier } from "./disputes/DisputeVerifier.sol";
 
 /// @title Session
 /// @notice Manages FL session lifecycle, participant registry, optimistic round anchoring, and disputes.
@@ -97,10 +98,16 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
     bytes32 public currentModelRoot;
     uint256 public currentRound;
     uint256 public lastFinalizedBlock;
+    uint256 public currentEpoch;
+    uint64 public retainedMask;
 
     address[] private _clientAddresses;
     mapping(address => ClientInfo) public clientRegistry;
     mapping(uint256 => RoundData) public rounds;
+    mapping(uint256 => mapping(uint256 => RoundData)) public epochRounds;
+    mapping(uint256 => uint256) public epochStartRound;
+    mapping(address => uint256) public clientFirstParticipation;
+    mapping(address => bool) public isClientExcluded;
     mapping(bytes32 => ChallengeCommitment) public challengeCommitments;
     mapping(address => uint256) public withdrawableBalances;
 
@@ -119,9 +126,15 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
     );
     event RoundFinalized(uint256 indexed round, bytes32 indexed newModelRoot);
     event BondWithdrawn(address indexed server, uint256 amount);
-    event ChallengeCommitted(address indexed challenger, bytes32 indexed commitment, uint32 committedBlock);
-    event ChallengeUpheld(uint256 indexed round, uint32 indexed blockIndex, address indexed challenger);
-    event ChallengeRejected(uint256 indexed round, uint32 indexed blockIndex, address indexed challenger);
+    event ChallengeCommitted(
+        address indexed challenger, bytes32 indexed commitment, uint32 committedBlock
+    );
+    event ChallengeUpheld(
+        uint256 indexed round, uint32 indexed blockIndex, address indexed challenger
+    );
+    event ChallengeRejected(
+        uint256 indexed round, uint32 indexed blockIndex, address indexed challenger
+    );
     event ServerSlashed(
         uint256 indexed round,
         address indexed challenger,
@@ -129,6 +142,13 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         uint256 treasuryReward
     );
     event Withdrawn(address indexed recipient, uint256 amount);
+    event ExclusionRequested(
+        address indexed client,
+        uint8 indexed clientIndex,
+        uint256 indexed epoch,
+        uint256 startRound,
+        uint64 newRetainedMask
+    );
 
     // --- Custom Errors ---
     error InvalidParameter();
@@ -146,6 +166,10 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
     error RoundAlreadyPosted();
     error EmptyParticipantMask();
     error InvalidParticipantBit(uint8 bitIndex);
+    error ExcludedParticipantBit(uint8 clientIndex);
+    error ClientNotRegistered();
+    error ClientAlreadyExcluded();
+    error UnauthorizedClient();
     error ClaimedWeightMismatch(uint32 expected, uint32 actual);
     error ChallengeWindowActive();
     error RoundNotPosted();
@@ -224,7 +248,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         if (_clientAddresses.length >= maxClients) revert MaxClientsExceeded();
 
         uint8 index = _clientAddresses.length.toUint8();
-        clientRegistry[client] = ClientInfo({weight: weight, index: index, registered: true});
+        clientRegistry[client] = ClientInfo({ weight: weight, index: index, registered: true });
         _clientAddresses.push(client);
 
         emit ClientRegistered(client, weight, index);
@@ -251,8 +275,20 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         if (_clientAddresses.length == 0) revert NoClientsRegistered();
 
         currentModelRoot = initialModelRoot;
-        rounds[0].modelRootNext = initialModelRoot;
-        rounds[0].status = RoundStatus.Finalized;
+        RoundData memory r0 = RoundData({
+            modelRootNext: initialModelRoot,
+            aggRoot: bytes32(0),
+            clientLeavesRoot: bytes32(0),
+            participantMask: 0,
+            claimedWeight: 0,
+            postedBlock: block.number.toUint32(),
+            status: RoundStatus.Finalized
+        });
+        rounds[0] = r0;
+        epochRounds[0][0] = r0;
+
+        uint256 numClients = _clientAddresses.length;
+        retainedMask = numClients == 64 ? type(uint64).max : (uint64(1) << uint64(numClients)) - 1;
 
         phase = Phase.Active;
 
@@ -284,15 +320,31 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         for (uint8 i = 0; i < numClients;) {
             if ((participantMask & (uint64(1) << uint64(i))) != 0) {
                 expectedWeight += clientRegistry[_clientAddresses[i]].weight;
+                address clientAddr = _clientAddresses[i];
+                if (clientFirstParticipation[clientAddr] == 0) {
+                    clientFirstParticipation[clientAddr] = round;
+                }
             }
             unchecked {
                 ++i;
             }
         }
 
-        // Verify no bits set beyond registered client count
-        if (numClients < 64 && participantMask >= (uint64(1) << uint64(numClients))) {
-            revert InvalidParticipantBit(numClients.toUint8());
+        // Verify participantMask is a subset of retainedMask (D4a)
+        if ((participantMask & ~retainedMask) != 0) {
+            uint64 invalidBits = participantMask & ~retainedMask;
+            for (uint8 i = 0; i < 64;) {
+                if ((invalidBits & (uint64(1) << uint64(i))) != 0) {
+                    if (i >= numClients) {
+                        revert InvalidParticipantBit(numClients.toUint8());
+                    } else {
+                        revert ExcludedParticipantBit(i);
+                    }
+                }
+                unchecked {
+                    ++i;
+                }
+            }
         }
 
         if (claimedWeight != expectedWeight) {
@@ -300,7 +352,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         }
 
         uint32 currentBlock = block.number.toUint32();
-        rounds[round] = RoundData({
+        RoundData memory rData = RoundData({
             modelRootNext: modelRootNext,
             aggRoot: aggRoot,
             clientLeavesRoot: clientLeavesRoot,
@@ -309,6 +361,8 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
             postedBlock: currentBlock,
             status: RoundStatus.Posted
         });
+        rounds[round] = rData;
+        epochRounds[currentEpoch][round] = rData;
 
         emit RoundPosted(
             round,
@@ -329,13 +383,13 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         nonReentrant
         inPhase(Phase.Active)
     {
-        if (msg.value != challengerDepositWei) revert IncorrectDepositAmount();
+        if (msg.value != challengerDepositWei) {
+            revert IncorrectDepositAmount();
+        }
         if (challengeCommitments[commitment].active) revert CommitmentAlreadyExists();
 
         challengeCommitments[commitment] = ChallengeCommitment({
-            challenger: msg.sender,
-            committedBlock: block.number.toUint32(),
-            active: true
+            challenger: msg.sender, committedBlock: block.number.toUint32(), active: true
         });
 
         emit ChallengeCommitted(msg.sender, commitment, block.number.toUint32());
@@ -352,9 +406,8 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         if (r.status != RoundStatus.Posted) revert RoundNotPosted();
         if (block.number > r.postedBlock + challengeWindowBlocks) revert ChallengeWindowExpired();
 
-        bytes32 commitment = keccak256(
-            abi.encode(data.round, data.blockIndex, uint8(1), msg.sender, data.salt)
-        );
+        bytes32 commitment =
+            keccak256(abi.encode(data.round, data.blockIndex, uint8(1), msg.sender, data.salt));
         ChallengeCommitment storage c = challengeCommitments[commitment];
         if (!c.active) revert CommitmentNotFound();
         if (c.challenger != msg.sender) revert UnauthorizedChallenger();
@@ -395,12 +448,8 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
             }
         }
 
-        bool upheld = DisputeVerifier.verifyD1Aggregation(
-            data,
-            r.aggRoot,
-            r.clientLeavesRoot,
-            weights
-        );
+        bool upheld =
+            DisputeVerifier.verifyD1Aggregation(data, r.aggRoot, r.clientLeavesRoot, weights);
 
         _resolveDispute(data.round, data.blockIndex, upheld);
     }
@@ -416,9 +465,8 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         if (r.status != RoundStatus.Posted) revert RoundNotPosted();
         if (block.number > r.postedBlock + challengeWindowBlocks) revert ChallengeWindowExpired();
 
-        bytes32 commitment = keccak256(
-            abi.encode(data.round, data.blockIndex, uint8(2), msg.sender, data.salt)
-        );
+        bytes32 commitment =
+            keccak256(abi.encode(data.round, data.blockIndex, uint8(2), msg.sender, data.salt));
         ChallengeCommitment storage c = challengeCommitments[commitment];
         if (!c.active) revert CommitmentNotFound();
         if (c.challenger != msg.sender) revert UnauthorizedChallenger();
@@ -435,11 +483,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         bytes32 prevModelRoot = rounds[data.round - 1].modelRootNext;
 
         bool upheld = DisputeVerifier.verifyD2UpdateRule(
-            data,
-            prevModelRoot,
-            r.aggRoot,
-            r.modelRootNext,
-            r.claimedWeight
+            data, prevModelRoot, r.aggRoot, r.modelRootNext, r.claimedWeight
         );
 
         _resolveDispute(data.round, data.blockIndex, upheld);
@@ -467,10 +511,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
 
         // 1. Verify client leaf inclusion in clientLeavesRoot
         bytes memory clientLeaf = abi.encodePacked(
-            data.clientIndex,
-            data.clientAddress,
-            data.clientBlockRoot,
-            data.signature
+            data.clientIndex, data.clientAddress, data.clientBlockRoot, data.signature
         );
         if (!DomainMerkle.verifyProof(r.clientLeavesRoot, clientLeaf, data.clientLeafProof)) {
             revert ClientProofFailed();
@@ -505,8 +546,12 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
                 )
             );
             bytes32 digest = _hashTypedDataV4(structHash);
-            (address recovered, ECDSA.RecoverError err, bytes32 errorData) = ECDSA.tryRecover(digest, data.signature);
-            if (err != ECDSA.RecoverError.NoError || recovered != data.clientAddress || errorData != bytes32(0)) {
+            (address recovered, ECDSA.RecoverError err, bytes32 errorData) =
+                ECDSA.tryRecover(digest, data.signature);
+            if (
+                err != ECDSA.RecoverError.NoError || recovered != data.clientAddress
+                    || errorData != bytes32(0)
+            ) {
                 upheld = true;
             }
         }
@@ -521,6 +566,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
             if (!bondDeposited) revert ServerAlreadySlashed();
             bondDeposited = false;
             r.status = RoundStatus.Invalid;
+            epochRounds[currentEpoch][round].status = RoundStatus.Invalid;
 
             uint256 challengerReward = (bondAmountWei * rewardShareBps) / 10000;
             uint256 treasuryReward = bondAmountWei - challengerReward;
@@ -544,11 +590,65 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         if (block.number < r.postedBlock + challengeWindowBlocks) revert ChallengeWindowActive();
 
         r.status = RoundStatus.Finalized;
+        epochRounds[currentEpoch][round].status = RoundStatus.Finalized;
         currentRound = round;
         currentModelRoot = r.modelRootNext;
         lastFinalizedBlock = block.number;
 
         emit RoundFinalized(round, r.modelRootNext);
+    }
+
+    /// @notice Requests client exclusion and initiates an exclusion epoch if needed.
+    /// @dev Callable by a registered client during Active phase.
+    function requestExclusion() public inPhase(Phase.Active) {
+        address client = msg.sender;
+        if (!clientRegistry[client].registered) revert ClientNotRegistered();
+        if (isClientExcluded[client]) revert ClientAlreadyExcluded();
+        if (rounds[currentRound + 1].status == RoundStatus.Posted) {
+            revert ChallengeWindowActive();
+        }
+
+        uint8 clientIndex = clientRegistry[client].index;
+        isClientExcluded[client] = true;
+        retainedMask &= ~(uint64(1) << uint64(clientIndex));
+
+        uint256 startRound = clientFirstParticipation[client];
+        if (startRound == 0) {
+            // Client never participated in any posted round; no historical rounds to re-run
+            emit ExclusionRequested(client, clientIndex, currentEpoch, 0, retainedMask);
+            return;
+        }
+
+        // Start exclusion epoch: re-run rounds from startRound with retained set
+        uint256 prevRoundCount = currentRound;
+        currentEpoch++;
+        epochStartRound[currentEpoch] = startRound;
+        currentRound = startRound - 1;
+
+        // Clear active rounds mapping for rounds being re-run
+        for (uint256 r = startRound; r <= prevRoundCount;) {
+            delete rounds[r];
+            unchecked {
+                ++r;
+            }
+        }
+
+        // Anchor starting model root from base round preceding startRound
+        RoundData memory baseRound = epochRounds[currentEpoch - 1][startRound - 1];
+        epochRounds[currentEpoch][startRound - 1] = baseRound;
+        rounds[startRound - 1] = baseRound;
+        currentModelRoot = baseRound.modelRootNext;
+
+        emit ExclusionRequested(client, clientIndex, currentEpoch, startRound, retainedMask);
+    }
+
+    /// @notice Requests exclusion specifying client index, asserting sender authorization.
+    /// @param clientIndex Registered index of the client requesting exclusion.
+    function requestExclusion(uint8 clientIndex) external inPhase(Phase.Active) {
+        if (clientIndex >= _clientAddresses.length || _clientAddresses[clientIndex] != msg.sender) {
+            revert UnauthorizedClient();
+        }
+        requestExclusion();
     }
 
     /// @notice Pull-payment withdrawal for rewards, refunds, or forfeited deposits.
@@ -559,7 +659,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
         withdrawableBalances[msg.sender] = 0;
         emit Withdrawn(msg.sender, amount);
 
-        (bool success,) = msg.sender.call{value: amount}("");
+        (bool success,) = msg.sender.call{ value: amount }("");
         if (!success) revert TransferFailed();
     }
 
@@ -580,7 +680,7 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
 
         emit BondWithdrawn(server, amount);
 
-        (bool success,) = server.call{value: amount}("");
+        (bool success,) = server.call{ value: amount }("");
         if (!success) revert TransferFailed();
     }
 
@@ -601,5 +701,25 @@ contract Session is AccessControlDefaultAdminRules, ReentrancyGuard, EIP712 {
     /// @notice Returns round data for a given round index.
     function getRound(uint256 round) external view returns (RoundData memory) {
         return rounds[round];
+    }
+
+    /// @notice Returns round data for a given epoch and round index.
+    function getEpochRound(uint256 epoch, uint256 round) external view returns (RoundData memory) {
+        return epochRounds[epoch][round];
+    }
+
+    /// @notice Returns whether a client is excluded.
+    function isExcluded(address client) external view returns (bool) {
+        return isClientExcluded[client];
+    }
+
+    /// @notice Returns the current retained participant bitmask.
+    function getRetainedMask() external view returns (uint64) {
+        return retainedMask;
+    }
+
+    /// @notice Returns the current epoch index.
+    function getEpoch() external view returns (uint256) {
+        return currentEpoch;
     }
 }

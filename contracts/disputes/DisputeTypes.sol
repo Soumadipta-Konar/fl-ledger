@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {BN254} from "../crypto/BN254.sol";
+import { BN254 } from "../crypto/BN254.sol";
 
 /// @title DisputeTypes
 /// @notice Data structures for D1 (aggregation) and D2 (update rule) dispute proofs.
