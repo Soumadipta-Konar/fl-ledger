@@ -1,4 +1,4 @@
-.PHONY: all test test-contracts test-python lint slither demo clean
+.PHONY: all test test-contracts test-python lint slither demo experiments clean
 
 PYTHON ?= .venv/Scripts/python.exe
 PYTEST ?= .venv/Scripts/pytest.exe
@@ -14,6 +14,9 @@ test-contracts:
 test-python:
 	$(PYTEST) tests/ -v
 
+experiments:
+	$(PYTHON) -m experiments.run_experiments
+
 lint:
 	$(FORGE) fmt --check
 	$(PYTHON) -m pycodestyle ledger/ sim/ tests/ || true
@@ -23,6 +26,7 @@ slither:
 
 demo:
 	$(PYTHON) -m sim.demo
+
 
 clean:
 	$(FORGE) clean || true

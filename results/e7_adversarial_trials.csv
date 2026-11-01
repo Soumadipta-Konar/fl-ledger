@@ -1,0 +1,29 @@
+exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
+E7,e7-spam_invalid_data,42,3b0c359f31,3,16,1210,16,1,fl-ledger,spam_invalid_data,false_slash_count,0,fraction,0 false slashes out of 100 trials (challenger submits arbitrary garbage/malformed payloads)
+E7,e7-spam_invalid_data,42,3b0c359f31,3,16,1210,16,1,fl-ledger,spam_invalid_data,defense_success_rate,1.0,fraction,100% honest server protection against spam_invalid_data
+E7,e7-spam_invalid_data,42,3b0c359f31,3,16,1210,16,1,fl-ledger,spam_invalid_data,challenger_loss_eth,100.0,gas,total challenger capital forfeited across 100 trials
+E7,e7-spam_invalid_data,42,3b0c359f31,3,16,1210,16,1,fl-ledger,spam_invalid_data,server_bond_retained_eth,10.0,gas,server bond completely untouched (10.0 ETH retained)
+E7,e7-frontrun_same_block,42,8debc341a9,3,16,1210,16,1,fl-ledger,frontrun_same_block,false_slash_count,0,fraction,0 false slashes out of 100 trials (MEV searcher attempts same-block reveal before commitment matures)
+E7,e7-frontrun_same_block,42,8debc341a9,3,16,1210,16,1,fl-ledger,frontrun_same_block,defense_success_rate,1.0,fraction,100% honest server protection against frontrun_same_block
+E7,e7-frontrun_same_block,42,8debc341a9,3,16,1210,16,1,fl-ledger,frontrun_same_block,challenger_loss_eth,100.0,gas,total challenger capital forfeited across 100 trials
+E7,e7-frontrun_same_block,42,8debc341a9,3,16,1210,16,1,fl-ledger,frontrun_same_block,server_bond_retained_eth,10.0,gas,server bond completely untouched (10.0 ETH retained)
+E7,e7-frontrun_uncommitted,42,82e3d6638e,3,16,1210,16,1,fl-ledger,frontrun_uncommitted,false_slash_count,0,fraction,0 false slashes out of 100 trials (MEV searcher steals payload and submits reveal without prior commitChallenge)
+E7,e7-frontrun_uncommitted,42,82e3d6638e,3,16,1210,16,1,fl-ledger,frontrun_uncommitted,defense_success_rate,1.0,fraction,100% honest server protection against frontrun_uncommitted
+E7,e7-frontrun_uncommitted,42,82e3d6638e,3,16,1210,16,1,fl-ledger,frontrun_uncommitted,challenger_loss_eth,100.0,gas,total challenger capital forfeited across 100 trials
+E7,e7-frontrun_uncommitted,42,82e3d6638e,3,16,1210,16,1,fl-ledger,frontrun_uncommitted,server_bond_retained_eth,10.0,gas,server bond completely untouched (10.0 ETH retained)
+E7,e7-replayed_honest_proof,42,de2be3e98c,3,16,1210,16,1,fl-ledger,replayed_honest_proof,false_slash_count,0,fraction,0 false slashes out of 100 trials (challenger submits genuine honest server proof expecting contract to slash)
+E7,e7-replayed_honest_proof,42,de2be3e98c,3,16,1210,16,1,fl-ledger,replayed_honest_proof,defense_success_rate,1.0,fraction,100% honest server protection against replayed_honest_proof
+E7,e7-replayed_honest_proof,42,de2be3e98c,3,16,1210,16,1,fl-ledger,replayed_honest_proof,challenger_loss_eth,100.0,gas,total challenger capital forfeited across 100 trials
+E7,e7-replayed_honest_proof,42,de2be3e98c,3,16,1210,16,1,fl-ledger,replayed_honest_proof,server_bond_retained_eth,10.0,gas,server bond completely untouched (10.0 ETH retained)
+E7,e7-spliced_wrong_client_leaf,42,c2be38a0f1,3,16,1210,16,1,fl-ledger,spliced_wrong_client_leaf,false_slash_count,0,fraction,0 false slashes out of 100 trials (challenger crafts D1 challenge with mismatched client Merkle proof)
+E7,e7-spliced_wrong_client_leaf,42,c2be38a0f1,3,16,1210,16,1,fl-ledger,spliced_wrong_client_leaf,defense_success_rate,1.0,fraction,100% honest server protection against spliced_wrong_client_leaf
+E7,e7-spliced_wrong_client_leaf,42,c2be38a0f1,3,16,1210,16,1,fl-ledger,spliced_wrong_client_leaf,challenger_loss_eth,100.0,gas,total challenger capital forfeited across 100 trials
+E7,e7-spliced_wrong_client_leaf,42,c2be38a0f1,3,16,1210,16,1,fl-ledger,spliced_wrong_client_leaf,server_bond_retained_eth,10.0,gas,server bond completely untouched (10.0 ETH retained)
+E7,e7-tampered_update_leaf,42,47659c9c0f,3,16,1210,16,1,fl-ledger,tampered_update_leaf,false_slash_count,0,fraction,0 false slashes out of 100 trials (challenger crafts D2 challenge with altered leaf payload)
+E7,e7-tampered_update_leaf,42,47659c9c0f,3,16,1210,16,1,fl-ledger,tampered_update_leaf,defense_success_rate,1.0,fraction,100% honest server protection against tampered_update_leaf
+E7,e7-tampered_update_leaf,42,47659c9c0f,3,16,1210,16,1,fl-ledger,tampered_update_leaf,challenger_loss_eth,100.0,gas,total challenger capital forfeited across 100 trials
+E7,e7-tampered_update_leaf,42,47659c9c0f,3,16,1210,16,1,fl-ledger,tampered_update_leaf,server_bond_retained_eth,10.0,gas,server bond completely untouched (10.0 ETH retained)
+E7,e7-tampered_signature_proof,42,0ae6e90174,3,16,1210,16,1,fl-ledger,tampered_signature_proof,false_slash_count,0,fraction,0 false slashes out of 100 trials (challenger crafts D4 challenge with invalid Merkle leaf)
+E7,e7-tampered_signature_proof,42,0ae6e90174,3,16,1210,16,1,fl-ledger,tampered_signature_proof,defense_success_rate,1.0,fraction,100% honest server protection against tampered_signature_proof
+E7,e7-tampered_signature_proof,42,0ae6e90174,3,16,1210,16,1,fl-ledger,tampered_signature_proof,challenger_loss_eth,100.0,gas,total challenger capital forfeited across 100 trials
+E7,e7-tampered_signature_proof,42,0ae6e90174,3,16,1210,16,1,fl-ledger,tampered_signature_proof,server_bond_retained_eth,10.0,gas,server bond completely untouched (10.0 ETH retained)

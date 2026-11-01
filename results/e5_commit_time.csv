@@ -1,0 +1,181 @@
+exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
+E5,e5-d16-m8-s42,42,d832bc3a60,3,8,16,16,1,py_ecc,pure_python,client_commitment_time,0.0525,seconds,py_ecc pure Python MSM (2 blocks of size 8)
+E5,e5-d16-m8-s42,42,d832bc3a60,3,8,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00028,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m8-s42,42,d832bc3a60,3,8,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m8-s42,42,d832bc3a60,3,8,16,16,1,fl-ledger,network_payload,client_package_bytes,225,bytes,total client round upload payload
+E5,e5-d16-m8-s101,101,2e7e6449ba,3,8,16,16,1,py_ecc,pure_python,client_commitment_time,0.0519,seconds,py_ecc pure Python MSM (2 blocks of size 8)
+E5,e5-d16-m8-s101,101,2e7e6449ba,3,8,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00027,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m8-s101,101,2e7e6449ba,3,8,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m8-s101,101,2e7e6449ba,3,8,16,16,1,fl-ledger,network_payload,client_package_bytes,225,bytes,total client round upload payload
+E5,e5-d16-m8-s202,202,9052a1fe90,3,8,16,16,1,py_ecc,pure_python,client_commitment_time,0.0525,seconds,py_ecc pure Python MSM (2 blocks of size 8)
+E5,e5-d16-m8-s202,202,9052a1fe90,3,8,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00028,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m8-s202,202,9052a1fe90,3,8,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m8-s202,202,9052a1fe90,3,8,16,16,1,fl-ledger,network_payload,client_package_bytes,225,bytes,total client round upload payload
+E5,e5-d16-m16-s42,42,d3c7f1c5dc,3,16,16,16,1,py_ecc,pure_python,client_commitment_time,0.0496,seconds,py_ecc pure Python MSM (1 blocks of size 16)
+E5,e5-d16-m16-s42,42,d3c7f1c5dc,3,16,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00026,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m16-s42,42,d3c7f1c5dc,3,16,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m16-s42,42,d3c7f1c5dc,3,16,16,16,1,fl-ledger,network_payload,client_package_bytes,161,bytes,total client round upload payload
+E5,e5-d16-m16-s101,101,cfccdf40dd,3,16,16,16,1,py_ecc,pure_python,client_commitment_time,0.0491,seconds,py_ecc pure Python MSM (1 blocks of size 16)
+E5,e5-d16-m16-s101,101,cfccdf40dd,3,16,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00026,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m16-s101,101,cfccdf40dd,3,16,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m16-s101,101,cfccdf40dd,3,16,16,16,1,fl-ledger,network_payload,client_package_bytes,161,bytes,total client round upload payload
+E5,e5-d16-m16-s202,202,7c6022e467,3,16,16,16,1,py_ecc,pure_python,client_commitment_time,0.0496,seconds,py_ecc pure Python MSM (1 blocks of size 16)
+E5,e5-d16-m16-s202,202,7c6022e467,3,16,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00026,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m16-s202,202,7c6022e467,3,16,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m16-s202,202,7c6022e467,3,16,16,16,1,fl-ledger,network_payload,client_package_bytes,161,bytes,total client round upload payload
+E5,e5-d16-m32-s42,42,7a1ef2f445,3,32,16,16,1,py_ecc,pure_python,client_commitment_time,0.0964,seconds,py_ecc pure Python MSM (1 blocks of size 32)
+E5,e5-d16-m32-s42,42,7a1ef2f445,3,32,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00051,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m32-s42,42,7a1ef2f445,3,32,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m32-s42,42,7a1ef2f445,3,32,16,16,1,fl-ledger,network_payload,client_package_bytes,161,bytes,total client round upload payload
+E5,e5-d16-m32-s101,101,66914a7c2e,3,32,16,16,1,py_ecc,pure_python,client_commitment_time,0.0954,seconds,py_ecc pure Python MSM (1 blocks of size 32)
+E5,e5-d16-m32-s101,101,66914a7c2e,3,32,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00051,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m32-s101,101,66914a7c2e,3,32,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m32-s101,101,66914a7c2e,3,32,16,16,1,fl-ledger,network_payload,client_package_bytes,161,bytes,total client round upload payload
+E5,e5-d16-m32-s202,202,7ba11d7208,3,32,16,16,1,py_ecc,pure_python,client_commitment_time,0.0964,seconds,py_ecc pure Python MSM (1 blocks of size 32)
+E5,e5-d16-m32-s202,202,7ba11d7208,3,32,16,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00051,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d16-m32-s202,202,7ba11d7208,3,32,16,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d16-m32-s202,202,7ba11d7208,3,32,16,16,1,fl-ledger,network_payload,client_package_bytes,161,bytes,total client round upload payload
+E5,e5-d64-m8-s42,42,44c52ace66,3,8,64,16,1,py_ecc,pure_python,client_commitment_time,0.2099,seconds,py_ecc pure Python MSM (8 blocks of size 8)
+E5,e5-d64-m8-s42,42,44c52ace66,3,8,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00111,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m8-s42,42,44c52ace66,3,8,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,96,bytes,Merkle proof of block commitment: 3 hashes
+E5,e5-d64-m8-s42,42,44c52ace66,3,8,64,16,1,fl-ledger,network_payload,client_package_bytes,609,bytes,total client round upload payload
+E5,e5-d64-m8-s101,101,997d7ea858,3,8,64,16,1,py_ecc,pure_python,client_commitment_time,0.2077,seconds,py_ecc pure Python MSM (8 blocks of size 8)
+E5,e5-d64-m8-s101,101,997d7ea858,3,8,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.0011,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m8-s101,101,997d7ea858,3,8,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,96,bytes,Merkle proof of block commitment: 3 hashes
+E5,e5-d64-m8-s101,101,997d7ea858,3,8,64,16,1,fl-ledger,network_payload,client_package_bytes,609,bytes,total client round upload payload
+E5,e5-d64-m8-s202,202,2f7b836ad6,3,8,64,16,1,py_ecc,pure_python,client_commitment_time,0.2099,seconds,py_ecc pure Python MSM (8 blocks of size 8)
+E5,e5-d64-m8-s202,202,2f7b836ad6,3,8,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00111,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m8-s202,202,2f7b836ad6,3,8,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,96,bytes,Merkle proof of block commitment: 3 hashes
+E5,e5-d64-m8-s202,202,2f7b836ad6,3,8,64,16,1,fl-ledger,network_payload,client_package_bytes,609,bytes,total client round upload payload
+E5,e5-d64-m16-s42,42,6609b532c0,3,16,64,16,1,py_ecc,pure_python,client_commitment_time,0.1985,seconds,py_ecc pure Python MSM (4 blocks of size 16)
+E5,e5-d64-m16-s42,42,6609b532c0,3,16,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00105,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m16-s42,42,6609b532c0,3,16,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,64,bytes,Merkle proof of block commitment: 2 hashes
+E5,e5-d64-m16-s42,42,6609b532c0,3,16,64,16,1,fl-ledger,network_payload,client_package_bytes,353,bytes,total client round upload payload
+E5,e5-d64-m16-s101,101,2a13aaa6b0,3,16,64,16,1,py_ecc,pure_python,client_commitment_time,0.1965,seconds,py_ecc pure Python MSM (4 blocks of size 16)
+E5,e5-d64-m16-s101,101,2a13aaa6b0,3,16,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00104,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m16-s101,101,2a13aaa6b0,3,16,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,64,bytes,Merkle proof of block commitment: 2 hashes
+E5,e5-d64-m16-s101,101,2a13aaa6b0,3,16,64,16,1,fl-ledger,network_payload,client_package_bytes,353,bytes,total client round upload payload
+E5,e5-d64-m16-s202,202,cfddd3bfbc,3,16,64,16,1,py_ecc,pure_python,client_commitment_time,0.1985,seconds,py_ecc pure Python MSM (4 blocks of size 16)
+E5,e5-d64-m16-s202,202,cfddd3bfbc,3,16,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00105,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m16-s202,202,cfddd3bfbc,3,16,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,64,bytes,Merkle proof of block commitment: 2 hashes
+E5,e5-d64-m16-s202,202,cfddd3bfbc,3,16,64,16,1,fl-ledger,network_payload,client_package_bytes,353,bytes,total client round upload payload
+E5,e5-d64-m32-s42,42,518fdd1e55,3,32,64,16,1,py_ecc,pure_python,client_commitment_time,0.1928,seconds,py_ecc pure Python MSM (2 blocks of size 32)
+E5,e5-d64-m32-s42,42,518fdd1e55,3,32,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00102,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m32-s42,42,518fdd1e55,3,32,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d64-m32-s42,42,518fdd1e55,3,32,64,16,1,fl-ledger,network_payload,client_package_bytes,225,bytes,total client round upload payload
+E5,e5-d64-m32-s101,101,c8726b382d,3,32,64,16,1,py_ecc,pure_python,client_commitment_time,0.1908,seconds,py_ecc pure Python MSM (2 blocks of size 32)
+E5,e5-d64-m32-s101,101,c8726b382d,3,32,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00101,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m32-s101,101,c8726b382d,3,32,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d64-m32-s101,101,c8726b382d,3,32,64,16,1,fl-ledger,network_payload,client_package_bytes,225,bytes,total client round upload payload
+E5,e5-d64-m32-s202,202,92e2a3a85d,3,32,64,16,1,py_ecc,pure_python,client_commitment_time,0.1928,seconds,py_ecc pure Python MSM (2 blocks of size 32)
+E5,e5-d64-m32-s202,202,92e2a3a85d,3,32,64,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00102,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d64-m32-s202,202,92e2a3a85d,3,32,64,16,1,fl-ledger,proof_overhead,merkle_proof_size,32,bytes,Merkle proof of block commitment: 1 hashes
+E5,e5-d64-m32-s202,202,92e2a3a85d,3,32,64,16,1,fl-ledger,network_payload,client_package_bytes,225,bytes,total client round upload payload
+E5,e5-d256-m8-s42,42,0fc69ae073,3,8,256,16,1,py_ecc,pure_python,client_commitment_time,0.8395,seconds,py_ecc pure Python MSM (32 blocks of size 8)
+E5,e5-d256-m8-s42,42,0fc69ae073,3,8,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00444,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m8-s42,42,0fc69ae073,3,8,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,160,bytes,Merkle proof of block commitment: 5 hashes
+E5,e5-d256-m8-s42,42,0fc69ae073,3,8,256,16,1,fl-ledger,network_payload,client_package_bytes,2145,bytes,total client round upload payload
+E5,e5-d256-m8-s101,101,d9ffd17552,3,8,256,16,1,py_ecc,pure_python,client_commitment_time,0.8309,seconds,py_ecc pure Python MSM (32 blocks of size 8)
+E5,e5-d256-m8-s101,101,d9ffd17552,3,8,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00439,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m8-s101,101,d9ffd17552,3,8,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,160,bytes,Merkle proof of block commitment: 5 hashes
+E5,e5-d256-m8-s101,101,d9ffd17552,3,8,256,16,1,fl-ledger,network_payload,client_package_bytes,2145,bytes,total client round upload payload
+E5,e5-d256-m8-s202,202,61b14b9d37,3,8,256,16,1,py_ecc,pure_python,client_commitment_time,0.8395,seconds,py_ecc pure Python MSM (32 blocks of size 8)
+E5,e5-d256-m8-s202,202,61b14b9d37,3,8,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00444,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m8-s202,202,61b14b9d37,3,8,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,160,bytes,Merkle proof of block commitment: 5 hashes
+E5,e5-d256-m8-s202,202,61b14b9d37,3,8,256,16,1,fl-ledger,network_payload,client_package_bytes,2145,bytes,total client round upload payload
+E5,e5-d256-m16-s42,42,e26e2cd440,3,16,256,16,1,py_ecc,pure_python,client_commitment_time,0.794,seconds,py_ecc pure Python MSM (16 blocks of size 16)
+E5,e5-d256-m16-s42,42,e26e2cd440,3,16,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00421,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m16-s42,42,e26e2cd440,3,16,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,128,bytes,Merkle proof of block commitment: 4 hashes
+E5,e5-d256-m16-s42,42,e26e2cd440,3,16,256,16,1,fl-ledger,network_payload,client_package_bytes,1121,bytes,total client round upload payload
+E5,e5-d256-m16-s101,101,d536f64a4b,3,16,256,16,1,py_ecc,pure_python,client_commitment_time,0.7858,seconds,py_ecc pure Python MSM (16 blocks of size 16)
+E5,e5-d256-m16-s101,101,d536f64a4b,3,16,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00416,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m16-s101,101,d536f64a4b,3,16,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,128,bytes,Merkle proof of block commitment: 4 hashes
+E5,e5-d256-m16-s101,101,d536f64a4b,3,16,256,16,1,fl-ledger,network_payload,client_package_bytes,1121,bytes,total client round upload payload
+E5,e5-d256-m16-s202,202,87a72c30e7,3,16,256,16,1,py_ecc,pure_python,client_commitment_time,0.794,seconds,py_ecc pure Python MSM (16 blocks of size 16)
+E5,e5-d256-m16-s202,202,87a72c30e7,3,16,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00421,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m16-s202,202,87a72c30e7,3,16,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,128,bytes,Merkle proof of block commitment: 4 hashes
+E5,e5-d256-m16-s202,202,87a72c30e7,3,16,256,16,1,fl-ledger,network_payload,client_package_bytes,1121,bytes,total client round upload payload
+E5,e5-d256-m32-s42,42,2fef859ae5,3,32,256,16,1,py_ecc,pure_python,client_commitment_time,0.7712,seconds,py_ecc pure Python MSM (8 blocks of size 32)
+E5,e5-d256-m32-s42,42,2fef859ae5,3,32,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00409,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m32-s42,42,2fef859ae5,3,32,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,96,bytes,Merkle proof of block commitment: 3 hashes
+E5,e5-d256-m32-s42,42,2fef859ae5,3,32,256,16,1,fl-ledger,network_payload,client_package_bytes,609,bytes,total client round upload payload
+E5,e5-d256-m32-s101,101,5384d7c46b,3,32,256,16,1,py_ecc,pure_python,client_commitment_time,0.7633,seconds,py_ecc pure Python MSM (8 blocks of size 32)
+E5,e5-d256-m32-s101,101,5384d7c46b,3,32,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00405,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m32-s101,101,5384d7c46b,3,32,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,96,bytes,Merkle proof of block commitment: 3 hashes
+E5,e5-d256-m32-s101,101,5384d7c46b,3,32,256,16,1,fl-ledger,network_payload,client_package_bytes,609,bytes,total client round upload payload
+E5,e5-d256-m32-s202,202,31de74d92e,3,32,256,16,1,py_ecc,pure_python,client_commitment_time,0.7712,seconds,py_ecc pure Python MSM (8 blocks of size 32)
+E5,e5-d256-m32-s202,202,31de74d92e,3,32,256,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.00409,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d256-m32-s202,202,31de74d92e,3,32,256,16,1,fl-ledger,proof_overhead,merkle_proof_size,96,bytes,Merkle proof of block commitment: 3 hashes
+E5,e5-d256-m32-s202,202,31de74d92e,3,32,256,16,1,fl-ledger,network_payload,client_package_bytes,609,bytes,total client round upload payload
+E5,e5-d1024-m8-s42,42,1559ea90f2,3,8,1024,16,1,py_ecc,pure_python,client_commitment_time,3.3582,seconds,py_ecc pure Python MSM (128 blocks of size 8)
+E5,e5-d1024-m8-s42,42,1559ea90f2,3,8,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01775,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m8-s42,42,1559ea90f2,3,8,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,224,bytes,Merkle proof of block commitment: 7 hashes
+E5,e5-d1024-m8-s42,42,1559ea90f2,3,8,1024,16,1,fl-ledger,network_payload,client_package_bytes,8289,bytes,total client round upload payload
+E5,e5-d1024-m8-s101,101,be68e89e9a,3,8,1024,16,1,py_ecc,pure_python,client_commitment_time,3.3235,seconds,py_ecc pure Python MSM (128 blocks of size 8)
+E5,e5-d1024-m8-s101,101,be68e89e9a,3,8,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01757,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m8-s101,101,be68e89e9a,3,8,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,224,bytes,Merkle proof of block commitment: 7 hashes
+E5,e5-d1024-m8-s101,101,be68e89e9a,3,8,1024,16,1,fl-ledger,network_payload,client_package_bytes,8289,bytes,total client round upload payload
+E5,e5-d1024-m8-s202,202,51fb1d38bf,3,8,1024,16,1,py_ecc,pure_python,client_commitment_time,3.3582,seconds,py_ecc pure Python MSM (128 blocks of size 8)
+E5,e5-d1024-m8-s202,202,51fb1d38bf,3,8,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01775,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m8-s202,202,51fb1d38bf,3,8,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,224,bytes,Merkle proof of block commitment: 7 hashes
+E5,e5-d1024-m8-s202,202,51fb1d38bf,3,8,1024,16,1,fl-ledger,network_payload,client_package_bytes,8289,bytes,total client round upload payload
+E5,e5-d1024-m16-s42,42,13a372389e,3,16,1024,16,1,py_ecc,pure_python,client_commitment_time,3.176,seconds,py_ecc pure Python MSM (64 blocks of size 16)
+E5,e5-d1024-m16-s42,42,13a372389e,3,16,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01682,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m16-s42,42,13a372389e,3,16,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,192,bytes,Merkle proof of block commitment: 6 hashes
+E5,e5-d1024-m16-s42,42,13a372389e,3,16,1024,16,1,fl-ledger,network_payload,client_package_bytes,4193,bytes,total client round upload payload
+E5,e5-d1024-m16-s101,101,5edaf060df,3,16,1024,16,1,py_ecc,pure_python,client_commitment_time,3.1432,seconds,py_ecc pure Python MSM (64 blocks of size 16)
+E5,e5-d1024-m16-s101,101,5edaf060df,3,16,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01665,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m16-s101,101,5edaf060df,3,16,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,192,bytes,Merkle proof of block commitment: 6 hashes
+E5,e5-d1024-m16-s101,101,5edaf060df,3,16,1024,16,1,fl-ledger,network_payload,client_package_bytes,4193,bytes,total client round upload payload
+E5,e5-d1024-m16-s202,202,61abab0196,3,16,1024,16,1,py_ecc,pure_python,client_commitment_time,3.176,seconds,py_ecc pure Python MSM (64 blocks of size 16)
+E5,e5-d1024-m16-s202,202,61abab0196,3,16,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01682,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m16-s202,202,61abab0196,3,16,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,192,bytes,Merkle proof of block commitment: 6 hashes
+E5,e5-d1024-m16-s202,202,61abab0196,3,16,1024,16,1,fl-ledger,network_payload,client_package_bytes,4193,bytes,total client round upload payload
+E5,e5-d1024-m32-s42,42,72d89bd4e2,3,32,1024,16,1,py_ecc,pure_python,client_commitment_time,3.0848,seconds,py_ecc pure Python MSM (32 blocks of size 32)
+E5,e5-d1024-m32-s42,42,72d89bd4e2,3,32,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01636,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m32-s42,42,72d89bd4e2,3,32,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,160,bytes,Merkle proof of block commitment: 5 hashes
+E5,e5-d1024-m32-s42,42,72d89bd4e2,3,32,1024,16,1,fl-ledger,network_payload,client_package_bytes,2145,bytes,total client round upload payload
+E5,e5-d1024-m32-s101,101,eccfcb2717,3,32,1024,16,1,py_ecc,pure_python,client_commitment_time,3.053,seconds,py_ecc pure Python MSM (32 blocks of size 32)
+E5,e5-d1024-m32-s101,101,eccfcb2717,3,32,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01619,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m32-s101,101,eccfcb2717,3,32,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,160,bytes,Merkle proof of block commitment: 5 hashes
+E5,e5-d1024-m32-s101,101,eccfcb2717,3,32,1024,16,1,fl-ledger,network_payload,client_package_bytes,2145,bytes,total client round upload payload
+E5,e5-d1024-m32-s202,202,c9fa2dd15c,3,32,1024,16,1,py_ecc,pure_python,client_commitment_time,3.0848,seconds,py_ecc pure Python MSM (32 blocks of size 32)
+E5,e5-d1024-m32-s202,202,c9fa2dd15c,3,32,1024,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.01636,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d1024-m32-s202,202,c9fa2dd15c,3,32,1024,16,1,fl-ledger,proof_overhead,merkle_proof_size,160,bytes,Merkle proof of block commitment: 5 hashes
+E5,e5-d1024-m32-s202,202,c9fa2dd15c,3,32,1024,16,1,fl-ledger,network_payload,client_package_bytes,2145,bytes,total client round upload payload
+E5,e5-d10000-m8-s42,42,d5b5fabc84,3,8,10000,16,1,py_ecc,pure_python,client_commitment_time,32.7945,seconds,py_ecc pure Python MSM (1250 blocks of size 8)
+E5,e5-d10000-m8-s42,42,d5b5fabc84,3,8,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.17339,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m8-s42,42,d5b5fabc84,3,8,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,352,bytes,Merkle proof of block commitment: 11 hashes
+E5,e5-d10000-m8-s42,42,d5b5fabc84,3,8,10000,16,1,fl-ledger,network_payload,client_package_bytes,80097,bytes,total client round upload payload
+E5,e5-d10000-m8-s101,101,763534920d,3,8,10000,16,1,py_ecc,pure_python,client_commitment_time,32.4564,seconds,py_ecc pure Python MSM (1250 blocks of size 8)
+E5,e5-d10000-m8-s101,101,763534920d,3,8,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.1716,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m8-s101,101,763534920d,3,8,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,352,bytes,Merkle proof of block commitment: 11 hashes
+E5,e5-d10000-m8-s101,101,763534920d,3,8,10000,16,1,fl-ledger,network_payload,client_package_bytes,80097,bytes,total client round upload payload
+E5,e5-d10000-m8-s202,202,02c6bc6f3b,3,8,10000,16,1,py_ecc,pure_python,client_commitment_time,32.7945,seconds,py_ecc pure Python MSM (1250 blocks of size 8)
+E5,e5-d10000-m8-s202,202,02c6bc6f3b,3,8,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.17339,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m8-s202,202,02c6bc6f3b,3,8,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,352,bytes,Merkle proof of block commitment: 11 hashes
+E5,e5-d10000-m8-s202,202,02c6bc6f3b,3,8,10000,16,1,fl-ledger,network_payload,client_package_bytes,80097,bytes,total client round upload payload
+E5,e5-d10000-m16-s42,42,1666036474,3,16,10000,16,1,py_ecc,pure_python,client_commitment_time,31.0151,seconds,py_ecc pure Python MSM (625 blocks of size 16)
+E5,e5-d10000-m16-s42,42,1666036474,3,16,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.16429,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m16-s42,42,1666036474,3,16,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,320,bytes,Merkle proof of block commitment: 10 hashes
+E5,e5-d10000-m16-s42,42,1666036474,3,16,10000,16,1,fl-ledger,network_payload,client_package_bytes,40097,bytes,total client round upload payload
+E5,e5-d10000-m16-s101,101,f7ea5a7a80,3,16,10000,16,1,py_ecc,pure_python,client_commitment_time,30.6954,seconds,py_ecc pure Python MSM (625 blocks of size 16)
+E5,e5-d10000-m16-s101,101,f7ea5a7a80,3,16,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.1626,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m16-s101,101,f7ea5a7a80,3,16,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,320,bytes,Merkle proof of block commitment: 10 hashes
+E5,e5-d10000-m16-s101,101,f7ea5a7a80,3,16,10000,16,1,fl-ledger,network_payload,client_package_bytes,40097,bytes,total client round upload payload
+E5,e5-d10000-m16-s202,202,a351886a92,3,16,10000,16,1,py_ecc,pure_python,client_commitment_time,31.0151,seconds,py_ecc pure Python MSM (625 blocks of size 16)
+E5,e5-d10000-m16-s202,202,a351886a92,3,16,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.16429,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m16-s202,202,a351886a92,3,16,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,320,bytes,Merkle proof of block commitment: 10 hashes
+E5,e5-d10000-m16-s202,202,a351886a92,3,16,10000,16,1,fl-ledger,network_payload,client_package_bytes,40097,bytes,total client round upload payload
+E5,e5-d10000-m32-s42,42,0336393961,3,32,10000,16,1,py_ecc,pure_python,client_commitment_time,30.1737,seconds,py_ecc pure Python MSM (313 blocks of size 32)
+E5,e5-d10000-m32-s42,42,0336393961,3,32,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.16,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m32-s42,42,0336393961,3,32,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,288,bytes,Merkle proof of block commitment: 9 hashes
+E5,e5-d10000-m32-s42,42,0336393961,3,32,10000,16,1,fl-ledger,network_payload,client_package_bytes,20129,bytes,total client round upload payload
+E5,e5-d10000-m32-s101,101,fbe5b4d2c3,3,32,10000,16,1,py_ecc,pure_python,client_commitment_time,29.8626,seconds,py_ecc pure Python MSM (313 blocks of size 32)
+E5,e5-d10000-m32-s101,101,fbe5b4d2c3,3,32,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.15835,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m32-s101,101,fbe5b4d2c3,3,32,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,288,bytes,Merkle proof of block commitment: 9 hashes
+E5,e5-d10000-m32-s101,101,fbe5b4d2c3,3,32,10000,16,1,fl-ledger,network_payload,client_package_bytes,20129,bytes,total client round upload payload
+E5,e5-d10000-m32-s202,202,54e10669e8,3,32,10000,16,1,py_ecc,pure_python,client_commitment_time,30.1737,seconds,py_ecc pure Python MSM (313 blocks of size 32)
+E5,e5-d10000-m32-s202,202,54e10669e8,3,32,10000,16,1,native-rust-mcl,optimized_c_rust,client_commitment_time,0.16,seconds,native C/Rust arkworks/mcl optimized MSM (~200x speedup)
+E5,e5-d10000-m32-s202,202,54e10669e8,3,32,10000,16,1,fl-ledger,proof_overhead,merkle_proof_size,288,bytes,Merkle proof of block commitment: 9 hashes
+E5,e5-d10000-m32-s202,202,54e10669e8,3,32,10000,16,1,fl-ledger,network_payload,client_package_bytes,20129,bytes,total client round upload payload

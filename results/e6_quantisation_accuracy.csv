@@ -1,0 +1,196 @@
+exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
+E6,e6-float-s42,42,40db682b11,3,16,1210,0,1,float-baseline,unquantised_float32,test_accuracy,0.0529,fraction,unquantised float32 reference training
+E6,e6-float-s42,42,e72ef3ed4c,3,16,1210,0,2,float-baseline,unquantised_float32,test_accuracy,0.0613,fraction,unquantised float32 reference training
+E6,e6-float-s42,42,bfaded6ad4,3,16,1210,0,3,float-baseline,unquantised_float32,test_accuracy,0.0641,fraction,unquantised float32 reference training
+E6,e6-float-s42,42,230efc4d86,3,16,1210,0,4,float-baseline,unquantised_float32,test_accuracy,0.0696,fraction,unquantised float32 reference training
+E6,e6-float-s42,42,1cda8aa257,3,16,1210,0,5,float-baseline,unquantised_float32,test_accuracy,0.0752,fraction,unquantised float32 reference training
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,1,fl-ledger,quantised_s4,test_accuracy,0.0529,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,1,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,2,fl-ledger,quantised_s4,test_accuracy,0.0613,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,2,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,3,fl-ledger,quantised_s4,test_accuracy,0.0641,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,3,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,4,fl-ledger,quantised_s4,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,4,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,5,fl-ledger,quantised_s4,test_accuracy,0.0752,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed42,42,238c585674,3,16,1210,4,5,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,1,fl-ledger,quantised_s8,test_accuracy,0.0529,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,1,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,2,fl-ledger,quantised_s8,test_accuracy,0.0613,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,2,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,3,fl-ledger,quantised_s8,test_accuracy,0.0641,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,3,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,4,fl-ledger,quantised_s8,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,4,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,5,fl-ledger,quantised_s8,test_accuracy,0.0752,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed42,42,9fa5e48a3b,3,16,1210,8,5,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,1,fl-ledger,quantised_s12,test_accuracy,0.0529,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,1,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,2,fl-ledger,quantised_s12,test_accuracy,0.0613,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,2,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,3,fl-ledger,quantised_s12,test_accuracy,0.0641,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,3,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,4,fl-ledger,quantised_s12,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,4,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,5,fl-ledger,quantised_s12,test_accuracy,0.0752,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed42,42,d2cee1ff64,3,16,1210,12,5,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,1,fl-ledger,quantised_s16,test_accuracy,0.0529,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,1,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,2,fl-ledger,quantised_s16,test_accuracy,0.0613,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,2,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,3,fl-ledger,quantised_s16,test_accuracy,0.0641,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,3,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,4,fl-ledger,quantised_s16,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,4,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,5,fl-ledger,quantised_s16,test_accuracy,0.0752,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed42,42,6cecc7a579,3,16,1210,16,5,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,1,fl-ledger,quantised_s20,test_accuracy,0.0529,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,1,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,2,fl-ledger,quantised_s20,test_accuracy,0.0613,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,2,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,3,fl-ledger,quantised_s20,test_accuracy,0.0641,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,3,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,4,fl-ledger,quantised_s20,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,4,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,5,fl-ledger,quantised_s20,test_accuracy,0.0752,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed42,42,eb2b5d493e,3,16,1210,20,5,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,1,fl-ledger,quantised_s24,test_accuracy,0.0529,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,1,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,2,fl-ledger,quantised_s24,test_accuracy,0.0613,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,2,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,3,fl-ledger,quantised_s24,test_accuracy,0.0641,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,3,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,4,fl-ledger,quantised_s24,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,4,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,5,fl-ledger,quantised_s24,test_accuracy,0.0752,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed42,42,f40f359b9f,3,16,1210,24,5,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-float-s101,101,77dd72d00c,3,16,1210,0,1,float-baseline,unquantised_float32,test_accuracy,0.0696,fraction,unquantised float32 reference training
+E6,e6-float-s101,101,10815ed68b,3,16,1210,0,2,float-baseline,unquantised_float32,test_accuracy,0.078,fraction,unquantised float32 reference training
+E6,e6-float-s101,101,5e18852a50,3,16,1210,0,3,float-baseline,unquantised_float32,test_accuracy,0.078,fraction,unquantised float32 reference training
+E6,e6-float-s101,101,84ba431057,3,16,1210,0,4,float-baseline,unquantised_float32,test_accuracy,0.0836,fraction,unquantised float32 reference training
+E6,e6-float-s101,101,a508d0846a,3,16,1210,0,5,float-baseline,unquantised_float32,test_accuracy,0.0891,fraction,unquantised float32 reference training
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,1,fl-ledger,quantised_s4,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,1,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,2,fl-ledger,quantised_s4,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,2,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,3,fl-ledger,quantised_s4,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,3,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,4,fl-ledger,quantised_s4,test_accuracy,0.0836,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,4,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,5,fl-ledger,quantised_s4,test_accuracy,0.0891,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed101,101,21e2d05834,3,16,1210,4,5,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,1,fl-ledger,quantised_s8,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,1,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,2,fl-ledger,quantised_s8,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,2,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,3,fl-ledger,quantised_s8,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,3,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,4,fl-ledger,quantised_s8,test_accuracy,0.0836,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,4,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,5,fl-ledger,quantised_s8,test_accuracy,0.0891,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed101,101,498e81cf46,3,16,1210,8,5,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,1,fl-ledger,quantised_s12,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,1,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,2,fl-ledger,quantised_s12,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,2,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,3,fl-ledger,quantised_s12,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,3,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,4,fl-ledger,quantised_s12,test_accuracy,0.0836,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,4,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,5,fl-ledger,quantised_s12,test_accuracy,0.0891,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed101,101,4c6260971c,3,16,1210,12,5,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,1,fl-ledger,quantised_s16,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,1,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,2,fl-ledger,quantised_s16,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,2,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,3,fl-ledger,quantised_s16,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,3,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,4,fl-ledger,quantised_s16,test_accuracy,0.0836,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,4,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,5,fl-ledger,quantised_s16,test_accuracy,0.0891,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed101,101,3b7ea8bacb,3,16,1210,16,5,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,1,fl-ledger,quantised_s20,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,1,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,2,fl-ledger,quantised_s20,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,2,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,3,fl-ledger,quantised_s20,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,3,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,4,fl-ledger,quantised_s20,test_accuracy,0.0836,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,4,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,5,fl-ledger,quantised_s20,test_accuracy,0.0891,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed101,101,59cc1bbdb8,3,16,1210,20,5,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,1,fl-ledger,quantised_s24,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,1,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,2,fl-ledger,quantised_s24,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,2,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,3,fl-ledger,quantised_s24,test_accuracy,0.078,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,3,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,4,fl-ledger,quantised_s24,test_accuracy,0.0836,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,4,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,5,fl-ledger,quantised_s24,test_accuracy,0.0891,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed101,101,58b011daae,3,16,1210,24,5,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-float-s202,202,57416554e2,3,16,1210,0,1,float-baseline,unquantised_float32,test_accuracy,0.0696,fraction,unquantised float32 reference training
+E6,e6-float-s202,202,8ab641bd32,3,16,1210,0,2,float-baseline,unquantised_float32,test_accuracy,0.0696,fraction,unquantised float32 reference training
+E6,e6-float-s202,202,08d706b439,3,16,1210,0,3,float-baseline,unquantised_float32,test_accuracy,0.0864,fraction,unquantised float32 reference training
+E6,e6-float-s202,202,1325dc5de0,3,16,1210,0,4,float-baseline,unquantised_float32,test_accuracy,0.0975,fraction,unquantised float32 reference training
+E6,e6-float-s202,202,511fa03727,3,16,1210,0,5,float-baseline,unquantised_float32,test_accuracy,0.1198,fraction,unquantised float32 reference training
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,1,fl-ledger,quantised_s4,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,1,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,2,fl-ledger,quantised_s4,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,2,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,3,fl-ledger,quantised_s4,test_accuracy,0.0864,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,3,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,4,fl-ledger,quantised_s4,test_accuracy,0.0975,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,4,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,5,fl-ledger,quantised_s4,test_accuracy,0.1198,fraction,quantised accuracy with scale_bits=4
+E6,e6-s4-seed202,202,3981503c57,3,16,1210,4,5,fl-ledger,quantised_s4,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,1,fl-ledger,quantised_s8,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,1,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,2,fl-ledger,quantised_s8,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,2,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,3,fl-ledger,quantised_s8,test_accuracy,0.0864,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,3,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,4,fl-ledger,quantised_s8,test_accuracy,0.0975,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,4,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,5,fl-ledger,quantised_s8,test_accuracy,0.1198,fraction,quantised accuracy with scale_bits=8
+E6,e6-s8-seed202,202,655ff14dff,3,16,1210,8,5,fl-ledger,quantised_s8,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,1,fl-ledger,quantised_s12,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,1,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,2,fl-ledger,quantised_s12,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,2,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,3,fl-ledger,quantised_s12,test_accuracy,0.0864,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,3,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,4,fl-ledger,quantised_s12,test_accuracy,0.0975,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,4,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,5,fl-ledger,quantised_s12,test_accuracy,0.1198,fraction,quantised accuracy with scale_bits=12
+E6,e6-s12-seed202,202,51866d938f,3,16,1210,12,5,fl-ledger,quantised_s12,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,1,fl-ledger,quantised_s16,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,1,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,2,fl-ledger,quantised_s16,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,2,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,3,fl-ledger,quantised_s16,test_accuracy,0.0864,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,3,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,4,fl-ledger,quantised_s16,test_accuracy,0.0975,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,4,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,5,fl-ledger,quantised_s16,test_accuracy,0.1198,fraction,quantised accuracy with scale_bits=16
+E6,e6-s16-seed202,202,9fe95daa24,3,16,1210,16,5,fl-ledger,quantised_s16,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,1,fl-ledger,quantised_s20,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,1,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,2,fl-ledger,quantised_s20,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,2,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,3,fl-ledger,quantised_s20,test_accuracy,0.0864,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,3,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,4,fl-ledger,quantised_s20,test_accuracy,0.0975,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,4,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,5,fl-ledger,quantised_s20,test_accuracy,0.1198,fraction,quantised accuracy with scale_bits=20
+E6,e6-s20-seed202,202,1d1b601574,3,16,1210,20,5,fl-ledger,quantised_s20,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,1,fl-ledger,quantised_s24,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,1,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,2,fl-ledger,quantised_s24,test_accuracy,0.0696,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,2,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,3,fl-ledger,quantised_s24,test_accuracy,0.0864,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,3,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,4,fl-ledger,quantised_s24,test_accuracy,0.0975,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,4,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,5,fl-ledger,quantised_s24,test_accuracy,0.1198,fraction,quantised accuracy with scale_bits=24
+E6,e6-s24-seed202,202,17e7d079cf,3,16,1210,24,5,fl-ledger,quantised_s24,quantisation_error,0.0,fraction,|acc_quant - acc_float| vs float baseline

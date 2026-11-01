@@ -1,0 +1,34 @@
+exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
+E8,e8-D1_aggregation-s42,42,5505573c80,3,16,1210,16,1,fl-ledger,D1_aggregation,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D1_aggregation-s42,42,5505573c80,3,16,1210,16,1,fl-ledger,D1_aggregation,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D1_aggregation-s42,42,5505573c80,3,16,1210,16,1,fl-ledger,D1_aggregation,typical_resolution_blocks,1,blocks,observed resolution latency (D1 Homomorphism dispute)
+E8,e8-D1_aggregation-s101,101,2a5f392ce5,3,16,1210,16,1,fl-ledger,D1_aggregation,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D1_aggregation-s101,101,2a5f392ce5,3,16,1210,16,1,fl-ledger,D1_aggregation,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D1_aggregation-s101,101,2a5f392ce5,3,16,1210,16,1,fl-ledger,D1_aggregation,typical_resolution_blocks,2,blocks,observed resolution latency (D1 Homomorphism dispute)
+E8,e8-D1_aggregation-s202,202,b082c6a093,3,16,1210,16,1,fl-ledger,D1_aggregation,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D1_aggregation-s202,202,b082c6a093,3,16,1210,16,1,fl-ledger,D1_aggregation,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D1_aggregation-s202,202,b082c6a093,3,16,1210,16,1,fl-ledger,D1_aggregation,typical_resolution_blocks,1,blocks,observed resolution latency (D1 Homomorphism dispute)
+E8,e8-D2_update_rule-s42,42,98a4ff9848,3,16,1210,16,1,fl-ledger,D2_update_rule,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D2_update_rule-s42,42,98a4ff9848,3,16,1210,16,1,fl-ledger,D2_update_rule,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D2_update_rule-s42,42,98a4ff9848,3,16,1210,16,1,fl-ledger,D2_update_rule,typical_resolution_blocks,1,blocks,observed resolution latency (D2 Model update rule dispute)
+E8,e8-D2_update_rule-s101,101,8efb6346b9,3,16,1210,16,1,fl-ledger,D2_update_rule,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D2_update_rule-s101,101,8efb6346b9,3,16,1210,16,1,fl-ledger,D2_update_rule,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D2_update_rule-s101,101,8efb6346b9,3,16,1210,16,1,fl-ledger,D2_update_rule,typical_resolution_blocks,2,blocks,observed resolution latency (D2 Model update rule dispute)
+E8,e8-D2_update_rule-s202,202,4a8584b60c,3,16,1210,16,1,fl-ledger,D2_update_rule,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D2_update_rule-s202,202,4a8584b60c,3,16,1210,16,1,fl-ledger,D2_update_rule,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D2_update_rule-s202,202,4a8584b60c,3,16,1210,16,1,fl-ledger,D2_update_rule,typical_resolution_blocks,1,blocks,observed resolution latency (D2 Model update rule dispute)
+E8,e8-D4_client_leaf-s42,42,e6c59ae126,3,16,1210,16,1,fl-ledger,D4_client_leaf,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D4_client_leaf-s42,42,e6c59ae126,3,16,1210,16,1,fl-ledger,D4_client_leaf,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D4_client_leaf-s42,42,e6c59ae126,3,16,1210,16,1,fl-ledger,D4_client_leaf,typical_resolution_blocks,1,blocks,observed resolution latency (D4 Lazy client signature dispute)
+E8,e8-D4_client_leaf-s101,101,e7ecf50077,3,16,1210,16,1,fl-ledger,D4_client_leaf,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D4_client_leaf-s101,101,e7ecf50077,3,16,1210,16,1,fl-ledger,D4_client_leaf,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D4_client_leaf-s101,101,e7ecf50077,3,16,1210,16,1,fl-ledger,D4_client_leaf,typical_resolution_blocks,2,blocks,observed resolution latency (D4 Lazy client signature dispute)
+E8,e8-D4_client_leaf-s202,202,af57e8b18f,3,16,1210,16,1,fl-ledger,D4_client_leaf,min_resolution_blocks,1,blocks,minimum maturity latency (Block B -> B+1)
+E8,e8-D4_client_leaf-s202,202,af57e8b18f,3,16,1210,16,1,fl-ledger,D4_client_leaf,max_resolution_blocks,20,blocks,challenge window timeout limit
+E8,e8-D4_client_leaf-s202,202,af57e8b18f,3,16,1210,16,1,fl-ledger,D4_client_leaf,typical_resolution_blocks,1,blocks,observed resolution latency (D4 Lazy client signature dispute)
+E8,e8-round_finalization-s42,42,b705816ed5,3,16,1210,16,1,fl-ledger,round_finalization,finalization_delay_blocks,20,blocks,mandatory challenge window wait before finalizeRound
+E8,e8-round_finalization-s101,101,f68dc81465,3,16,1210,16,1,fl-ledger,round_finalization,finalization_delay_blocks,20,blocks,mandatory challenge window wait before finalizeRound
+E8,e8-round_finalization-s202,202,6bb17bb69e,3,16,1210,16,1,fl-ledger,round_finalization,finalization_delay_blocks,20,blocks,mandatory challenge window wait before finalizeRound
+E8,e8-bond_withdrawal-s42,42,47ffc7060e,3,16,1210,16,1,fl-ledger,bond_withdrawal,withdrawal_delay_blocks,40,blocks,mandatory cooldown delay after session end before withdrawBond
+E8,e8-bond_withdrawal-s101,101,9c698159bc,3,16,1210,16,1,fl-ledger,bond_withdrawal,withdrawal_delay_blocks,40,blocks,mandatory cooldown delay after session end before withdrawBond
+E8,e8-bond_withdrawal-s202,202,f99d5d8e8a,3,16,1210,16,1,fl-ledger,bond_withdrawal,withdrawal_delay_blocks,40,blocks,mandatory cooldown delay after session end before withdrawBond

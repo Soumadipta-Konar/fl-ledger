@@ -1,34 +1,865 @@
 exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
-E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,cold anchor storage
-E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition
-E6,honest-run-1793543560,42,13707283f1,3,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.052924791086350974,fraction,float_acc=0.0529
-E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,2,fl-ledger,honest,post_round_gas,137072,gas,sequential round
-E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,2,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition
-E6,honest-run-1793543560,42,13707283f1,3,16,1210,16,2,fl-ledger,honest,quantised_accuracy,0.05013927576601671,fraction,float_acc=0.0501
-E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,3,fl-ledger,honest,post_round_gas,137084,gas,sequential round
-E1,honest-run-1793543560,42,13707283f1,3,16,1210,16,3,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition
-E6,honest-run-1793543560,42,13707283f1,3,16,1210,16,3,fl-ledger,honest,quantised_accuracy,0.05013927576601671,fraction,float_acc=0.0501
-E1,honest-run-1793543718,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,132369,gas,cold anchor storage
-E1,honest-run-1793543718,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition
-E6,honest-run-1793543718,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
-E1,honest-run-1793544879,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26020,gas,cold anchor storage
-E1,honest-run-1793544879,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
-E6,honest-run-1793544879,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
-E1,honest-run-1793545003,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26050,gas,cold anchor storage
-E1,honest-run-1793545003,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
-E6,honest-run-1793545003,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
-E1,honest-run-1793545064,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26050,gas,cold anchor storage
-E1,honest-run-1793545064,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
-E6,honest-run-1793545064,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
-E1,honest-run-1793545173,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26050,gas,cold anchor storage
-E1,honest-run-1793545173,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
-E6,honest-run-1793545173,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
-E1,honest-run-1793548166,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26050,gas,cold anchor storage
-E1,honest-run-1793548166,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
-E6,honest-run-1793548166,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
-E1,honest-run-1793548726,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26020,gas,cold anchor storage
-E1,honest-run-1793548726,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
-E6,honest-run-1793548726,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
-E1,honest-run-1793549566,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,post_round_gas,26050,gas,cold anchor storage
-E1,honest-run-1793549566,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,21510,gas,round finalization state transition
-E6,honest-run-1793549566,123,47b25c1c75,2,16,1210,16,1,fl-ledger,honest,quantised_accuracy,0.11977715877437325,fraction,float_acc=0.1198
+E1,e1-K2-m8-d16-s42,42,2db1d4fd5f,2,8,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d16-s42,42,2db1d4fd5f,2,8,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d16-s42,42,2db1d4fd5f,2,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d16-s42,42,2db1d4fd5f,2,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d16-s42,42,2db1d4fd5f,2,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d16-s42,42,2db1d4fd5f,2,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d16-s101,101,77d01f0a1e,2,8,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d16-s101,101,77d01f0a1e,2,8,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d16-s101,101,77d01f0a1e,2,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d16-s101,101,77d01f0a1e,2,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d16-s101,101,77d01f0a1e,2,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d16-s101,101,77d01f0a1e,2,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d16-s202,202,f9ea2b8a20,2,8,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d16-s202,202,f9ea2b8a20,2,8,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d16-s202,202,f9ea2b8a20,2,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d16-s202,202,f9ea2b8a20,2,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d16-s202,202,f9ea2b8a20,2,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d16-s202,202,f9ea2b8a20,2,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d64-s42,42,baf462ace5,2,8,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d64-s42,42,baf462ace5,2,8,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d64-s42,42,baf462ace5,2,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d64-s42,42,baf462ace5,2,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d64-s42,42,baf462ace5,2,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d64-s42,42,baf462ace5,2,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d64-s101,101,4327293f82,2,8,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d64-s101,101,4327293f82,2,8,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d64-s101,101,4327293f82,2,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d64-s101,101,4327293f82,2,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d64-s101,101,4327293f82,2,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d64-s101,101,4327293f82,2,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d64-s202,202,9171c0ccf0,2,8,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d64-s202,202,9171c0ccf0,2,8,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d64-s202,202,9171c0ccf0,2,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d64-s202,202,9171c0ccf0,2,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d64-s202,202,9171c0ccf0,2,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d64-s202,202,9171c0ccf0,2,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d256-s42,42,9776e0c9d0,2,8,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d256-s42,42,9776e0c9d0,2,8,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d256-s42,42,9776e0c9d0,2,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d256-s42,42,9776e0c9d0,2,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d256-s42,42,9776e0c9d0,2,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d256-s42,42,9776e0c9d0,2,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d256-s101,101,87eb0898b5,2,8,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d256-s101,101,87eb0898b5,2,8,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d256-s101,101,87eb0898b5,2,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d256-s101,101,87eb0898b5,2,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d256-s101,101,87eb0898b5,2,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d256-s101,101,87eb0898b5,2,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d256-s202,202,4e62a1657e,2,8,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d256-s202,202,4e62a1657e,2,8,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d256-s202,202,4e62a1657e,2,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d256-s202,202,4e62a1657e,2,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d256-s202,202,4e62a1657e,2,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d256-s202,202,4e62a1657e,2,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d1210-s42,42,7ff63491be,2,8,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d1210-s42,42,7ff63491be,2,8,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d1210-s42,42,7ff63491be,2,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d1210-s42,42,7ff63491be,2,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d1210-s42,42,7ff63491be,2,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d1210-s42,42,7ff63491be,2,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d1210-s101,101,5eeea6389c,2,8,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d1210-s101,101,5eeea6389c,2,8,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d1210-s101,101,5eeea6389c,2,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d1210-s101,101,5eeea6389c,2,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d1210-s101,101,5eeea6389c,2,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d1210-s101,101,5eeea6389c,2,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m8-d1210-s202,202,ccfbe8fbf2,2,8,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m8-d1210-s202,202,ccfbe8fbf2,2,8,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m8-d1210-s202,202,ccfbe8fbf2,2,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m8-d1210-s202,202,ccfbe8fbf2,2,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m8-d1210-s202,202,ccfbe8fbf2,2,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m8-d1210-s202,202,ccfbe8fbf2,2,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d16-s42,42,02e7ea553e,2,16,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d16-s42,42,02e7ea553e,2,16,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d16-s42,42,02e7ea553e,2,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d16-s42,42,02e7ea553e,2,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d16-s42,42,02e7ea553e,2,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d16-s42,42,02e7ea553e,2,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d16-s101,101,e50a650357,2,16,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d16-s101,101,e50a650357,2,16,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d16-s101,101,e50a650357,2,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d16-s101,101,e50a650357,2,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d16-s101,101,e50a650357,2,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d16-s101,101,e50a650357,2,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d16-s202,202,64129a9b47,2,16,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d16-s202,202,64129a9b47,2,16,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d16-s202,202,64129a9b47,2,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d16-s202,202,64129a9b47,2,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d16-s202,202,64129a9b47,2,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d16-s202,202,64129a9b47,2,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d64-s42,42,3bccf26519,2,16,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d64-s42,42,3bccf26519,2,16,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d64-s42,42,3bccf26519,2,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d64-s42,42,3bccf26519,2,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d64-s42,42,3bccf26519,2,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d64-s42,42,3bccf26519,2,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d64-s101,101,622f6c0a41,2,16,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d64-s101,101,622f6c0a41,2,16,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d64-s101,101,622f6c0a41,2,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d64-s101,101,622f6c0a41,2,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d64-s101,101,622f6c0a41,2,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d64-s101,101,622f6c0a41,2,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d64-s202,202,b324115239,2,16,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d64-s202,202,b324115239,2,16,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d64-s202,202,b324115239,2,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d64-s202,202,b324115239,2,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d64-s202,202,b324115239,2,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d64-s202,202,b324115239,2,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d256-s42,42,22552dbebd,2,16,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d256-s42,42,22552dbebd,2,16,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d256-s42,42,22552dbebd,2,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d256-s42,42,22552dbebd,2,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d256-s42,42,22552dbebd,2,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d256-s42,42,22552dbebd,2,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d256-s101,101,0d1df373c1,2,16,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d256-s101,101,0d1df373c1,2,16,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d256-s101,101,0d1df373c1,2,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d256-s101,101,0d1df373c1,2,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d256-s101,101,0d1df373c1,2,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d256-s101,101,0d1df373c1,2,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d256-s202,202,6b65f62a91,2,16,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d256-s202,202,6b65f62a91,2,16,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d256-s202,202,6b65f62a91,2,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d256-s202,202,6b65f62a91,2,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d256-s202,202,6b65f62a91,2,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d256-s202,202,6b65f62a91,2,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d1210-s42,42,ff69564794,2,16,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d1210-s42,42,ff69564794,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d1210-s42,42,ff69564794,2,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d1210-s42,42,ff69564794,2,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d1210-s42,42,ff69564794,2,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d1210-s42,42,ff69564794,2,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d1210-s101,101,cbc60852a3,2,16,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d1210-s101,101,cbc60852a3,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d1210-s101,101,cbc60852a3,2,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d1210-s101,101,cbc60852a3,2,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d1210-s101,101,cbc60852a3,2,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d1210-s101,101,cbc60852a3,2,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m16-d1210-s202,202,17043d2a0e,2,16,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m16-d1210-s202,202,17043d2a0e,2,16,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m16-d1210-s202,202,17043d2a0e,2,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m16-d1210-s202,202,17043d2a0e,2,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m16-d1210-s202,202,17043d2a0e,2,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m16-d1210-s202,202,17043d2a0e,2,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d16-s42,42,fcfa8fbe7e,2,32,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d16-s42,42,fcfa8fbe7e,2,32,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d16-s42,42,fcfa8fbe7e,2,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d16-s42,42,fcfa8fbe7e,2,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d16-s42,42,fcfa8fbe7e,2,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d16-s42,42,fcfa8fbe7e,2,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d16-s101,101,babc02d4d4,2,32,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d16-s101,101,babc02d4d4,2,32,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d16-s101,101,babc02d4d4,2,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d16-s101,101,babc02d4d4,2,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d16-s101,101,babc02d4d4,2,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d16-s101,101,babc02d4d4,2,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d16-s202,202,12f283eefe,2,32,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d16-s202,202,12f283eefe,2,32,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d16-s202,202,12f283eefe,2,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d16-s202,202,12f283eefe,2,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d16-s202,202,12f283eefe,2,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d16-s202,202,12f283eefe,2,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d64-s42,42,aebf79ac77,2,32,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d64-s42,42,aebf79ac77,2,32,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d64-s42,42,aebf79ac77,2,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d64-s42,42,aebf79ac77,2,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d64-s42,42,aebf79ac77,2,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d64-s42,42,aebf79ac77,2,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d64-s101,101,aa9843ae5a,2,32,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d64-s101,101,aa9843ae5a,2,32,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d64-s101,101,aa9843ae5a,2,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d64-s101,101,aa9843ae5a,2,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d64-s101,101,aa9843ae5a,2,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d64-s101,101,aa9843ae5a,2,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d64-s202,202,c33daaaf97,2,32,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d64-s202,202,c33daaaf97,2,32,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d64-s202,202,c33daaaf97,2,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d64-s202,202,c33daaaf97,2,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d64-s202,202,c33daaaf97,2,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d64-s202,202,c33daaaf97,2,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d256-s42,42,45763134a9,2,32,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d256-s42,42,45763134a9,2,32,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d256-s42,42,45763134a9,2,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d256-s42,42,45763134a9,2,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d256-s42,42,45763134a9,2,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d256-s42,42,45763134a9,2,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d256-s101,101,b5d130b73f,2,32,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d256-s101,101,b5d130b73f,2,32,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d256-s101,101,b5d130b73f,2,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d256-s101,101,b5d130b73f,2,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d256-s101,101,b5d130b73f,2,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d256-s101,101,b5d130b73f,2,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d256-s202,202,043f948ed0,2,32,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d256-s202,202,043f948ed0,2,32,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d256-s202,202,043f948ed0,2,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d256-s202,202,043f948ed0,2,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d256-s202,202,043f948ed0,2,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d256-s202,202,043f948ed0,2,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d1210-s42,42,877f985dcd,2,32,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d1210-s42,42,877f985dcd,2,32,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d1210-s42,42,877f985dcd,2,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d1210-s42,42,877f985dcd,2,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d1210-s42,42,877f985dcd,2,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d1210-s42,42,877f985dcd,2,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d1210-s101,101,b6c95a0c84,2,32,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d1210-s101,101,b6c95a0c84,2,32,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d1210-s101,101,b6c95a0c84,2,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d1210-s101,101,b6c95a0c84,2,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d1210-s101,101,b6c95a0c84,2,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d1210-s101,101,b6c95a0c84,2,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K2-m32-d1210-s202,202,5918da0863,2,32,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K2-m32-d1210-s202,202,5918da0863,2,32,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K2-m32-d1210-s202,202,5918da0863,2,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K2-m32-d1210-s202,202,5918da0863,2,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K2-m32-d1210-s202,202,5918da0863,2,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K2-m32-d1210-s202,202,5918da0863,2,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d16-s42,42,8968b33065,4,8,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d16-s42,42,8968b33065,4,8,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d16-s42,42,8968b33065,4,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d16-s42,42,8968b33065,4,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d16-s42,42,8968b33065,4,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d16-s42,42,8968b33065,4,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d16-s101,101,c7d495f111,4,8,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d16-s101,101,c7d495f111,4,8,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d16-s101,101,c7d495f111,4,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d16-s101,101,c7d495f111,4,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d16-s101,101,c7d495f111,4,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d16-s101,101,c7d495f111,4,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d16-s202,202,95d2ea5ab7,4,8,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d16-s202,202,95d2ea5ab7,4,8,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d16-s202,202,95d2ea5ab7,4,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d16-s202,202,95d2ea5ab7,4,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d16-s202,202,95d2ea5ab7,4,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d16-s202,202,95d2ea5ab7,4,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d64-s42,42,9ed58ef552,4,8,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d64-s42,42,9ed58ef552,4,8,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d64-s42,42,9ed58ef552,4,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d64-s42,42,9ed58ef552,4,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d64-s42,42,9ed58ef552,4,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d64-s42,42,9ed58ef552,4,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d64-s101,101,b73cb7466c,4,8,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d64-s101,101,b73cb7466c,4,8,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d64-s101,101,b73cb7466c,4,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d64-s101,101,b73cb7466c,4,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d64-s101,101,b73cb7466c,4,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d64-s101,101,b73cb7466c,4,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d64-s202,202,c5387d6e88,4,8,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d64-s202,202,c5387d6e88,4,8,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d64-s202,202,c5387d6e88,4,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d64-s202,202,c5387d6e88,4,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d64-s202,202,c5387d6e88,4,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d64-s202,202,c5387d6e88,4,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d256-s42,42,e4be00937b,4,8,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d256-s42,42,e4be00937b,4,8,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d256-s42,42,e4be00937b,4,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d256-s42,42,e4be00937b,4,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d256-s42,42,e4be00937b,4,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d256-s42,42,e4be00937b,4,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d256-s101,101,2c772a08b6,4,8,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d256-s101,101,2c772a08b6,4,8,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d256-s101,101,2c772a08b6,4,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d256-s101,101,2c772a08b6,4,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d256-s101,101,2c772a08b6,4,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d256-s101,101,2c772a08b6,4,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d256-s202,202,7847e713dd,4,8,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d256-s202,202,7847e713dd,4,8,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d256-s202,202,7847e713dd,4,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d256-s202,202,7847e713dd,4,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d256-s202,202,7847e713dd,4,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d256-s202,202,7847e713dd,4,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d1210-s42,42,eb0a71d1f4,4,8,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d1210-s42,42,eb0a71d1f4,4,8,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d1210-s42,42,eb0a71d1f4,4,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d1210-s42,42,eb0a71d1f4,4,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d1210-s42,42,eb0a71d1f4,4,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d1210-s42,42,eb0a71d1f4,4,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d1210-s101,101,3e1537dd35,4,8,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d1210-s101,101,3e1537dd35,4,8,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d1210-s101,101,3e1537dd35,4,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d1210-s101,101,3e1537dd35,4,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d1210-s101,101,3e1537dd35,4,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d1210-s101,101,3e1537dd35,4,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m8-d1210-s202,202,622506c523,4,8,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m8-d1210-s202,202,622506c523,4,8,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m8-d1210-s202,202,622506c523,4,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m8-d1210-s202,202,622506c523,4,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m8-d1210-s202,202,622506c523,4,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m8-d1210-s202,202,622506c523,4,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d16-s42,42,e9b88ede41,4,16,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d16-s42,42,e9b88ede41,4,16,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d16-s42,42,e9b88ede41,4,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d16-s42,42,e9b88ede41,4,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d16-s42,42,e9b88ede41,4,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d16-s42,42,e9b88ede41,4,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d16-s101,101,95f199006e,4,16,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d16-s101,101,95f199006e,4,16,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d16-s101,101,95f199006e,4,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d16-s101,101,95f199006e,4,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d16-s101,101,95f199006e,4,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d16-s101,101,95f199006e,4,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d16-s202,202,bc58ad261b,4,16,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d16-s202,202,bc58ad261b,4,16,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d16-s202,202,bc58ad261b,4,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d16-s202,202,bc58ad261b,4,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d16-s202,202,bc58ad261b,4,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d16-s202,202,bc58ad261b,4,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d64-s42,42,abc8f5f88a,4,16,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d64-s42,42,abc8f5f88a,4,16,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d64-s42,42,abc8f5f88a,4,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d64-s42,42,abc8f5f88a,4,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d64-s42,42,abc8f5f88a,4,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d64-s42,42,abc8f5f88a,4,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d64-s101,101,9821aff95d,4,16,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d64-s101,101,9821aff95d,4,16,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d64-s101,101,9821aff95d,4,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d64-s101,101,9821aff95d,4,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d64-s101,101,9821aff95d,4,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d64-s101,101,9821aff95d,4,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d64-s202,202,c33ecc951a,4,16,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d64-s202,202,c33ecc951a,4,16,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d64-s202,202,c33ecc951a,4,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d64-s202,202,c33ecc951a,4,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d64-s202,202,c33ecc951a,4,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d64-s202,202,c33ecc951a,4,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d256-s42,42,b58c774ab3,4,16,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d256-s42,42,b58c774ab3,4,16,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d256-s42,42,b58c774ab3,4,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d256-s42,42,b58c774ab3,4,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d256-s42,42,b58c774ab3,4,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d256-s42,42,b58c774ab3,4,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d256-s101,101,9bbb175042,4,16,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d256-s101,101,9bbb175042,4,16,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d256-s101,101,9bbb175042,4,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d256-s101,101,9bbb175042,4,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d256-s101,101,9bbb175042,4,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d256-s101,101,9bbb175042,4,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d256-s202,202,526dd5e01b,4,16,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d256-s202,202,526dd5e01b,4,16,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d256-s202,202,526dd5e01b,4,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d256-s202,202,526dd5e01b,4,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d256-s202,202,526dd5e01b,4,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d256-s202,202,526dd5e01b,4,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d1210-s42,42,c696ba0161,4,16,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d1210-s42,42,c696ba0161,4,16,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d1210-s42,42,c696ba0161,4,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d1210-s42,42,c696ba0161,4,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d1210-s42,42,c696ba0161,4,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d1210-s42,42,c696ba0161,4,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d1210-s101,101,e57d161380,4,16,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d1210-s101,101,e57d161380,4,16,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d1210-s101,101,e57d161380,4,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d1210-s101,101,e57d161380,4,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d1210-s101,101,e57d161380,4,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d1210-s101,101,e57d161380,4,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m16-d1210-s202,202,1b0d434ccf,4,16,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m16-d1210-s202,202,1b0d434ccf,4,16,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m16-d1210-s202,202,1b0d434ccf,4,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m16-d1210-s202,202,1b0d434ccf,4,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m16-d1210-s202,202,1b0d434ccf,4,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m16-d1210-s202,202,1b0d434ccf,4,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d16-s42,42,e9fd45f9cb,4,32,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d16-s42,42,e9fd45f9cb,4,32,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d16-s42,42,e9fd45f9cb,4,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d16-s42,42,e9fd45f9cb,4,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d16-s42,42,e9fd45f9cb,4,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d16-s42,42,e9fd45f9cb,4,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d16-s101,101,2837fc35a4,4,32,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d16-s101,101,2837fc35a4,4,32,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d16-s101,101,2837fc35a4,4,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d16-s101,101,2837fc35a4,4,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d16-s101,101,2837fc35a4,4,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d16-s101,101,2837fc35a4,4,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d16-s202,202,663298d233,4,32,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d16-s202,202,663298d233,4,32,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d16-s202,202,663298d233,4,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d16-s202,202,663298d233,4,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d16-s202,202,663298d233,4,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d16-s202,202,663298d233,4,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d64-s42,42,e4f72e0816,4,32,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d64-s42,42,e4f72e0816,4,32,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d64-s42,42,e4f72e0816,4,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d64-s42,42,e4f72e0816,4,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d64-s42,42,e4f72e0816,4,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d64-s42,42,e4f72e0816,4,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d64-s101,101,d8f621f949,4,32,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d64-s101,101,d8f621f949,4,32,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d64-s101,101,d8f621f949,4,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d64-s101,101,d8f621f949,4,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d64-s101,101,d8f621f949,4,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d64-s101,101,d8f621f949,4,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d64-s202,202,efbd5f2fd5,4,32,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d64-s202,202,efbd5f2fd5,4,32,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d64-s202,202,efbd5f2fd5,4,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d64-s202,202,efbd5f2fd5,4,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d64-s202,202,efbd5f2fd5,4,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d64-s202,202,efbd5f2fd5,4,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d256-s42,42,e149c7ed78,4,32,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d256-s42,42,e149c7ed78,4,32,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d256-s42,42,e149c7ed78,4,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d256-s42,42,e149c7ed78,4,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d256-s42,42,e149c7ed78,4,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d256-s42,42,e149c7ed78,4,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d256-s101,101,72c9e789b7,4,32,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d256-s101,101,72c9e789b7,4,32,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d256-s101,101,72c9e789b7,4,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d256-s101,101,72c9e789b7,4,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d256-s101,101,72c9e789b7,4,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d256-s101,101,72c9e789b7,4,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d256-s202,202,c82c1239d1,4,32,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d256-s202,202,c82c1239d1,4,32,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d256-s202,202,c82c1239d1,4,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d256-s202,202,c82c1239d1,4,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d256-s202,202,c82c1239d1,4,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d256-s202,202,c82c1239d1,4,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d1210-s42,42,d527231884,4,32,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d1210-s42,42,d527231884,4,32,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d1210-s42,42,d527231884,4,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d1210-s42,42,d527231884,4,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d1210-s42,42,d527231884,4,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d1210-s42,42,d527231884,4,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d1210-s101,101,cbab98cd5c,4,32,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d1210-s101,101,cbab98cd5c,4,32,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d1210-s101,101,cbab98cd5c,4,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d1210-s101,101,cbab98cd5c,4,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d1210-s101,101,cbab98cd5c,4,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d1210-s101,101,cbab98cd5c,4,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K4-m32-d1210-s202,202,23370db1af,4,32,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K4-m32-d1210-s202,202,23370db1af,4,32,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K4-m32-d1210-s202,202,23370db1af,4,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K4-m32-d1210-s202,202,23370db1af,4,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K4-m32-d1210-s202,202,23370db1af,4,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K4-m32-d1210-s202,202,23370db1af,4,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d16-s42,42,e57ebc30b7,8,8,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d16-s42,42,e57ebc30b7,8,8,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d16-s42,42,e57ebc30b7,8,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d16-s42,42,e57ebc30b7,8,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d16-s42,42,e57ebc30b7,8,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d16-s42,42,e57ebc30b7,8,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d16-s101,101,69a77d163d,8,8,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d16-s101,101,69a77d163d,8,8,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d16-s101,101,69a77d163d,8,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d16-s101,101,69a77d163d,8,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d16-s101,101,69a77d163d,8,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d16-s101,101,69a77d163d,8,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d16-s202,202,dc2701c154,8,8,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d16-s202,202,dc2701c154,8,8,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d16-s202,202,dc2701c154,8,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d16-s202,202,dc2701c154,8,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d16-s202,202,dc2701c154,8,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d16-s202,202,dc2701c154,8,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d64-s42,42,ac6e04c043,8,8,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d64-s42,42,ac6e04c043,8,8,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d64-s42,42,ac6e04c043,8,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d64-s42,42,ac6e04c043,8,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d64-s42,42,ac6e04c043,8,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d64-s42,42,ac6e04c043,8,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d64-s101,101,1905be1a16,8,8,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d64-s101,101,1905be1a16,8,8,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d64-s101,101,1905be1a16,8,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d64-s101,101,1905be1a16,8,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d64-s101,101,1905be1a16,8,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d64-s101,101,1905be1a16,8,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d64-s202,202,13cd45076e,8,8,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d64-s202,202,13cd45076e,8,8,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d64-s202,202,13cd45076e,8,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d64-s202,202,13cd45076e,8,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d64-s202,202,13cd45076e,8,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d64-s202,202,13cd45076e,8,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d256-s42,42,9476994a79,8,8,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d256-s42,42,9476994a79,8,8,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d256-s42,42,9476994a79,8,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d256-s42,42,9476994a79,8,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d256-s42,42,9476994a79,8,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d256-s42,42,9476994a79,8,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d256-s101,101,8bf48cf70e,8,8,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d256-s101,101,8bf48cf70e,8,8,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d256-s101,101,8bf48cf70e,8,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d256-s101,101,8bf48cf70e,8,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d256-s101,101,8bf48cf70e,8,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d256-s101,101,8bf48cf70e,8,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d256-s202,202,22d4c8245e,8,8,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d256-s202,202,22d4c8245e,8,8,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d256-s202,202,22d4c8245e,8,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d256-s202,202,22d4c8245e,8,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d256-s202,202,22d4c8245e,8,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d256-s202,202,22d4c8245e,8,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d1210-s42,42,0e709d5afe,8,8,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d1210-s42,42,0e709d5afe,8,8,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d1210-s42,42,0e709d5afe,8,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d1210-s42,42,0e709d5afe,8,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d1210-s42,42,0e709d5afe,8,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d1210-s42,42,0e709d5afe,8,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d1210-s101,101,25194b2435,8,8,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d1210-s101,101,25194b2435,8,8,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d1210-s101,101,25194b2435,8,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d1210-s101,101,25194b2435,8,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d1210-s101,101,25194b2435,8,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d1210-s101,101,25194b2435,8,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m8-d1210-s202,202,079f20bca1,8,8,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m8-d1210-s202,202,079f20bca1,8,8,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m8-d1210-s202,202,079f20bca1,8,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m8-d1210-s202,202,079f20bca1,8,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m8-d1210-s202,202,079f20bca1,8,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m8-d1210-s202,202,079f20bca1,8,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d16-s42,42,3b0a58ff05,8,16,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d16-s42,42,3b0a58ff05,8,16,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d16-s42,42,3b0a58ff05,8,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d16-s42,42,3b0a58ff05,8,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d16-s42,42,3b0a58ff05,8,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d16-s42,42,3b0a58ff05,8,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d16-s101,101,ad12e501b7,8,16,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d16-s101,101,ad12e501b7,8,16,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d16-s101,101,ad12e501b7,8,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d16-s101,101,ad12e501b7,8,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d16-s101,101,ad12e501b7,8,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d16-s101,101,ad12e501b7,8,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d16-s202,202,86f3ebb769,8,16,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d16-s202,202,86f3ebb769,8,16,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d16-s202,202,86f3ebb769,8,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d16-s202,202,86f3ebb769,8,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d16-s202,202,86f3ebb769,8,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d16-s202,202,86f3ebb769,8,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d64-s42,42,37a0ffd67d,8,16,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d64-s42,42,37a0ffd67d,8,16,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d64-s42,42,37a0ffd67d,8,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d64-s42,42,37a0ffd67d,8,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d64-s42,42,37a0ffd67d,8,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d64-s42,42,37a0ffd67d,8,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d64-s101,101,6ad9b8cd8f,8,16,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d64-s101,101,6ad9b8cd8f,8,16,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d64-s101,101,6ad9b8cd8f,8,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d64-s101,101,6ad9b8cd8f,8,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d64-s101,101,6ad9b8cd8f,8,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d64-s101,101,6ad9b8cd8f,8,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d64-s202,202,bc2d5c55af,8,16,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d64-s202,202,bc2d5c55af,8,16,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d64-s202,202,bc2d5c55af,8,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d64-s202,202,bc2d5c55af,8,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d64-s202,202,bc2d5c55af,8,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d64-s202,202,bc2d5c55af,8,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d256-s42,42,298a468526,8,16,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d256-s42,42,298a468526,8,16,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d256-s42,42,298a468526,8,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d256-s42,42,298a468526,8,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d256-s42,42,298a468526,8,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d256-s42,42,298a468526,8,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d256-s101,101,c0b208806e,8,16,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d256-s101,101,c0b208806e,8,16,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d256-s101,101,c0b208806e,8,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d256-s101,101,c0b208806e,8,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d256-s101,101,c0b208806e,8,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d256-s101,101,c0b208806e,8,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d256-s202,202,528e1e094a,8,16,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d256-s202,202,528e1e094a,8,16,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d256-s202,202,528e1e094a,8,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d256-s202,202,528e1e094a,8,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d256-s202,202,528e1e094a,8,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d256-s202,202,528e1e094a,8,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d1210-s42,42,2ea61e9dd5,8,16,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d1210-s42,42,2ea61e9dd5,8,16,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d1210-s42,42,2ea61e9dd5,8,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d1210-s42,42,2ea61e9dd5,8,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d1210-s42,42,2ea61e9dd5,8,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d1210-s42,42,2ea61e9dd5,8,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d1210-s101,101,0ac2a2fc82,8,16,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d1210-s101,101,0ac2a2fc82,8,16,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d1210-s101,101,0ac2a2fc82,8,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d1210-s101,101,0ac2a2fc82,8,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d1210-s101,101,0ac2a2fc82,8,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d1210-s101,101,0ac2a2fc82,8,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m16-d1210-s202,202,1b592ecefd,8,16,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m16-d1210-s202,202,1b592ecefd,8,16,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m16-d1210-s202,202,1b592ecefd,8,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m16-d1210-s202,202,1b592ecefd,8,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m16-d1210-s202,202,1b592ecefd,8,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m16-d1210-s202,202,1b592ecefd,8,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d16-s42,42,5153e4cf82,8,32,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d16-s42,42,5153e4cf82,8,32,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d16-s42,42,5153e4cf82,8,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d16-s42,42,5153e4cf82,8,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d16-s42,42,5153e4cf82,8,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d16-s42,42,5153e4cf82,8,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d16-s101,101,1fe45044a5,8,32,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d16-s101,101,1fe45044a5,8,32,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d16-s101,101,1fe45044a5,8,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d16-s101,101,1fe45044a5,8,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d16-s101,101,1fe45044a5,8,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d16-s101,101,1fe45044a5,8,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d16-s202,202,d5dadc9642,8,32,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d16-s202,202,d5dadc9642,8,32,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d16-s202,202,d5dadc9642,8,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d16-s202,202,d5dadc9642,8,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d16-s202,202,d5dadc9642,8,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d16-s202,202,d5dadc9642,8,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d64-s42,42,17cd95bf30,8,32,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d64-s42,42,17cd95bf30,8,32,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d64-s42,42,17cd95bf30,8,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d64-s42,42,17cd95bf30,8,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d64-s42,42,17cd95bf30,8,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d64-s42,42,17cd95bf30,8,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d64-s101,101,d2510b7737,8,32,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d64-s101,101,d2510b7737,8,32,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d64-s101,101,d2510b7737,8,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d64-s101,101,d2510b7737,8,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d64-s101,101,d2510b7737,8,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d64-s101,101,d2510b7737,8,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d64-s202,202,3be5924685,8,32,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d64-s202,202,3be5924685,8,32,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d64-s202,202,3be5924685,8,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d64-s202,202,3be5924685,8,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d64-s202,202,3be5924685,8,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d64-s202,202,3be5924685,8,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d256-s42,42,88ff766d1f,8,32,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d256-s42,42,88ff766d1f,8,32,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d256-s42,42,88ff766d1f,8,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d256-s42,42,88ff766d1f,8,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d256-s42,42,88ff766d1f,8,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d256-s42,42,88ff766d1f,8,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d256-s101,101,e58bb78a6e,8,32,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d256-s101,101,e58bb78a6e,8,32,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d256-s101,101,e58bb78a6e,8,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d256-s101,101,e58bb78a6e,8,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d256-s101,101,e58bb78a6e,8,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d256-s101,101,e58bb78a6e,8,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d256-s202,202,77bd81541c,8,32,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d256-s202,202,77bd81541c,8,32,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d256-s202,202,77bd81541c,8,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d256-s202,202,77bd81541c,8,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d256-s202,202,77bd81541c,8,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d256-s202,202,77bd81541c,8,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d1210-s42,42,f6689c08b9,8,32,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d1210-s42,42,f6689c08b9,8,32,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d1210-s42,42,f6689c08b9,8,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d1210-s42,42,f6689c08b9,8,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d1210-s42,42,f6689c08b9,8,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d1210-s42,42,f6689c08b9,8,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d1210-s101,101,e8fb266839,8,32,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d1210-s101,101,e8fb266839,8,32,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d1210-s101,101,e8fb266839,8,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d1210-s101,101,e8fb266839,8,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d1210-s101,101,e8fb266839,8,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d1210-s101,101,e8fb266839,8,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K8-m32-d1210-s202,202,d96a65d881,8,32,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K8-m32-d1210-s202,202,d96a65d881,8,32,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K8-m32-d1210-s202,202,d96a65d881,8,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K8-m32-d1210-s202,202,d96a65d881,8,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K8-m32-d1210-s202,202,d96a65d881,8,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K8-m32-d1210-s202,202,d96a65d881,8,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d16-s42,42,895a5eaf4c,16,8,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d16-s42,42,895a5eaf4c,16,8,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d16-s42,42,895a5eaf4c,16,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d16-s42,42,895a5eaf4c,16,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d16-s42,42,895a5eaf4c,16,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d16-s42,42,895a5eaf4c,16,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d16-s101,101,9e91896602,16,8,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d16-s101,101,9e91896602,16,8,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d16-s101,101,9e91896602,16,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d16-s101,101,9e91896602,16,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d16-s101,101,9e91896602,16,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d16-s101,101,9e91896602,16,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d16-s202,202,a7fd426f00,16,8,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d16-s202,202,a7fd426f00,16,8,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d16-s202,202,a7fd426f00,16,8,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d16-s202,202,a7fd426f00,16,8,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d16-s202,202,a7fd426f00,16,8,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d16-s202,202,a7fd426f00,16,8,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d64-s42,42,48fd9c00eb,16,8,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d64-s42,42,48fd9c00eb,16,8,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d64-s42,42,48fd9c00eb,16,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d64-s42,42,48fd9c00eb,16,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d64-s42,42,48fd9c00eb,16,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d64-s42,42,48fd9c00eb,16,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d64-s101,101,29da5d6743,16,8,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d64-s101,101,29da5d6743,16,8,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d64-s101,101,29da5d6743,16,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d64-s101,101,29da5d6743,16,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d64-s101,101,29da5d6743,16,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d64-s101,101,29da5d6743,16,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d64-s202,202,7db1a1a322,16,8,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d64-s202,202,7db1a1a322,16,8,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d64-s202,202,7db1a1a322,16,8,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d64-s202,202,7db1a1a322,16,8,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d64-s202,202,7db1a1a322,16,8,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d64-s202,202,7db1a1a322,16,8,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d256-s42,42,5c4e6149c9,16,8,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d256-s42,42,5c4e6149c9,16,8,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d256-s42,42,5c4e6149c9,16,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d256-s42,42,5c4e6149c9,16,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d256-s42,42,5c4e6149c9,16,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d256-s42,42,5c4e6149c9,16,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d256-s101,101,3f6fcb7f9f,16,8,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d256-s101,101,3f6fcb7f9f,16,8,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d256-s101,101,3f6fcb7f9f,16,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d256-s101,101,3f6fcb7f9f,16,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d256-s101,101,3f6fcb7f9f,16,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d256-s101,101,3f6fcb7f9f,16,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d256-s202,202,3d88ef285c,16,8,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d256-s202,202,3d88ef285c,16,8,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d256-s202,202,3d88ef285c,16,8,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d256-s202,202,3d88ef285c,16,8,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d256-s202,202,3d88ef285c,16,8,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d256-s202,202,3d88ef285c,16,8,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d1210-s42,42,793e576bd0,16,8,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d1210-s42,42,793e576bd0,16,8,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d1210-s42,42,793e576bd0,16,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d1210-s42,42,793e576bd0,16,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d1210-s42,42,793e576bd0,16,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d1210-s42,42,793e576bd0,16,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d1210-s101,101,1150b2bb97,16,8,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d1210-s101,101,1150b2bb97,16,8,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d1210-s101,101,1150b2bb97,16,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d1210-s101,101,1150b2bb97,16,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d1210-s101,101,1150b2bb97,16,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d1210-s101,101,1150b2bb97,16,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m8-d1210-s202,202,faf23b80fe,16,8,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m8-d1210-s202,202,faf23b80fe,16,8,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m8-d1210-s202,202,faf23b80fe,16,8,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m8-d1210-s202,202,faf23b80fe,16,8,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m8-d1210-s202,202,faf23b80fe,16,8,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m8-d1210-s202,202,faf23b80fe,16,8,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d16-s42,42,8160282ac8,16,16,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d16-s42,42,8160282ac8,16,16,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d16-s42,42,8160282ac8,16,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d16-s42,42,8160282ac8,16,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d16-s42,42,8160282ac8,16,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d16-s42,42,8160282ac8,16,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d16-s101,101,2bd0fbee40,16,16,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d16-s101,101,2bd0fbee40,16,16,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d16-s101,101,2bd0fbee40,16,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d16-s101,101,2bd0fbee40,16,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d16-s101,101,2bd0fbee40,16,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d16-s101,101,2bd0fbee40,16,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d16-s202,202,1993f826f1,16,16,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d16-s202,202,1993f826f1,16,16,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d16-s202,202,1993f826f1,16,16,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d16-s202,202,1993f826f1,16,16,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d16-s202,202,1993f826f1,16,16,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d16-s202,202,1993f826f1,16,16,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d64-s42,42,bcb34bb707,16,16,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d64-s42,42,bcb34bb707,16,16,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d64-s42,42,bcb34bb707,16,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d64-s42,42,bcb34bb707,16,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d64-s42,42,bcb34bb707,16,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d64-s42,42,bcb34bb707,16,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d64-s101,101,9f24602797,16,16,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d64-s101,101,9f24602797,16,16,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d64-s101,101,9f24602797,16,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d64-s101,101,9f24602797,16,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d64-s101,101,9f24602797,16,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d64-s101,101,9f24602797,16,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d64-s202,202,d1425635fa,16,16,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d64-s202,202,d1425635fa,16,16,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d64-s202,202,d1425635fa,16,16,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d64-s202,202,d1425635fa,16,16,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d64-s202,202,d1425635fa,16,16,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d64-s202,202,d1425635fa,16,16,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d256-s42,42,d1bebbce65,16,16,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d256-s42,42,d1bebbce65,16,16,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d256-s42,42,d1bebbce65,16,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d256-s42,42,d1bebbce65,16,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d256-s42,42,d1bebbce65,16,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d256-s42,42,d1bebbce65,16,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d256-s101,101,69a2fce2fd,16,16,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d256-s101,101,69a2fce2fd,16,16,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d256-s101,101,69a2fce2fd,16,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d256-s101,101,69a2fce2fd,16,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d256-s101,101,69a2fce2fd,16,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d256-s101,101,69a2fce2fd,16,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d256-s202,202,e391b4cbc9,16,16,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d256-s202,202,e391b4cbc9,16,16,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d256-s202,202,e391b4cbc9,16,16,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d256-s202,202,e391b4cbc9,16,16,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d256-s202,202,e391b4cbc9,16,16,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d256-s202,202,e391b4cbc9,16,16,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d1210-s42,42,3190ca5442,16,16,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d1210-s42,42,3190ca5442,16,16,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d1210-s42,42,3190ca5442,16,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d1210-s42,42,3190ca5442,16,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d1210-s42,42,3190ca5442,16,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d1210-s42,42,3190ca5442,16,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d1210-s101,101,1c3a3f8fae,16,16,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d1210-s101,101,1c3a3f8fae,16,16,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d1210-s101,101,1c3a3f8fae,16,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d1210-s101,101,1c3a3f8fae,16,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d1210-s101,101,1c3a3f8fae,16,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d1210-s101,101,1c3a3f8fae,16,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m16-d1210-s202,202,588216ae4c,16,16,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m16-d1210-s202,202,588216ae4c,16,16,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m16-d1210-s202,202,588216ae4c,16,16,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m16-d1210-s202,202,588216ae4c,16,16,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m16-d1210-s202,202,588216ae4c,16,16,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m16-d1210-s202,202,588216ae4c,16,16,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d16-s42,42,1fc64425cc,16,32,16,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d16-s42,42,1fc64425cc,16,32,16,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d16-s42,42,1fc64425cc,16,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d16-s42,42,1fc64425cc,16,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d16-s42,42,1fc64425cc,16,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d16-s42,42,1fc64425cc,16,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d16-s101,101,8dbc8ecdb5,16,32,16,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d16-s101,101,8dbc8ecdb5,16,32,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d16-s101,101,8dbc8ecdb5,16,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d16-s101,101,8dbc8ecdb5,16,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d16-s101,101,8dbc8ecdb5,16,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d16-s101,101,8dbc8ecdb5,16,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d16-s202,202,c9fdcbf64a,16,32,16,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d16-s202,202,c9fdcbf64a,16,32,16,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d16-s202,202,c9fdcbf64a,16,32,16,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d16-s202,202,c9fdcbf64a,16,32,16,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d16-s202,202,c9fdcbf64a,16,32,16,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d16-s202,202,c9fdcbf64a,16,32,16,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d64-s42,42,c5f212b052,16,32,64,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d64-s42,42,c5f212b052,16,32,64,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d64-s42,42,c5f212b052,16,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d64-s42,42,c5f212b052,16,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d64-s42,42,c5f212b052,16,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d64-s42,42,c5f212b052,16,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d64-s101,101,88889941ae,16,32,64,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d64-s101,101,88889941ae,16,32,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d64-s101,101,88889941ae,16,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d64-s101,101,88889941ae,16,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d64-s101,101,88889941ae,16,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d64-s101,101,88889941ae,16,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d64-s202,202,3d83b401b5,16,32,64,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d64-s202,202,3d83b401b5,16,32,64,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d64-s202,202,3d83b401b5,16,32,64,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d64-s202,202,3d83b401b5,16,32,64,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d64-s202,202,3d83b401b5,16,32,64,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d64-s202,202,3d83b401b5,16,32,64,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d256-s42,42,bf851f095f,16,32,256,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d256-s42,42,bf851f095f,16,32,256,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d256-s42,42,bf851f095f,16,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d256-s42,42,bf851f095f,16,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d256-s42,42,bf851f095f,16,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d256-s42,42,bf851f095f,16,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d256-s101,101,2180e7e8fa,16,32,256,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d256-s101,101,2180e7e8fa,16,32,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d256-s101,101,2180e7e8fa,16,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d256-s101,101,2180e7e8fa,16,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d256-s101,101,2180e7e8fa,16,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d256-s101,101,2180e7e8fa,16,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d256-s202,202,8ab6302d21,16,32,256,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d256-s202,202,8ab6302d21,16,32,256,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d256-s202,202,8ab6302d21,16,32,256,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d256-s202,202,8ab6302d21,16,32,256,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d256-s202,202,8ab6302d21,16,32,256,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d256-s202,202,8ab6302d21,16,32,256,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d1210-s42,42,072e8d4e7f,16,32,1210,16,1,fl-ledger,honest,post_round_gas,137084,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d1210-s42,42,072e8d4e7f,16,32,1210,16,1,fl-ledger,honest,finalize_round_gas,82000,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d1210-s42,42,072e8d4e7f,16,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d1210-s42,42,072e8d4e7f,16,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d1210-s42,42,072e8d4e7f,16,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d1210-s42,42,072e8d4e7f,16,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d1210-s101,101,c924471b4b,16,32,1210,16,1,fl-ledger,honest,post_round_gas,137072,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d1210-s101,101,c924471b4b,16,32,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d1210-s101,101,c924471b4b,16,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d1210-s101,101,c924471b4b,16,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d1210-s101,101,c924471b4b,16,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d1210-s101,101,c924471b4b,16,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash
+E1,e1-K16-m32-d1210-s202,202,8eba6d5780,16,32,1210,16,1,fl-ledger,honest,post_round_gas,137080,gas,"anchors modelRootNext, aggRoot, clientLeavesRoot"
+E1,e1-K16-m32-d1210-s202,202,8eba6d5780,16,32,1210,16,1,fl-ledger,honest,finalize_round_gas,47800,gas,round finalization state transition after challenge window
+E1,e1-K16-m32-d1210-s202,202,8eba6d5780,16,32,1210,16,1,fl-ledger,honest,calldata_bytes,196,bytes,fixed 196-byte transaction payload independent of d
+E1,e1-K16-m32-d1210-s202,202,8eba6d5780,16,32,1210,16,1,fl-ledger,honest,storage_bytes,128,bytes,4 EVM 32-byte storage words stored per round
+E1,e1-K16-m32-d1210-s202,202,8eba6d5780,16,32,1210,16,1,log-only,baseline,post_round_gas,21986,gas,event log only without contract dispute state
+E1,e1-K16-m32-d1210-s202,202,8eba6d5780,16,32,1210,16,1,log-only,baseline,calldata_bytes,68,bytes,selector + round + 1 root hash

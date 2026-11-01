@@ -1,11 +1,271 @@
 exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
-E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d1_commit_challenge_gas,47052,gas,commit challenge deposit
-E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d1_honest_rejected_gas,672554,gas,d1 verification rejected challenger forfeited
-E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,703189,gas,d1 verification upheld server slashed
-E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d2_commit_challenge_gas,47052,gas,commit challenge deposit
-E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,honest,d2_honest_rejected_gas,381299,gas,d2 verification rejected challenger forfeited
-E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,416691,gas,d2 verification upheld server slashed
-E2,stage5-dispute-gas,42,d1d2stage5a,2,4,4,16,1,fl-ledger,post_slash,withdraw_reward_gas,36850,gas,pull-payment claim of reward and deposit
-E2,stage6-dispute-gas,42,d4stage6a,2,4,4,16,1,fl-ledger,honest,d4_commit_challenge_gas,47052,gas,commit challenge deposit
-E2,stage6-dispute-gas,42,d4stage6a,2,4,4,16,1,fl-ledger,honest,d4_honest_rejected_gas,343502,gas,d4 verification rejected challenger forfeited
-E2,stage6-dispute-gas,42,d4stage6a,2,4,4,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373959,gas,d4 verification upheld server slashed
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,611084,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,641719,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,241200,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378283,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408918,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342418,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373053,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m8-s42,42,74ad216c64,2,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,836,bytes,D1 dispute calldata size
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,611069,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,641719,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,241200,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378271,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408921,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342410,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373060,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m8-s101,101,ac4cf45284,2,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,836,bytes,D1 dispute calldata size
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,611084,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,641704,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,241200,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378283,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408903,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342418,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373038,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m8-s202,202,8a98376a41,2,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,836,bytes,D1 dispute calldata size
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,660284,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,690919,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,288200,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381323,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411958,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342418,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373053,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m16-s42,42,da91ca96a1,2,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1092,bytes,D1 dispute calldata size
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,660269,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,690919,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,288200,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381311,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411961,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342410,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373060,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m16-s101,101,77faf4bfd6,2,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1092,bytes,D1 dispute calldata size
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,660284,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,690904,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,288200,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381323,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411943,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342418,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373038,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m16-s202,202,108363d525,2,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1092,bytes,D1 dispute calldata size
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,758684,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,789319,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,384400,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387403,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418038,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342418,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373053,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m32-s42,42,ee15d9a018,2,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1604,bytes,D1 dispute calldata size
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,758669,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,789319,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,384400,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387391,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418041,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342410,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373060,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m32-s101,101,cc1656fa8b,2,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1604,bytes,D1 dispute calldata size
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,758684,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,789304,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,384400,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387403,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418023,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,342418,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,373038,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,344600,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K2-m32-s202,202,ebac31227d,2,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1604,bytes,D1 dispute calldata size
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,623384,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,654019,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,254600,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378283,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408918,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343518,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374153,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m8-s42,42,3e05792323,4,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,964,bytes,D1 dispute calldata size
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,623369,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,654019,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,254600,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378271,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408921,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343510,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374160,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m8-s101,101,c401b7c1dc,4,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,964,bytes,D1 dispute calldata size
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,623384,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,654004,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,254600,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378283,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408903,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343518,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374138,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m8-s202,202,3b4f972124,4,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,964,bytes,D1 dispute calldata size
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,672584,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,703219,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,301600,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381323,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411958,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343518,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374153,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m16-s42,42,c772bfbb56,4,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1220,bytes,D1 dispute calldata size
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,672569,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,703219,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,301600,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381311,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411961,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343510,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374160,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m16-s101,101,d5c0710adb,4,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1220,bytes,D1 dispute calldata size
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,672584,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,703204,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,301600,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381323,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411943,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343518,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374138,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m16-s202,202,310d72a68e,4,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1220,bytes,D1 dispute calldata size
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,770984,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,801619,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,397800,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387403,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418038,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343518,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374153,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m32-s42,42,583805886b,4,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1732,bytes,D1 dispute calldata size
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,770969,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,801619,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,397800,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387391,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418041,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343510,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374160,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m32-s101,101,fe3758efad,4,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1732,bytes,D1 dispute calldata size
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,770984,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,801604,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,397800,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387403,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418023,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,343518,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,374138,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,345700,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K4-m32-s202,202,02ef090fe2,4,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1732,bytes,D1 dispute calldata size
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,647984,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,678619,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,280300,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378283,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408918,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344618,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375253,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m8-s42,42,ff62041f0c,8,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1220,bytes,D1 dispute calldata size
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,647969,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,678619,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,280300,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378271,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408921,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344610,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375260,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m8-s101,101,db0f6a91c7,8,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1220,bytes,D1 dispute calldata size
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,647984,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,678604,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,cost-model,theoretical,d1_predicted_gas,280300,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,378283,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,408903,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,cost-model,theoretical,d2_predicted_gas,364440,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344618,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375238,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m8-s202,202,f0dc86e6d9,8,8,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1220,bytes,D1 dispute calldata size
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,697184,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,727819,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,327300,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381323,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411958,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344618,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375253,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m16-s42,42,ce7e2b84eb,8,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1476,bytes,D1 dispute calldata size
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,697169,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,727819,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,327300,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381311,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411961,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344610,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375260,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m16-s101,101,d445b4ac83,8,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1476,bytes,D1 dispute calldata size
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,697184,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,727804,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,cost-model,theoretical,d1_predicted_gas,327300,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,381323,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,411943,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,cost-model,theoretical,d2_predicted_gas,364180,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344618,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375238,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m16-s202,202,0409b4eadc,8,16,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1476,bytes,D1 dispute calldata size
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,795584,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,826219,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,423500,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387403,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418038,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344618,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375253,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m32-s42,42,6f499cf176,8,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1988,bytes,D1 dispute calldata size
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,795569,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,826219,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,423500,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387391,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418041,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344610,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375260,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m32-s101,101,9263d733db,8,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1988,bytes,D1 dispute calldata size
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,fl-ledger,honest,d1_honest_rejected_gas,795584,gas,d1 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,fl-ledger,corrupted_agg,d1_corrupted_slashed_gas,826204,gas,"d1 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,cost-model,theoretical,d1_predicted_gas,423500,gas,theoretical cost model: 155k + 6150*(K+m) + merkle
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,fl-ledger,honest,d2_honest_rejected_gas,387403,gas,d2 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,fl-ledger,corrupted_update,d2_corrupted_slashed_gas,418023,gas,"d2 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,cost-model,theoretical,d2_predicted_gas,366960,gas,theoretical cost model: 335k + 380*m + merkle
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,fl-ledger,honest,d4_honest_rejected_gas,344618,gas,d4 verification rejected; challenger forfeited deposit
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,fl-ledger,forged_client,d4_forged_slashed_gas,375238,gas,"d4 verification upheld; server slashed, bond split"
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,cost-model,theoretical,d4_predicted_gas,346800,gas,theoretical cost model: 340k + 1100*log2(K) + ecdsa
+E2,e2-K8-m32-s202,202,343882f922,8,32,1210,16,1,fl-ledger,d1_payload,calldata_bytes,1988,bytes,D1 dispute calldata size

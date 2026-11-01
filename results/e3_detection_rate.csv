@@ -1,0 +1,265 @@
+exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
+E3,e3-phi2-s1-w1,42,b0319168ac,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.01,fraction,"phi=0.02, s=1, w=1, trials=100"
+E3,e3-phi2-s1-w1,42,b0319168ac,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.026315789473748574,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi2-s1-w1,42,b0319168ac,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.020000000000000018,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi2-s1-w1,42,b0319168ac,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,38.71,blocks,empirical mean rounds to detection
+E3,e3-phi5-s1-w1,42,41946234e1,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.07,fraction,"phi=0.05, s=1, w=1, trials=100"
+E3,e3-phi5-s1-w1,42,41946234e1,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.05263157894740622,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi5-s1-w1,42,41946234e1,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.050000000000000044,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi5-s1-w1,42,41946234e1,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,19.55,blocks,empirical mean rounds to detection
+E3,e3-phi10-s1-w1,42,8a892c3d90,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.08,fraction,"phi=0.10, s=1, w=1, trials=100"
+E3,e3-phi10-s1-w1,42,8a892c3d90,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.10526315789471674,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi10-s1-w1,42,8a892c3d90,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.09999999999999998,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi10-s1-w1,42,8a892c3d90,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,9.88,blocks,empirical mean rounds to detection
+E3,e3-phi20-s1-w1,42,f4be8be590,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.22,fraction,"phi=0.20, s=1, w=1, trials=100"
+E3,e3-phi20-s1-w1,42,f4be8be590,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.19736842105269636,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi20-s1-w1,42,f4be8be590,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.19999999999999996,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi20-s1-w1,42,f4be8be590,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,4.32,blocks,empirical mean rounds to detection
+E3,e3-phi30-s1-w1,42,43a21d524b,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.29,fraction,"phi=0.30, s=1, w=1, trials=100"
+E3,e3-phi30-s1-w1,42,43a21d524b,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.3026315789474101,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi30-s1-w1,42,43a21d524b,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.30000000000000004,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi30-s1-w1,42,43a21d524b,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,3.0,blocks,empirical mean rounds to detection
+E3,e3-phi50-s1-w1,42,b76257022e,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.42,fraction,"phi=0.50, s=1, w=1, trials=100"
+E3,e3-phi50-s1-w1,42,b76257022e,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.5000000000000293,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi50-s1-w1,42,b76257022e,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.5,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi50-s1-w1,42,b76257022e,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,2.3,blocks,empirical mean rounds to detection
+E3,e3-phi80-s1-w1,42,0f9c496765,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.79,fraction,"phi=0.80, s=1, w=1, trials=100"
+E3,e3-phi80-s1-w1,42,0f9c496765,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.8026315789473792,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi80-s1-w1,42,0f9c496765,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.8,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi80-s1-w1,42,0f9c496765,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.28,blocks,empirical mean rounds to detection
+E3,e3-phi100-s1-w1,42,d23c31747e,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=1.00, s=1, w=1, trials=100"
+E3,e3-phi100-s1-w1,42,d23c31747e,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi100-s1-w1,42,d23c31747e,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi100-s1-w1,42,d23c31747e,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi2-s3-w1,42,cbcf4d66f7,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.08,fraction,"phi=0.02, s=3, w=1, trials=100"
+E3,e3-phi2-s3-w1,42,cbcf4d66f7,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.07789473684204529,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi2-s3-w1,42,cbcf4d66f7,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.05880800000000008,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi2-s3-w1,42,cbcf4d66f7,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,14.28,blocks,empirical mean rounds to detection
+E3,e3-phi5-s3-w1,42,2d31d8d1c5,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.13,fraction,"phi=0.05, s=3, w=1, trials=100"
+E3,e3-phi5-s3-w1,42,2d31d8d1c5,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.15163584637266259,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi5-s3-w1,42,2d31d8d1c5,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.1426250000000001,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi5-s3-w1,42,2d31d8d1c5,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,6.81,blocks,empirical mean rounds to detection
+E3,e3-phi10-s3-w1,42,b67eec4482,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.27,fraction,"phi=0.10, s=3, w=1, trials=100"
+E3,e3-phi10-s3-w1,42,b67eec4482,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.28711237553338864,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi10-s3-w1,42,b67eec4482,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.2709999999999999,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi10-s3-w1,42,b67eec4482,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,3.65,blocks,empirical mean rounds to detection
+E3,e3-phi20-s3-w1,42,e91017db54,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.5,fraction,"phi=0.20, s=3, w=1, trials=100"
+E3,e3-phi20-s3-w1,42,e91017db54,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.4880512091038143,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi20-s3-w1,42,e91017db54,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.4879999999999999,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi20-s3-w1,42,e91017db54,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,2.23,blocks,empirical mean rounds to detection
+E3,e3-phi30-s3-w1,42,5bc3e144bb,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.61,fraction,"phi=0.30, s=3, w=1, trials=100"
+E3,e3-phi30-s3-w1,42,5bc3e144bb,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.6667709815078184,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi30-s3-w1,42,5bc3e144bb,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.657,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi30-s3-w1,42,5bc3e144bb,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.54,blocks,empirical mean rounds to detection
+E3,e3-phi50-s3-w1,42,a51531ad59,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.86,fraction,"phi=0.50, s=3, w=1, trials=100"
+E3,e3-phi50-s3-w1,42,a51531ad59,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.8799999999999941,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi50-s3-w1,42,a51531ad59,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.875,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi50-s3-w1,42,a51531ad59,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.2,blocks,empirical mean rounds to detection
+E3,e3-phi80-s3-w1,42,e7e04109e0,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.97,fraction,"phi=0.80, s=3, w=1, trials=100"
+E3,e3-phi80-s3-w1,42,e7e04109e0,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9935277382645802,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi80-s3-w1,42,e7e04109e0,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.992,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi80-s3-w1,42,e7e04109e0,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.03,blocks,empirical mean rounds to detection
+E3,e3-phi100-s3-w1,42,230602c7c5,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=1.00, s=3, w=1, trials=100"
+E3,e3-phi100-s3-w1,42,230602c7c5,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi100-s3-w1,42,230602c7c5,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi100-s3-w1,42,230602c7c5,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi2-s5-w1,42,4882309032,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.11,fraction,"phi=0.02, s=5, w=1, trials=100"
+E3,e3-phi2-s5-w1,42,4882309032,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.12807017543859278,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi2-s5-w1,42,4882309032,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.09607920320000007,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi2-s5-w1,42,4882309032,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,8.48,blocks,empirical mean rounds to detection
+E3,e3-phi5-s5-w1,42,8dce188536,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.2,fraction,"phi=0.05, s=5, w=1, trials=100"
+E3,e3-phi5-s5-w1,42,8dce188536,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.2426703560084823,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi5-s5-w1,42,8dce188536,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.22621906250000023,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi5-s5-w1,42,8dce188536,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,3.93,blocks,empirical mean rounds to detection
+E3,e3-phi10-s5-w1,42,15ee8969e6,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.38,fraction,"phi=0.10, s=5, w=1, trials=100"
+E3,e3-phi10-s5-w1,42,15ee8969e6,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.43576626374029503,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi10-s5-w1,42,15ee8969e6,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.40950999999999993,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi10-s5-w1,42,15ee8969e6,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,2.26,blocks,empirical mean rounds to detection
+E3,e3-phi20-s5-w1,42,aa79e3465f,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.77,fraction,"phi=0.20, s=5, w=1, trials=100"
+E3,e3-phi20-s5-w1,42,aa79e3465f,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.6779865481920389,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi20-s5-w1,42,aa79e3465f,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.6723199999999999,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi20-s5-w1,42,aa79e3465f,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.41,blocks,empirical mean rounds to detection
+E3,e3-phi30-s5-w1,42,7ab629b48c,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.87,fraction,"phi=0.30, s=5, w=1, trials=100"
+E3,e3-phi30-s5-w1,42,7ab629b48c,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.8446706439676896,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi30-s5-w1,42,7ab629b48c,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.8319300000000001,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi30-s5-w1,42,7ab629b48c,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.13,blocks,empirical mean rounds to detection
+E3,e3-phi50-s5-w1,42,2368b567f8,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.97,fraction,"phi=0.50, s=5, w=1, trials=100"
+E3,e3-phi50-s5-w1,42,2368b567f8,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9728310502283113,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi50-s5-w1,42,2368b567f8,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.96875,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi50-s5-w1,42,2368b567f8,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.03,blocks,empirical mean rounds to detection
+E3,e3-phi80-s5-w1,42,5c24ff158d,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.80, s=5, w=1, trials=100"
+E3,e3-phi80-s5-w1,42,5c24ff158d,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9998374546139507,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi80-s5-w1,42,5c24ff158d,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.99968,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi80-s5-w1,42,5c24ff158d,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi100-s5-w1,42,1dbf3738ed,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=1.00, s=5, w=1, trials=100"
+E3,e3-phi100-s5-w1,42,1dbf3738ed,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi100-s5-w1,42,1dbf3738ed,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi100-s5-w1,42,1dbf3738ed,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi2-s10-w1,42,0c1ed157f7,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.25,fraction,"phi=0.02, s=10, w=1, trials=100"
+E3,e3-phi2-s10-w1,42,0c1ed157f7,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.24736842105264056,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi2-s10-w1,42,0c1ed157f7,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.1829271931124533,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi2-s10-w1,42,0c1ed157f7,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,4.31,blocks,empirical mean rounds to detection
+E3,e3-phi5-s10-w1,42,66b278c00b,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.37,fraction,"phi=0.05, s=10, w=1, trials=100"
+E3,e3-phi5-s10-w1,42,66b278c00b,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.43824314581343804,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi5-s10-w1,42,66b278c00b,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.4012630607616213,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi5-s10-w1,42,66b278c00b,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,2.37,blocks,empirical mean rounds to detection
+E3,e3-phi10-s10-w1,42,9daee1db99,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.67,fraction,"phi=0.10, s=10, w=1, trials=100"
+E3,e3-phi10-s10-w1,42,9daee1db99,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.6953962885295215,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi10-s10-w1,42,9daee1db99,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.6513215599,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi10-s10-w1,42,9daee1db99,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.45,blocks,empirical mean rounds to detection
+E3,e3-phi20-s10-w1,42,a7822a56c2,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.89,fraction,"phi=0.20, s=10, w=1, trials=100"
+E3,e3-phi20-s10-w1,42,a7822a56c2,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.905526825461579,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi20-s10-w1,42,a7822a56c2,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.8926258175999999,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi20-s10-w1,42,a7822a56c2,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.11,blocks,empirical mean rounds to detection
+E3,e3-phi30-s10-w1,42,fa289fff6f,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.30, s=10, w=1, trials=100"
+E3,e3-phi30-s10-w1,42,fa289fff6f,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9795719710751011,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi30-s10-w1,42,fa289fff6f,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.9717524751000001,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi30-s10-w1,42,fa289fff6f,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi50-s10-w1,42,73444d2328,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.50, s=10, w=1, trials=100"
+E3,e3-phi50-s10-w1,42,73444d2328,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9995047453969906,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi50-s10-w1,42,73444d2328,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.9990234375,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi50-s10-w1,42,73444d2328,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi80-s10-w1,42,4b590137de,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.80, s=10, w=1, trials=100"
+E3,e3-phi80-s10-w1,42,4b590137de,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9999999968539383,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi80-s10-w1,42,4b590137de,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.9999998976,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi80-s10-w1,42,4b590137de,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi100-s10-w1,42,7b83921567,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=1.00, s=10, w=1, trials=100"
+E3,e3-phi100-s10-w1,42,7b83921567,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi100-s10-w1,42,7b83921567,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi100-s10-w1,42,7b83921567,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi2-s1-w3,42,7e69e422e1,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.08,fraction,"phi=0.02, s=1, w=3, trials=100"
+E3,e3-phi2-s1-w3,42,7e69e422e1,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.07688803032530334,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi2-s1-w3,42,7e69e422e1,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.05880800000000008,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi2-s1-w3,42,7e69e422e1,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,12.37,blocks,empirical mean rounds to detection
+E3,e3-phi5-s1-w3,42,4dfcd424f8,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.11,fraction,"phi=0.05, s=1, w=3, trials=100"
+E3,e3-phi5-s1-w3,42,4dfcd424f8,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.14973028138222744,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi5-s1-w3,42,4dfcd424f8,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.1426250000000001,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi5-s1-w3,42,4dfcd424f8,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,6.22,blocks,empirical mean rounds to detection
+E3,e3-phi10-s1-w3,42,97dc7604c4,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.32,fraction,"phi=0.10, s=1, w=3, trials=100"
+E3,e3-phi10-s1-w3,42,97dc7604c4,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.28371482723424246,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi10-s1-w3,42,97dc7604c4,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.2709999999999999,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi10-s1-w3,42,97dc7604c4,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,3.14,blocks,empirical mean rounds to detection
+E3,e3-phi20-s1-w3,42,2b02ec86f3,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.57,fraction,"phi=0.20, s=1, w=3, trials=100"
+E3,e3-phi20-s1-w3,42,2b02ec86f3,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.48293072969833195,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi20-s1-w3,42,2b02ec86f3,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.4879999999999999,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi20-s1-w3,42,2b02ec86f3,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.9,blocks,empirical mean rounds to detection
+E3,e3-phi30-s1-w3,42,9765a12a6e,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.58,fraction,"phi=0.30, s=1, w=3, trials=100"
+E3,e3-phi30-s1-w3,42,9765a12a6e,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.6608538963406352,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi30-s1-w3,42,9765a12a6e,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.657,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi30-s1-w3,42,9765a12a6e,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.62,blocks,empirical mean rounds to detection
+E3,e3-phi50-s1-w3,42,e1eea94ae4,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.88,fraction,"phi=0.50, s=1, w=3, trials=100"
+E3,e3-phi50-s1-w3,42,e1eea94ae4,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.875000000000022,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi50-s1-w3,42,e1eea94ae4,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.875,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi50-s1-w3,42,e1eea94ae4,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.18,blocks,empirical mean rounds to detection
+E3,e3-phi80-s1-w3,42,3acaacc209,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.99,fraction,"phi=0.80, s=1, w=3, trials=100"
+E3,e3-phi80-s1-w3,42,3acaacc209,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9923116525732627,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi80-s1-w3,42,3acaacc209,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.992,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi80-s1-w3,42,3acaacc209,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.01,blocks,empirical mean rounds to detection
+E3,e3-phi100-s1-w3,42,f0b0854215,3,16,1210,1,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=1.00, s=1, w=3, trials=100"
+E3,e3-phi100-s1-w3,42,f0b0854215,3,16,1210,1,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi100-s1-w3,42,f0b0854215,3,16,1210,1,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi100-s1-w3,42,f0b0854215,3,16,1210,1,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi2-s3-w3,42,74ca8af948,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.2,fraction,"phi=0.02, s=3, w=3, trials=100"
+E3,e3-phi2-s3-w3,42,74ca8af948,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.21595407377153386,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi2-s3-w3,42,74ca8af948,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.16625223786985022,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi2-s3-w3,42,74ca8af948,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,4.7,blocks,empirical mean rounds to detection
+E3,e3-phi5-s3-w3,42,e9dc607719,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.38,fraction,"phi=0.05, s=3, w=3, trials=100"
+E3,e3-phi5-s3-w3,42,e9dc607719,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.38941387760720503,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi5-s3-w3,42,e9dc607719,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.3697505902753909,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi5-s3-w3,42,e9dc607719,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,2.49,blocks,empirical mean rounds to detection
+E3,e3-phi10-s3-w3,42,ec08adf883,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.62,fraction,"phi=0.10, s=3, w=3, trials=100"
+E3,e3-phi10-s3-w3,42,ec08adf883,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.6377042607021697,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi10-s3-w3,42,ec08adf883,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.6125795109999999,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi10-s3-w3,42,ec08adf883,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.59,blocks,empirical mean rounds to detection
+E3,e3-phi20-s3-w3,42,0fe4b4cc82,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.88,fraction,"phi=0.20, s=3, w=3, trials=100"
+E3,e3-phi20-s3-w3,42,0fe4b4cc82,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.8658225404501013,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi20-s3-w3,42,0fe4b4cc82,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.8657822719999999,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi20-s3-w3,42,0fe4b4cc82,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.15,blocks,empirical mean rounds to detection
+E3,e3-phi30-s3-w3,42,18a6a34c9d,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.95,fraction,"phi=0.30, s=3, w=3, trials=100"
+E3,e3-phi30-s3-w3,42,18a6a34c9d,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9629977236962293,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi30-s3-w3,42,18a6a34c9d,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.959646393,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi30-s3-w3,42,18a6a34c9d,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.06,blocks,empirical mean rounds to detection
+E3,e3-phi50-s3-w3,42,ef02db9d16,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.50, s=3, w=3, trials=100"
+E3,e3-phi50-s3-w3,42,ef02db9d16,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9982719999999997,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi50-s3-w3,42,ef02db9d16,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.998046875,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi50-s3-w3,42,ef02db9d16,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi80-s3-w3,42,642dc33fc5,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.80, s=3, w=3, trials=100"
+E3,e3-phi80-s3-w3,42,642dc33fc5,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9999997288758429,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi80-s3-w3,42,642dc33fc5,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.999999488,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi80-s3-w3,42,642dc33fc5,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi100-s3-w3,42,05fa480346,3,16,1210,3,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=1.00, s=3, w=3, trials=100"
+E3,e3-phi100-s3-w3,42,05fa480346,3,16,1210,3,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi100-s3-w3,42,05fa480346,3,16,1210,3,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi100-s3-w3,42,05fa480346,3,16,1210,3,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi2-s5-w3,42,d5a718bc6e,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.4,fraction,"phi=0.02, s=5, w=3, trials=100"
+E3,e3-phi2-s5-w3,42,d5a718bc6e,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.3371052199597092,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi2-s5-w3,42,d5a718bc6e,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.26143089735459624,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi2-s5-w3,42,d5a718bc6e,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,2.9,blocks,empirical mean rounds to detection
+E3,e3-phi5-s5-w3,42,24ed85a33b,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.52,fraction,"phi=0.05, s=5, w=3, trials=100"
+E3,e3-phi5-s5-w3,42,24ed85a33b,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.5656349537065126,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi5-s5-w3,42,24ed85a33b,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.536708769840247,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi5-s5-w3,42,24ed85a33b,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.89,blocks,empirical mean rounds to detection
+E3,e3-phi10-s5-w3,42,538e31e6fc,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.86,fraction,"phi=0.10, s=5, w=3, trials=100"
+E3,e3-phi10-s5-w3,42,538e31e6fc,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.8203707118410037,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi10-s5-w3,42,538e31e6fc,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.794108867905351,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi10-s5-w3,42,538e31e6fc,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.16,blocks,empirical mean rounds to detection
+E3,e3-phi20-s5-w3,42,55c476425a,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.96,fraction,"phi=0.20, s=5, w=3, trials=100"
+E3,e3-phi20-s5-w3,42,55c476425a,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9666095676134289,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi20-s5-w3,42,55c476425a,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.9648156279111679,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi20-s5-w3,42,55c476425a,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.04,blocks,empirical mean rounds to detection
+E3,e3-phi30-s5-w3,42,9e9d5bd141,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.99,fraction,"phi=0.30, s=5, w=3, trials=100"
+E3,e3-phi30-s5-w3,42,9e9d5bd141,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.996252336187185,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi30-s5-w3,42,9e9d5bd141,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.995252438490057,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi30-s5-w3,42,9e9d5bd141,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.01,blocks,empirical mean rounds to detection
+E3,e3-phi50-s5-w3,42,60a7d132c5,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.50, s=5, w=3, trials=100"
+E3,e3-phi50-s5-w3,42,60a7d132c5,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9999799451899608,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi50-s5-w3,42,60a7d132c5,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.999969482421875,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi50-s5-w3,42,60a7d132c5,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi80-s5-w3,42,81c9b97e47,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.80, s=5, w=3, trials=100"
+E3,e3-phi80-s5-w3,42,81c9b97e47,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9999999999957054,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi80-s5-w3,42,81c9b97e47,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.999999999967232,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi80-s5-w3,42,81c9b97e47,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi100-s5-w3,42,c3663369c9,3,16,1210,5,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=1.00, s=5, w=3, trials=100"
+E3,e3-phi100-s5-w3,42,c3663369c9,3,16,1210,5,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi100-s5-w3,42,c3663369c9,3,16,1210,5,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi100-s5-w3,42,c3663369c9,3,16,1210,5,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi2-s10-w3,42,d66a4c9783,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.69,fraction,"phi=0.02, s=10, w=3, trials=100"
+E3,e3-phi2-s10-w3,42,d66a4c9783,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.5736686105846486,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi2-s10-w3,42,d66a4c9783,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.4545156806175631,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi2-s10-w3,42,d66a4c9783,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.55,blocks,empirical mean rounds to detection
+E3,e3-phi5-s10-w3,42,44cf40ef29,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.81,fraction,"phi=0.05, s=10, w=3, trials=100"
+E3,e3-phi5-s10-w3,42,44cf40ef29,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.8227259607771445,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi5-s10-w3,42,44cf40ef29,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.7853612360570628,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi5-s10-w3,42,44cf40ef29,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.24,blocks,empirical mean rounds to detection
+E3,e3-phi10-s10-w3,42,97191385d7,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,0.96,fraction,"phi=0.10, s=10, w=3, trials=100"
+E3,e3-phi10-s10-w3,42,97191385d7,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9717378255878034,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi10-s10-w3,42,97191385d7,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.9576088417247838,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi10-s10-w3,42,97191385d7,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.04,blocks,empirical mean rounds to detection
+E3,e3-phi20-s10-w3,42,9c5e0abc47,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.20, s=10, w=3, trials=100"
+E3,e3-phi20-s10-w3,42,9c5e0abc47,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.999156809845246,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi20-s10-w3,42,9c5e0abc47,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.9987620599607147,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi20-s10-w3,42,9c5e0abc47,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi30-s10-w3,42,1f99f5d5bb,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.30, s=10, w=3, trials=100"
+E3,e3-phi30-s10-w3,42,1f99f5d5bb,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9999914752943458,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi30-s10-w3,42,1f99f5d5bb,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.9999774606597093,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi30-s10-w3,42,1f99f5d5bb,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi50-s10-w3,42,aa051ababa,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.50, s=10, w=3, trials=100"
+E3,e3-phi50-s10-w3,42,aa051ababa,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,0.9999999998785254,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi50-s10-w3,42,aa051ababa,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,0.9999999990686774,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi50-s10-w3,42,aa051ababa,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi80-s10-w3,42,a7a88a80da,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=0.80, s=10, w=3, trials=100"
+E3,e3-phi80-s10-w3,42,a7a88a80da,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi80-s10-w3,42,a7a88a80da,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi80-s10-w3,42,a7a88a80da,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-phi100-s10-w3,42,b577e42506,3,16,1210,10,1,fl-ledger,corrupted_blocks,empirical_detection_rate,1.0,fraction,"phi=1.00, s=10, w=3, trials=100"
+E3,e3-phi100-s10-w3,42,b577e42506,3,16,1210,10,1,hypergeometric-exact,corrupted_blocks,exact_detection_prob,1.0,fraction,"exact hypergeometric: 1 - prod(1 - C(D-k,s)/C(D,s))"
+E3,e3-phi100-s10-w3,42,b577e42506,3,16,1210,10,1,binomial-approx,corrupted_blocks,approx_detection_prob,1.0,fraction,with-replacement: 1 - (1 - phi)^(s*w)
+E3,e3-phi100-s10-w3,42,b577e42506,3,16,1210,10,1,fl-ledger,corrupted_blocks,rounds_to_detection,1.0,blocks,empirical mean rounds to detection
+E3,e3-old_model,42,e907175ad0,3,16,1210,5,1,fl-ledger,old_model,empirical_detection_rate,1.0,fraction,server served stale W_t; detected via update rule (D2_UPDATE_RULE)
+E3,e3-old_model,42,e907175ad0,3,16,1210,5,1,fl-ledger,old_model,rounds_to_detection,1.0,blocks,deterministic 1-round resolution
+E3,e3-fabricated_client,42,6b2e8efd6e,3,16,1210,5,1,fl-ledger,fabricated_client,empirical_detection_rate,1.0,fraction,forged client leaf; detected via ECDSA recovery (D4_SIGNATURE)
+E3,e3-fabricated_client,42,6b2e8efd6e,3,16,1210,5,1,fl-ledger,fabricated_client,rounds_to_detection,1.0,blocks,deterministic 1-round resolution
+E3,e3-skipped_round,42,35a8126c1a,3,16,1210,5,1,fl-ledger,skipped_round,empirical_detection_rate,1.0,fraction,contract sequence validation strictly enforces sequential round (ROUND_SEQUENCE)
+E3,e3-skipped_round,42,35a8126c1a,3,16,1210,5,1,fl-ledger,skipped_round,rounds_to_detection,1.0,blocks,deterministic 1-round resolution
+E3,e3-history_tamper,42,c3048b92e3,3,16,1210,5,1,fl-ledger,history_tamper,empirical_detection_rate,1.0,fraction,historical root re-anchoring fails session consistency (MERKLE_ROOT)
+E3,e3-history_tamper,42,c3048b92e3,3,16,1210,5,1,fl-ledger,history_tamper,rounds_to_detection,1.0,blocks,deterministic 1-round resolution

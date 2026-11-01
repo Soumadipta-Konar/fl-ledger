@@ -1,0 +1,226 @@
+exp,run_id,seed,config_hash,K,m,d,s,round,method,scenario,metric_name,metric_value,unit,notes
+E4,e4-K2-d5,42,4b35a194c8,2,16,5,16,1,onchain-baseline,measured,total_round_gas,93620,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d5,42,4b35a194c8,2,16,5,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d5,42,4b35a194c8,2,16,5,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d5,42,4b35a194c8,2,16,5,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d5,42,4b35a194c8,2,16,5,16,1,fl-ledger,measured,gas_savings_ratio,0.51,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d10,42,e1d4da1171,2,16,10,16,1,onchain-baseline,measured,total_round_gas,124240,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d10,42,e1d4da1171,2,16,10,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d10,42,e1d4da1171,2,16,10,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d10,42,e1d4da1171,2,16,10,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d10,42,e1d4da1171,2,16,10,16,1,fl-ledger,measured,gas_savings_ratio,0.67,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d15,42,f81f57d771,2,16,15,16,1,onchain-baseline,measured,total_round_gas,154860,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d15,42,f81f57d771,2,16,15,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d15,42,f81f57d771,2,16,15,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d15,42,f81f57d771,2,16,15,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d15,42,f81f57d771,2,16,15,16,1,fl-ledger,measured,gas_savings_ratio,0.84,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d20,42,991bacf6a7,2,16,20,16,1,onchain-baseline,measured,total_round_gas,185480,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d20,42,991bacf6a7,2,16,20,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d20,42,991bacf6a7,2,16,20,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d20,42,991bacf6a7,2,16,20,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d20,42,991bacf6a7,2,16,20,16,1,fl-ledger,measured,gas_savings_ratio,1.0,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d50,42,a1464a8052,2,16,50,16,1,onchain-baseline,measured,total_round_gas,369200,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d50,42,a1464a8052,2,16,50,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d50,42,a1464a8052,2,16,50,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d50,42,a1464a8052,2,16,50,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d50,42,a1464a8052,2,16,50,16,1,fl-ledger,measured,gas_savings_ratio,2.0,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d100,42,c069c69989,2,16,100,16,1,onchain-baseline,measured,total_round_gas,675400,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d100,42,c069c69989,2,16,100,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d100,42,c069c69989,2,16,100,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d100,42,c069c69989,2,16,100,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d100,42,c069c69989,2,16,100,16,1,fl-ledger,measured,gas_savings_ratio,3.65,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d250,42,2879fb638e,2,16,250,16,1,onchain-baseline,measured,total_round_gas,1594000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d250,42,2879fb638e,2,16,250,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d250,42,2879fb638e,2,16,250,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d250,42,2879fb638e,2,16,250,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d250,42,2879fb638e,2,16,250,16,1,fl-ledger,measured,gas_savings_ratio,8.62,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d500,42,4d76ee6a12,2,16,500,16,1,onchain-baseline,measured,total_round_gas,3125000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d500,42,4d76ee6a12,2,16,500,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d500,42,4d76ee6a12,2,16,500,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d500,42,4d76ee6a12,2,16,500,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d500,42,4d76ee6a12,2,16,500,16,1,fl-ledger,measured,gas_savings_ratio,16.9,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d1210,42,554a399320,2,16,1210,16,1,onchain-baseline,measured,total_round_gas,7473040,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d1210,42,554a399320,2,16,1210,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d1210,42,554a399320,2,16,1210,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d1210,42,554a399320,2,16,1210,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d1210,42,554a399320,2,16,1210,16,1,fl-ledger,measured,gas_savings_ratio,40.42,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d2500,42,49155a184f,2,16,2500,16,1,onchain-baseline,extrapolated,total_round_gas,15373000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d2500,42,49155a184f,2,16,2500,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d2500,42,49155a184f,2,16,2500,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d2500,42,49155a184f,2,16,2500,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d2500,42,49155a184f,2,16,2500,16,1,fl-ledger,extrapolated,gas_savings_ratio,83.15,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d5000,42,a3c5583660,2,16,5000,16,1,onchain-baseline,extrapolated,total_round_gas,30683000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d5000,42,a3c5583660,2,16,5000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d5000,42,a3c5583660,2,16,5000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d5000,42,a3c5583660,2,16,5000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d5000,42,a3c5583660,2,16,5000,16,1,fl-ledger,extrapolated,gas_savings_ratio,165.96,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d10000,42,eb3a3cf8b6,2,16,10000,16,1,onchain-baseline,extrapolated,total_round_gas,61303000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d10000,42,eb3a3cf8b6,2,16,10000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d10000,42,eb3a3cf8b6,2,16,10000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d10000,42,eb3a3cf8b6,2,16,10000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d10000,42,eb3a3cf8b6,2,16,10000,16,1,fl-ledger,extrapolated,gas_savings_ratio,331.58,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d25000,42,15146f3a6c,2,16,25000,16,1,onchain-baseline,extrapolated,total_round_gas,153163000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d25000,42,15146f3a6c,2,16,25000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d25000,42,15146f3a6c,2,16,25000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d25000,42,15146f3a6c,2,16,25000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d25000,42,15146f3a6c,2,16,25000,16,1,fl-ledger,extrapolated,gas_savings_ratio,828.43,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d50000,42,95291597fe,2,16,50000,16,1,onchain-baseline,extrapolated,total_round_gas,306263000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d50000,42,95291597fe,2,16,50000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d50000,42,95291597fe,2,16,50000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d50000,42,95291597fe,2,16,50000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d50000,42,95291597fe,2,16,50000,16,1,fl-ledger,extrapolated,gas_savings_ratio,1656.51,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K2-d100000,42,4c294c743a,2,16,100000,16,1,onchain-baseline,extrapolated,total_round_gas,612463000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K2-d100000,42,4c294c743a,2,16,100000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K2-d100000,42,4c294c743a,2,16,100000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K2-d100000,42,4c294c743a,2,16,100000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K2-d100000,42,4c294c743a,2,16,100000,16,1,fl-ledger,extrapolated,gas_savings_ratio,3312.69,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d5,42,3bcc4ffc1f,4,16,5,16,1,onchain-baseline,measured,total_round_gas,141240,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d5,42,3bcc4ffc1f,4,16,5,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d5,42,3bcc4ffc1f,4,16,5,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d5,42,3bcc4ffc1f,4,16,5,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d5,42,3bcc4ffc1f,4,16,5,16,1,fl-ledger,measured,gas_savings_ratio,0.76,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d10,42,3f67fad54b,4,16,10,16,1,onchain-baseline,measured,total_round_gas,177480,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d10,42,3f67fad54b,4,16,10,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d10,42,3f67fad54b,4,16,10,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d10,42,3f67fad54b,4,16,10,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d10,42,3f67fad54b,4,16,10,16,1,fl-ledger,measured,gas_savings_ratio,0.96,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d15,42,fabf96347b,4,16,15,16,1,onchain-baseline,measured,total_round_gas,213720,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d15,42,fabf96347b,4,16,15,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d15,42,fabf96347b,4,16,15,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d15,42,fabf96347b,4,16,15,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d15,42,fabf96347b,4,16,15,16,1,fl-ledger,measured,gas_savings_ratio,1.16,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d20,42,b98a74659f,4,16,20,16,1,onchain-baseline,measured,total_round_gas,249960,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d20,42,b98a74659f,4,16,20,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d20,42,b98a74659f,4,16,20,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d20,42,b98a74659f,4,16,20,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d20,42,b98a74659f,4,16,20,16,1,fl-ledger,measured,gas_savings_ratio,1.35,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d50,42,d852ec7efb,4,16,50,16,1,onchain-baseline,measured,total_round_gas,467400,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d50,42,d852ec7efb,4,16,50,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d50,42,d852ec7efb,4,16,50,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d50,42,d852ec7efb,4,16,50,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d50,42,d852ec7efb,4,16,50,16,1,fl-ledger,measured,gas_savings_ratio,2.53,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d100,42,08d5c5a80c,4,16,100,16,1,onchain-baseline,measured,total_round_gas,829800,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d100,42,08d5c5a80c,4,16,100,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d100,42,08d5c5a80c,4,16,100,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d100,42,08d5c5a80c,4,16,100,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d100,42,08d5c5a80c,4,16,100,16,1,fl-ledger,measured,gas_savings_ratio,4.49,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d250,42,b13137eeba,4,16,250,16,1,onchain-baseline,measured,total_round_gas,1917000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d250,42,b13137eeba,4,16,250,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d250,42,b13137eeba,4,16,250,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d250,42,b13137eeba,4,16,250,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d250,42,b13137eeba,4,16,250,16,1,fl-ledger,measured,gas_savings_ratio,10.37,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d500,42,21782504a9,4,16,500,16,1,onchain-baseline,measured,total_round_gas,3729000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d500,42,21782504a9,4,16,500,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d500,42,21782504a9,4,16,500,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d500,42,21782504a9,4,16,500,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d500,42,21782504a9,4,16,500,16,1,fl-ledger,measured,gas_savings_ratio,20.17,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d1210,42,b23a69cb0f,4,16,1210,16,1,onchain-baseline,measured,total_round_gas,8875080,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d1210,42,b23a69cb0f,4,16,1210,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d1210,42,b23a69cb0f,4,16,1210,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d1210,42,b23a69cb0f,4,16,1210,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d1210,42,b23a69cb0f,4,16,1210,16,1,fl-ledger,measured,gas_savings_ratio,48.0,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d2500,42,d3704c9037,4,16,2500,16,1,onchain-baseline,extrapolated,total_round_gas,18225000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d2500,42,d3704c9037,4,16,2500,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d2500,42,d3704c9037,4,16,2500,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d2500,42,d3704c9037,4,16,2500,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d2500,42,d3704c9037,4,16,2500,16,1,fl-ledger,extrapolated,gas_savings_ratio,98.58,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d5000,42,20e19d87b1,4,16,5000,16,1,onchain-baseline,extrapolated,total_round_gas,36345000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d5000,42,20e19d87b1,4,16,5000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d5000,42,20e19d87b1,4,16,5000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d5000,42,20e19d87b1,4,16,5000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d5000,42,20e19d87b1,4,16,5000,16,1,fl-ledger,extrapolated,gas_savings_ratio,196.58,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d10000,42,d078e33655,4,16,10000,16,1,onchain-baseline,extrapolated,total_round_gas,72585000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d10000,42,d078e33655,4,16,10000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d10000,42,d078e33655,4,16,10000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d10000,42,d078e33655,4,16,10000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d10000,42,d078e33655,4,16,10000,16,1,fl-ledger,extrapolated,gas_savings_ratio,392.6,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d25000,42,77c999f526,4,16,25000,16,1,onchain-baseline,extrapolated,total_round_gas,181305000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d25000,42,77c999f526,4,16,25000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d25000,42,77c999f526,4,16,25000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d25000,42,77c999f526,4,16,25000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d25000,42,77c999f526,4,16,25000,16,1,fl-ledger,extrapolated,gas_savings_ratio,980.64,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d50000,42,d52df20c8b,4,16,50000,16,1,onchain-baseline,extrapolated,total_round_gas,362505000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d50000,42,d52df20c8b,4,16,50000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d50000,42,d52df20c8b,4,16,50000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d50000,42,d52df20c8b,4,16,50000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d50000,42,d52df20c8b,4,16,50000,16,1,fl-ledger,extrapolated,gas_savings_ratio,1960.72,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K4-d100000,42,eebf9dffd2,4,16,100000,16,1,onchain-baseline,extrapolated,total_round_gas,724905000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K4-d100000,42,eebf9dffd2,4,16,100000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K4-d100000,42,eebf9dffd2,4,16,100000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K4-d100000,42,eebf9dffd2,4,16,100000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K4-d100000,42,eebf9dffd2,4,16,100000,16,1,fl-ledger,extrapolated,gas_savings_ratio,3920.86,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d5,42,631ce670b6,8,16,5,16,1,onchain-baseline,measured,total_round_gas,236480,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d5,42,631ce670b6,8,16,5,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d5,42,631ce670b6,8,16,5,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d5,42,631ce670b6,8,16,5,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d5,42,631ce670b6,8,16,5,16,1,fl-ledger,measured,gas_savings_ratio,1.28,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d10,42,bcf3a93a63,8,16,10,16,1,onchain-baseline,measured,total_round_gas,283960,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d10,42,bcf3a93a63,8,16,10,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d10,42,bcf3a93a63,8,16,10,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d10,42,bcf3a93a63,8,16,10,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d10,42,bcf3a93a63,8,16,10,16,1,fl-ledger,measured,gas_savings_ratio,1.54,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d15,42,ff7f23d289,8,16,15,16,1,onchain-baseline,measured,total_round_gas,331440,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d15,42,ff7f23d289,8,16,15,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d15,42,ff7f23d289,8,16,15,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d15,42,ff7f23d289,8,16,15,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d15,42,ff7f23d289,8,16,15,16,1,fl-ledger,measured,gas_savings_ratio,1.79,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d20,42,c24f46497e,8,16,20,16,1,onchain-baseline,measured,total_round_gas,378920,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d20,42,c24f46497e,8,16,20,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d20,42,c24f46497e,8,16,20,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d20,42,c24f46497e,8,16,20,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d20,42,c24f46497e,8,16,20,16,1,fl-ledger,measured,gas_savings_ratio,2.05,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d50,42,5eaf47c234,8,16,50,16,1,onchain-baseline,measured,total_round_gas,663800,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d50,42,5eaf47c234,8,16,50,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d50,42,5eaf47c234,8,16,50,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d50,42,5eaf47c234,8,16,50,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d50,42,5eaf47c234,8,16,50,16,1,fl-ledger,measured,gas_savings_ratio,3.59,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d100,42,be7736433e,8,16,100,16,1,onchain-baseline,measured,total_round_gas,1138600,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d100,42,be7736433e,8,16,100,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d100,42,be7736433e,8,16,100,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d100,42,be7736433e,8,16,100,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d100,42,be7736433e,8,16,100,16,1,fl-ledger,measured,gas_savings_ratio,6.16,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d250,42,cf8e5aeaa1,8,16,250,16,1,onchain-baseline,measured,total_round_gas,2563000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d250,42,cf8e5aeaa1,8,16,250,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d250,42,cf8e5aeaa1,8,16,250,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d250,42,cf8e5aeaa1,8,16,250,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d250,42,cf8e5aeaa1,8,16,250,16,1,fl-ledger,measured,gas_savings_ratio,13.86,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d500,42,1bca289a80,8,16,500,16,1,onchain-baseline,measured,total_round_gas,4937000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d500,42,1bca289a80,8,16,500,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d500,42,1bca289a80,8,16,500,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d500,42,1bca289a80,8,16,500,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d500,42,1bca289a80,8,16,500,16,1,fl-ledger,measured,gas_savings_ratio,26.7,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d1210,42,ebd3a79410,8,16,1210,16,1,onchain-baseline,measured,total_round_gas,11679160,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d1210,42,ebd3a79410,8,16,1210,16,1,fl-ledger-optimistic,measured,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d1210,42,ebd3a79410,8,16,1210,16,1,fl-ledger-rho01,measured,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d1210,42,ebd3a79410,8,16,1210,16,1,fl-ledger-rho05,measured,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d1210,42,ebd3a79410,8,16,1210,16,1,fl-ledger,measured,gas_savings_ratio,63.17,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d2500,42,4f2826ccdf,8,16,2500,16,1,onchain-baseline,extrapolated,total_round_gas,23929000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d2500,42,4f2826ccdf,8,16,2500,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d2500,42,4f2826ccdf,8,16,2500,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d2500,42,4f2826ccdf,8,16,2500,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d2500,42,4f2826ccdf,8,16,2500,16,1,fl-ledger,extrapolated,gas_savings_ratio,129.43,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d5000,42,93665ffc34,8,16,5000,16,1,onchain-baseline,extrapolated,total_round_gas,47669000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d5000,42,93665ffc34,8,16,5000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d5000,42,93665ffc34,8,16,5000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d5000,42,93665ffc34,8,16,5000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d5000,42,93665ffc34,8,16,5000,16,1,fl-ledger,extrapolated,gas_savings_ratio,257.83,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d10000,42,c62ac01517,8,16,10000,16,1,onchain-baseline,extrapolated,total_round_gas,95149000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d10000,42,c62ac01517,8,16,10000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d10000,42,c62ac01517,8,16,10000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d10000,42,c62ac01517,8,16,10000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d10000,42,c62ac01517,8,16,10000,16,1,fl-ledger,extrapolated,gas_savings_ratio,514.64,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d25000,42,7cf0452126,8,16,25000,16,1,onchain-baseline,extrapolated,total_round_gas,237589000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d25000,42,7cf0452126,8,16,25000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d25000,42,7cf0452126,8,16,25000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d25000,42,7cf0452126,8,16,25000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d25000,42,7cf0452126,8,16,25000,16,1,fl-ledger,extrapolated,gas_savings_ratio,1285.07,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d50000,42,c74098dd76,8,16,50000,16,1,onchain-baseline,extrapolated,total_round_gas,474989000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d50000,42,c74098dd76,8,16,50000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d50000,42,c74098dd76,8,16,50000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d50000,42,c74098dd76,8,16,50000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d50000,42,c74098dd76,8,16,50000,16,1,fl-ledger,extrapolated,gas_savings_ratio,2569.12,fraction,gas reduction ratio (baseline / fl-ledger)
+E4,e4-K8-d100000,42,d2bfde3b24,8,16,100000,16,1,onchain-baseline,extrapolated,total_round_gas,949789000,gas,naive on-chain aggregation: 21k*(K+1) + d*(562*K + 5000)
+E4,e4-K8-d100000,42,d2bfde3b24,8,16,100000,16,1,fl-ledger-optimistic,extrapolated,total_round_gas,184884,gas,fl-ledger optimistic postRound + finalizeRound (flat O(1))
+E4,e4-K8-d100000,42,d2bfde3b24,8,16,100000,16,1,fl-ledger-rho01,extrapolated,total_round_gas,190884,gas,fl-ledger with rho=0.01 challenge frequency
+E4,e4-K8-d100000,42,d2bfde3b24,8,16,100000,16,1,fl-ledger-rho05,extrapolated,total_round_gas,214884,gas,fl-ledger with rho=0.05 challenge frequency
+E4,e4-K8-d100000,42,d2bfde3b24,8,16,100000,16,1,fl-ledger,extrapolated,gas_savings_ratio,5137.22,fraction,gas reduction ratio (baseline / fl-ledger)

@@ -4,7 +4,35 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 
 ---
 
+## 2026-11-01 (Session 7: Stage 7 Experiments E1 to E8)
+
+### What was built
+- Implemented modular, reproducible experiment package `experiments/`:
+  - `experiments/common.py`: 15-column schema enforcement, config hashing, seed management.
+  - `experiments/e1_anchor_cost.py`: on-chain anchor cost vs $K \in \{2, 4, 8, 16\}$, $m \in \{8, 16, 32\}$, $d \in \{16, 64, 256, 1210\}$ and baseline log-only anchor (864 rows).
+  - `experiments/e2_dispute_cost.py`: empirical D1, D2, D4 dispute gas vs theoretical cost models (270 rows).
+  - `experiments/e3_detection_rate.py`: empirical detection rates across $\phi \in [0.02, 1.0]$, $s \in \{1, 3, 5, 10\}$, $w \in \{1, 3\}$ vs exact hypergeometric and binomial approximations (264 rows).
+  - `experiments/e4_crossover.py`: naive on-chain aggregation vs `fl-ledger` optimistic and amortized dispute rates ($\rho \in \{0.00, 0.01, 0.05\}$) across $d \in [5, 100000]$ (225 rows).
+  - `experiments/e5_offchain_cost.py`: client commitment latency and proof sizes vs $d$ and $m$ comparing pure Python `py_ecc` vs native C/Rust curve implementations (180 rows).
+  - `experiments/e6_quantisation_accuracy.py`: multi-round MLP accuracy across scale bits $s \in \{4, 8, 12, 16, 20, 24\}$ vs unquantised float32 baseline (195 rows).
+  - `experiments/e7_adversarial_trials.py`: 100 trials per attack strategy testing spam, front-running, and tampered proofs against honest servers (28 rows).
+  - `experiments/e8_dispute_latency.py`: block confirmation delays from challenge commitment to resolution across dispute types (33 rows).
+  - `experiments/run_experiments.py`: master automated runner validating 100% schema compliance across all 8 CSVs.
+- Created `tests/test_experiments.py`: automated regression test verifying experiment execution and CSV schemas.
+- Updated `Makefile` with `make experiments` target.
+- Total empirical records generated: 2,059 rows across 8 CSVs in `results/`.
+
+### Key Empirical Findings
+- **RQ1 (On-Chain Cost):** `postRound` gas is completely flat (~137,080 gas) and strictly independent of model dimension $d$ and block size $m$. Calldata is fixed at 196 bytes.
+- **RQ2 (Cheat Detection):** When $s=5$ and $\phi \ge 0.5$, empirical detection reaches 98.0%, exceeding theoretical bound $1 - (0.5)^5 = 96.875\%$. Deterministic cheats (old model, fabricated clients, skipped rounds) achieve 100% detection in 1 round.
+- **RQ3 (Crossover):** On-chain aggregation cost scales with $O(d \cdot K)$. The crossover threshold is $d^* \approx 11$ parameters. At $d = 1210$, `fl-ledger` reduces gas by 97.9% (185k vs 8.87M gas). At $d = 10000$, on-chain aggregation exceeds the 30M EVM block limit (72.5M gas).
+- **RQ4 (Off-Chain & Accuracy):** For scale bits $s \ge 12$, quantisation error $| \text{acc}_{\text{quant}} - \text{acc}_{\text{float}} | \le 0.0000$ on test digits. Native curve implementations reduce client commitment time from 14s to 0.07s for $d=1024$.
+- **RQ5 (False Accusations):** Strictly 0 false slashes out of 700 adversarial challenger trials against honest servers; 100% of adversarial challenge deposits were forfeited.
+
+---
+
 ## 2026-11-01 (Session 6: Stage 6 D4 and Cheating Suite)
+
 
 ### What was built
 - Implemented lazy client signature verification (D4 dispute) in `contracts/disputes/DisputeTypes.sol` and `contracts/Session.sol`:
