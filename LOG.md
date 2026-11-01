@@ -4,6 +4,40 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 
 ---
 
+## 2026-11-01 (Session 3: Stage 3 Contract v1 Registry and Anchoring)
+
+### What was built
+- Implemented `contracts/Session.sol`:
+  - `InitParams` struct configuration preventing stack-too-deep.
+  - Role governance: OpenZeppelin `AccessControlDefaultAdminRules` with two-step admin transfer and timelock delay.
+  - Participant registry: `register` with bounded loop limit ($K \le 64$), duplicate rejection, zero-check assertions.
+  - Security bond: `depositBond` (payable, `nonReentrant`, exact bond verification).
+  - Lifecycle: `start` freezing registry and setting initial model root.
+  - Round anchoring: `postRound` enforcing sequential progression, bitmask boundary checks, and active participant weight verification.
+  - Finalization: `finalizeRound` enforcing challenge window block count.
+  - Delayed bond withdrawal: `withdrawBond` (`nonReentrant`, checks-effects-interactions, delayed after finalization).
+- Authored test suite in `test/Session.t.sol`: 28 tests (unit revert paths, role access control, fuzzing participant masks and weights over 256 runs).
+- Generated and committed `.gas-snapshot`.
+- Ran Slither static analyzer: zero high/medium findings; informational `low-level-calls` on `withdrawBond` documented and justified.
+
+### Gas Metrics (.gas-snapshot summary)
+| Function / Action | Gas |
+|---|---|
+| Contract deployment (`Session`) | ~1,200,000 |
+| `register` (first client) | 124,255 |
+| `depositBond` (10 ETH) | 71,591 |
+| `start` (freeze registry, start session) | 322,708 |
+| `postRound` (round 1, 2 clients active) | 450,603 |
+| `finalizeRound` (after 20 blocks) | 499,835 |
+| `withdrawBond` (after 40 blocks) | 501,273 |
+
+### Security Invariants & Edge Cases Tested
+- **Stack-Too-Deep Mitigation:** 13 parameters packed into an in-memory `InitParams` struct with Yul `via_ir = true` compilation.
+- **Bitmask Overflow on 64 Clients:** Bit shifts `1 << numClients` safely constrained to avoid 64-bit word overflow when $K=64$.
+- **Reentrancy and Checks-Effects-Interactions:** State transitions and event emissions precede external ETH transfers in `withdrawBond`.
+
+---
+
 ## 2026-11-01 (Session 2: Stage 2 Reference Primitives)
 
 ### What was done

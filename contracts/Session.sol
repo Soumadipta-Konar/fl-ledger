@@ -1,0 +1,328 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.28;
+
+import {AccessControlDefaultAdminRules} from
+    "@openzeppelin/contracts/access/extensions/AccessControlDefaultAdminRules.sol";
+import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import {SafeCast} from "@openzeppelin/contracts/utils/math/SafeCast.sol";
+
+/// @title Session
+/// @notice Manages FL session lifecycle, participant registry, and optimistic round anchoring.
+/// @dev Implements optimistic verification where rounds finalize after challengeWindowBlocks.
+contract Session is AccessControlDefaultAdminRules, ReentrancyGuard {
+    using SafeCast for uint256;
+    // --- Limits and Constants ---
+    uint8 public constant MAX_CLIENTS_LIMIT = 64;
+    uint8 public constant MAX_BLOCK_SIZE_LIMIT = 32;
+
+    // --- State Machine ---
+    enum Phase {
+        Registration,
+        Active,
+        Closed
+    }
+
+    enum RoundStatus {
+        None,
+        Posted,
+        Finalized,
+        Invalid
+    }
+
+    struct RoundData {
+        bytes32 modelRootNext;
+        bytes32 aggRoot;
+        bytes32 clientLeavesRoot;
+        uint64 participantMask;
+        uint32 claimedWeight;
+        uint32 postedBlock;
+        RoundStatus status;
+    }
+
+    struct InitParams {
+        address initialAdmin;
+        uint48 adminDelay;
+        address server;
+        address treasury;
+        uint8 maxClients;
+        uint8 blockSize;
+        uint8 scaleBits;
+        uint32 challengeWindowBlocks;
+        uint32 withdrawalDelayBlocks;
+        uint256 bondAmountWei;
+        uint256 challengerDepositWei;
+        uint16 rewardShareBps;
+        bytes32 generatorsHash;
+    }
+
+    struct ClientInfo {
+        uint32 weight;
+        uint8 index;
+        bool registered;
+    }
+
+    // --- Immutables ---
+    address public immutable server;
+    address public immutable treasury;
+    uint8 public immutable maxClients;
+    uint8 public immutable blockSize;
+    uint8 public immutable scaleBits;
+    uint32 public immutable challengeWindowBlocks;
+    uint32 public immutable withdrawalDelayBlocks;
+    uint256 public immutable bondAmountWei;
+    uint256 public immutable challengerDepositWei;
+    uint16 public immutable rewardShareBps;
+    bytes32 public immutable generatorsHash;
+
+    // --- State Variables ---
+    Phase public phase;
+    bool public bondDeposited;
+    bytes32 public currentModelRoot;
+    uint256 public currentRound;
+    uint256 public lastFinalizedBlock;
+
+    address[] private _clientAddresses;
+    mapping(address => ClientInfo) public clientRegistry;
+    mapping(uint256 => RoundData) public rounds;
+
+    // --- Events ---
+    event ClientRegistered(address indexed client, uint32 weight, uint8 index);
+    event BondDeposited(address indexed server, uint256 amount);
+    event SessionStarted(bytes32 indexed initialModelRoot, uint8 clientCount);
+    event RoundPosted(
+        uint256 indexed round,
+        bytes32 modelRootNext,
+        bytes32 aggRoot,
+        bytes32 clientLeavesRoot,
+        uint64 participantMask,
+        uint32 claimedWeight,
+        uint32 postedBlock
+    );
+    event RoundFinalized(uint256 indexed round, bytes32 indexed newModelRoot);
+    event BondWithdrawn(address indexed server, uint256 amount);
+
+    // --- Custom Errors ---
+    error InvalidParameter();
+    error OnlyServerAllowed();
+    error InvalidPhase();
+    error ClientAlreadyRegistered();
+    error MaxClientsExceeded();
+    error ZeroAddressNotAllowed();
+    error ZeroWeightNotAllowed();
+    error IncorrectBondAmount();
+    error BondAlreadyDeposited();
+    error BondNotDeposited();
+    error NoClientsRegistered();
+    error InvalidRoundSequence();
+    error RoundAlreadyPosted();
+    error EmptyParticipantMask();
+    error InvalidParticipantBit(uint8 bitIndex);
+    error ClaimedWeightMismatch(uint32 expected, uint32 actual);
+    error ChallengeWindowActive();
+    error RoundNotPosted();
+    error WithdrawalDelayActive();
+    error TransferFailed();
+
+    // --- Modifiers ---
+    modifier onlyServer() {
+        if (msg.sender != server) revert OnlyServerAllowed();
+        _;
+    }
+
+    modifier inPhase(Phase expected) {
+        if (phase != expected) revert InvalidPhase();
+        _;
+    }
+
+    /// @notice Constructs a new Session contract with verified immutable parameters.
+    /// @param params Struct holding all initialization parameters.
+    constructor(InitParams memory params)
+        AccessControlDefaultAdminRules(params.adminDelay, params.initialAdmin)
+    {
+        if (
+            params.server == address(0) || params.treasury == address(0) || params.maxClients == 0
+                || params.maxClients > MAX_CLIENTS_LIMIT || params.blockSize == 0
+                || params.blockSize > MAX_BLOCK_SIZE_LIMIT || params.scaleBits == 0
+                || params.challengeWindowBlocks == 0 || params.withdrawalDelayBlocks == 0
+                || params.rewardShareBps > 10000 || params.generatorsHash == bytes32(0)
+        ) {
+            revert InvalidParameter();
+        }
+
+        server = params.server;
+        treasury = params.treasury;
+        maxClients = params.maxClients;
+        blockSize = params.blockSize;
+        scaleBits = params.scaleBits;
+        challengeWindowBlocks = params.challengeWindowBlocks;
+        withdrawalDelayBlocks = params.withdrawalDelayBlocks;
+        bondAmountWei = params.bondAmountWei;
+        challengerDepositWei = params.challengerDepositWei;
+        rewardShareBps = params.rewardShareBps;
+        generatorsHash = params.generatorsHash;
+
+        phase = Phase.Registration;
+    }
+
+    /// @notice Registers a client with address and integer weight.
+    /// @dev Can only be called by the admin during Registration phase.
+    /// @param client Participant wallet address.
+    /// @param weight Positive integer weight.
+    function register(address client, uint32 weight)
+        external
+        onlyRole(DEFAULT_ADMIN_ROLE)
+        inPhase(Phase.Registration)
+    {
+        if (client == address(0)) revert ZeroAddressNotAllowed();
+        if (weight == 0) revert ZeroWeightNotAllowed();
+        if (clientRegistry[client].registered) revert ClientAlreadyRegistered();
+        if (_clientAddresses.length >= maxClients) revert MaxClientsExceeded();
+
+        uint8 index = _clientAddresses.length.toUint8();
+        clientRegistry[client] = ClientInfo({weight: weight, index: index, registered: true});
+        _clientAddresses.push(client);
+
+        emit ClientRegistered(client, weight, index);
+    }
+
+    /// @notice Deposits the server security bond.
+    /// @dev Requires exact bondAmountWei sent with transaction during Registration phase.
+    function depositBond() external payable nonReentrant onlyServer inPhase(Phase.Registration) {
+        if (bondDeposited) revert BondAlreadyDeposited();
+        if (msg.value != bondAmountWei) revert IncorrectBondAmount();
+
+        bondDeposited = true;
+        emit BondDeposited(msg.sender, msg.value);
+    }
+
+    /// @notice Freezes client registry and transitions session from Registration to Active.
+    /// @param initialModelRoot Merkle root of round 0 initial model vector.
+    function start(bytes32 initialModelRoot)
+        external
+        onlyRole(DEFAULT_ADMIN_ROLE)
+        inPhase(Phase.Registration)
+    {
+        if (!bondDeposited) revert BondNotDeposited();
+        if (_clientAddresses.length == 0) revert NoClientsRegistered();
+
+        currentModelRoot = initialModelRoot;
+        phase = Phase.Active;
+
+        emit SessionStarted(initialModelRoot, _clientAddresses.length.toUint8());
+    }
+
+    /// @notice Posts aggregate roots and client commitment roots for round t.
+    /// @param round Sequential round index (must equal currentRound + 1).
+    /// @param modelRootNext Root of updated model vector W_{t+1}.
+    /// @param aggRoot Root of aggregate vector blocks U_b and blindings R_b.
+    /// @param clientLeavesRoot Root of participant EIP-712 commitment leaves.
+    /// @param participantMask Bitmask of active participants in round.
+    /// @param claimedWeight Sum of weights of active participants.
+    function postRound(
+        uint256 round,
+        bytes32 modelRootNext,
+        bytes32 aggRoot,
+        bytes32 clientLeavesRoot,
+        uint64 participantMask,
+        uint32 claimedWeight
+    ) external onlyServer inPhase(Phase.Active) {
+        if (round != currentRound + 1) revert InvalidRoundSequence();
+        if (rounds[round].status != RoundStatus.None) revert RoundAlreadyPosted();
+        if (participantMask == 0) revert EmptyParticipantMask();
+
+        uint256 numClients = _clientAddresses.length;
+        uint32 expectedWeight = 0;
+
+        for (uint8 i = 0; i < numClients;) {
+            if ((participantMask & (uint64(1) << uint64(i))) != 0) {
+                expectedWeight += clientRegistry[_clientAddresses[i]].weight;
+            }
+            unchecked {
+                ++i;
+            }
+        }
+
+        // Verify no bits set beyond registered client count
+        if (numClients < 64 && participantMask >= (uint64(1) << uint64(numClients))) {
+            revert InvalidParticipantBit(numClients.toUint8());
+        }
+
+        if (claimedWeight != expectedWeight) {
+            revert ClaimedWeightMismatch(expectedWeight, claimedWeight);
+        }
+
+        uint32 currentBlock = block.number.toUint32();
+        rounds[round] = RoundData({
+            modelRootNext: modelRootNext,
+            aggRoot: aggRoot,
+            clientLeavesRoot: clientLeavesRoot,
+            participantMask: participantMask,
+            claimedWeight: claimedWeight,
+            postedBlock: currentBlock,
+            status: RoundStatus.Posted
+        });
+
+        emit RoundPosted(
+            round,
+            modelRootNext,
+            aggRoot,
+            clientLeavesRoot,
+            participantMask,
+            claimedWeight,
+            currentBlock
+        );
+    }
+
+    /// @notice Finalizes a posted round after challengeWindowBlocks has elapsed without dispute.
+    /// @param round Sequential round index to finalize.
+    function finalizeRound(uint256 round) external inPhase(Phase.Active) {
+        RoundData storage r = rounds[round];
+        if (r.status != RoundStatus.Posted) revert RoundNotPosted();
+        if (block.number < r.postedBlock + challengeWindowBlocks) revert ChallengeWindowActive();
+
+        r.status = RoundStatus.Finalized;
+        currentRound = round;
+        currentModelRoot = r.modelRootNext;
+        lastFinalizedBlock = block.number;
+
+        emit RoundFinalized(round, r.modelRootNext);
+    }
+
+    /// @notice Withdraws the server bond after session completion and withdrawal delay.
+    /// @dev Can only be called by the server when all posted rounds are finalized.
+    function withdrawBond() external nonReentrant onlyServer inPhase(Phase.Active) {
+        if (currentRound == 0 || rounds[currentRound].status != RoundStatus.Finalized) {
+            revert RoundNotPosted();
+        }
+        if (block.number < lastFinalizedBlock + withdrawalDelayBlocks) {
+            revert WithdrawalDelayActive();
+        }
+
+        phase = Phase.Closed;
+        uint256 amount = bondAmountWei;
+
+        emit BondWithdrawn(server, amount);
+
+        (bool success,) = server.call{value: amount}("");
+        if (!success) revert TransferFailed();
+    }
+
+    // --- Views ---
+
+    /// @notice Returns total number of registered clients.
+    function getClientCount() external view returns (uint256) {
+        return _clientAddresses.length;
+    }
+
+    /// @notice Returns address and weight of a registered client by index.
+    function getClient(uint8 index) external view returns (address, uint32) {
+        if (index >= _clientAddresses.length) revert InvalidParameter();
+        address client = _clientAddresses[index];
+        return (client, clientRegistry[client].weight);
+    }
+
+    /// @notice Returns round data for a given round index.
+    function getRound(uint256 round) external view returns (RoundData memory) {
+        return rounds[round];
+    }
+}
