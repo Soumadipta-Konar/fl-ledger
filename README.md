@@ -1,6 +1,6 @@
 # fl-ledger: Auditable Federated Learning Ledger with Cryptographic Disputes
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Foundry](https://img.shields.io/badge/Foundry-v1.8.7-blue.svg)](https://getfoundry.sh/)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.28-orange.svg)](https://soliditylang.org/)
 [![Python](https://img.shields.io/badge/Python-3.11.9-blue.svg)](https://www.python.org/)
@@ -96,7 +96,7 @@ Executes all 8 experiment modules and validates 100% schema conformance across 2
 ```
 
 ### 5. Regenerate Publication Figures (P1 to P8)
-Deletes and regenerates all figures in `plots/` as 200 dpi PNGs and vector PDFs:
+Deletes and regenerates all figures in `plots/` as 200 dpi PNGs (and local vector PDFs):
 ```powershell
 .venv\Scripts\python.exe scripts/generate_plots.py
 ```
@@ -151,7 +151,7 @@ Deletes and regenerates all figures in `plots/` as 200 dpi PNGs and vector PDFs:
 │   ├── e7_adversarial_trials.py# 700 adversarial challenger trials
 │   ├── e8_dispute_latency.py   # Latency in blocks to resolution
 │   └── run_experiments.py      # Master orchestrator & schema validator
-├── plots/                      # Generated publication figures (PNG + PDF)
+├── plots/                      # Generated publication figures (PNG)
 ├── notebooks/
 │   └── 05_plots.ipynb          # Jupyter notebook recreating all plots
 ├── test/                       # Foundry Contract Test Suites (65 tests)
@@ -186,7 +186,7 @@ Deletes and regenerates all figures in `plots/` as 200 dpi PNGs and vector PDFs:
 ---
 
 ## Documentation & Notes
-- [Decisions Log](docs/05_DECISIONS.md): 20 architectural decisions resolved during design.
+- [Decisions Log](docs/DECISIONS.md): 20 architectural decisions resolved during design.
 - [Product Notes](docs/PRODUCT_NOTES.md): Target users, alternatives compared, when to choose this architecture, and engineering limitations.
 - [Security Report](docs/SECURITY_REPORT.md): In-depth security review against `04_SECURITY.md`, privilege blast radius analysis, and audit checklist.
 - [Session Log](LOG.md): Chronological development trajectory across all project stages.

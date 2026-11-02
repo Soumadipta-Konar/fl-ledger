@@ -276,7 +276,7 @@ One dated entry per session, newest first: what was done, what surprised me, wha
 - Read and reviewed all binding instructions, PRD specifications, security invariants, architecture models, and experiment designs.
 - Configured `.gitignore` to strictly exclude all raw prompt and instruction files (`Instructions/`, `*prompt*.md`, `*instruction*.md`, `docs/0*.md`).
 - Authored `docs/QUESTIONS.md` resolving all 20 architectural and implementation choices, including domain separation reconciliation, curve representations, and division rounding.
-- Confirmed all Stage 0 recommended defaults with the project author and recorded confirmed decisions in `docs/05_DECISIONS.md`.
+- Confirmed all Stage 0 recommended defaults with the project author and recorded confirmed decisions in `docs/DECISIONS.md`.
 - Initialized repository layout: `contracts/`, `test/`, `script/`, `ledger/`, `sim/`, `tests/`, `params/`, `results/`, `plots/`, `notebooks/`.
 - Created `TOOLCHAIN.md`, `requirements.txt`, `.env.example`, `foundry.toml`, `Makefile`, and trivial baseline tests (`test/Trivial.t.sol` and `tests/test_trivial.py`).
 - Formulated and executed toolchain installation on Windows:
